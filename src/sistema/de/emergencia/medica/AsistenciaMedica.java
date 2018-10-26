@@ -1,6 +1,7 @@
 
 package sistema.de.emergencia.medica;
 
+
 public class AsistenciaMedica {
     
     Afiliado afiliado;
@@ -11,6 +12,40 @@ public class AsistenciaMedica {
     Enfermero enfermero;
     Doctor dotor;
     Chofer chofer;
+
+    public AsistenciaMedica(Afiliado afiliado, Movil movil, int fecha, int hora, String diagnostico, Enfermero enfermero, Doctor dotor, Chofer chofer) {
+        this.afiliado = afiliado;
+        this.movil = movil;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.diagnostico = diagnostico;
+        this.enfermero = enfermero;
+        this.dotor = dotor;
+        this.chofer = chofer;
+    }
+    
+    public void mostrarAsistenciaMedica(){
+
+    }   
+    public void verificarAfiliado(){
+
+    }   
+    public void AsignarChofer(){
+
+    }   
+    public void registrarSolicitud(){
+
+    }  
+    public void AsignarMovil(){
+
+    } 
+    public void AsignarMedico(){
+
+    } 
+    public void AsignarEnfermero(){
+
+    } 
+  
     
     
 }
