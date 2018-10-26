@@ -1,7 +1,7 @@
 
 package sistema.de.emergencia.medica;
 
-public class Movil implements GestionDatos,Registro{
+public class Movil implements Registro{
     private String marca;
     private String modelo;
     private String patente;
@@ -44,12 +44,6 @@ public class Movil implements GestionDatos,Registro{
 
     public void setAño(int año) {
         this.año = año;
-    }
-
-    
-    @Override
-    public void gestionarDatos() {
-    
     }
 
     @Override
