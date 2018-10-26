@@ -1,7 +1,7 @@
 
 package sistema.de.emergencia.medica;
 
-public class Empleado extends Persona implements GestionDatos{
+public class Empleado extends Persona{
     private Integer numeroEmpleado;
 
     public Empleado(Integer numeroEmpleado, String Nombre, String apellido, Integer DNI, String sexo, int FechaNacimiento) {
@@ -17,10 +17,4 @@ public class Empleado extends Persona implements GestionDatos{
         this.numeroEmpleado = numeroEmpleado;
     }
 
-    
-    @Override
-    public void gestionarDatos() {
-       
-        
-    }
 }

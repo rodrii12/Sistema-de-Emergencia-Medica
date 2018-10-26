@@ -4,7 +4,7 @@ package sistema.de.emergencia.medica;
  *
  * @author FRANCO
  */
-public class Afiliado extends Persona implements GestionDatos{
+public class Afiliado extends Persona{
     private Integer numeroAfiliado;
 
     public Afiliado(Integer numeroAfiliado, String Nombre, String apellido, Integer DNI, String sexo, int FechaNacimiento) {
@@ -18,13 +18,5 @@ public class Afiliado extends Persona implements GestionDatos{
 
     public void setNumeroAfiliado(Integer numeroAfiliado) {
         this.numeroAfiliado = numeroAfiliado;
-    }
-
-    
-    @Override
-    public void gestionarDatos() {
-    
-    }
-    
-    
+    }   
 }
