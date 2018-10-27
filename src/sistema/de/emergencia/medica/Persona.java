@@ -1,32 +1,27 @@
 package sistema.de.emergencia.medica;
 
-
 /**
  *
  * @author FRANCO
  */
-public class Persona {
-    private String Nombre;
+public abstract class Persona {
+    private String nombre;
     private String apellido;
-    private Integer DNI;
     private String sexo;
-    private int FechaNacimiento;
-
-    public Persona(String Nombre, String apellido, Integer DNI, String sexo, int FechaNacimiento) {
-        this.Nombre = Nombre;
+    private String dni;
+    private String direccion;
+    
+    public Persona(){};
+    
+    public Persona(String nombre,String apellido,String sexo,String dni,String direccion){
+        this.nombre = nombre;
         this.apellido = apellido;
-        this.DNI = DNI;
         this.sexo = sexo;
-        this.FechaNacimiento = FechaNacimiento;
+        this.dni = dni;
+        this.direccion = direccion;
     }
 
-    public String getNombre() {
-        return Nombre;
-    }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
 
     public String getApellido() {
         return apellido;
@@ -34,14 +29,6 @@ public class Persona {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public Integer getDNI() {
-        return DNI;
-    }
-
-    public void setDNI(Integer DNI) {
-        this.DNI = DNI;
     }
 
     public String getSexo() {
@@ -52,15 +39,29 @@ public class Persona {
         this.sexo = sexo;
     }
 
-    public int getFechaNacimiento() {
-        return FechaNacimiento;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setFechaNacimiento(int FechaNacimiento) {
-        this.FechaNacimiento = FechaNacimiento;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
- 
-    
-    
-    
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+  
 }

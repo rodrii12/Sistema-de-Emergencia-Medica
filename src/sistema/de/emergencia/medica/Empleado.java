@@ -4,10 +4,13 @@ package sistema.de.emergencia.medica;
 public class Empleado extends Persona{
     private Integer numeroEmpleado;
 
-    public Empleado(Integer numeroEmpleado, String Nombre, String apellido, Integer DNI, String sexo, int FechaNacimiento) {
-        super(Nombre, apellido, DNI, sexo, FechaNacimiento);
+    public Empleado(Integer numeroEmpleado, String nombre, String apellido, String sexo, String dni, String direccion) {
+        super(nombre, apellido, sexo, dni, direccion);
         this.numeroEmpleado = numeroEmpleado;
     }
+
+
+
 
     public Integer getNumeroEmpleado() {
         return numeroEmpleado;

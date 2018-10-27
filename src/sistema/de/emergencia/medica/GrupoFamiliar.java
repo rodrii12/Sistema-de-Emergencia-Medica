@@ -3,8 +3,8 @@ package sistema.de.emergencia.medica;
 public class GrupoFamiliar extends Persona{
     private String vinculo;
 
-    public GrupoFamiliar(String vinculo, String Nombre, String apellido, Integer DNI, String sexo, int FechaNacimiento) {
-        super(Nombre, apellido, DNI, sexo, FechaNacimiento);
+    public GrupoFamiliar(String vinculo, String nombre, String apellido, String sexo, String dni, String direccion) {
+        super(nombre, apellido, sexo, dni, direccion);
         this.vinculo = vinculo;
     }
 
