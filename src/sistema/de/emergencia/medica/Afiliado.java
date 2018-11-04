@@ -18,7 +18,7 @@ public class Afiliado extends Persona{
     }
     public Afiliado() {
     }
-    public Afiliado(Integer numeroAfiliado, String nombre, String apellido, String sexo, String dni, String direccion, int dia,int mes,int ano) {
+    public Afiliado(Integer numeroAfiliado, String nombre, String apellido, boolean sexo, String dni, String direccion, int dia,int mes,int ano) {
         super(nombre, apellido, sexo, dni, direccion);
         this.numeroAfiliado = numeroAfiliado;
         fechaDeNaciemiento.set(ano,mes-1,dia);

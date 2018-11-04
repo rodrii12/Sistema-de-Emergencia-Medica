@@ -8,7 +8,7 @@ public class Administrativo extends Empleado{
     private Integer numero;
     
     
-    public Administrativo(Integer numeroEmpleado, String nombre, String apellido, String sexo, String dni, String direccion) {
+    public Administrativo(Integer numeroEmpleado, String nombre, String apellido, boolean sexo, String dni, String direccion) {
         super(numeroEmpleado, nombre, apellido, sexo, dni, direccion);
     }
 

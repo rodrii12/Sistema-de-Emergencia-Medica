@@ -7,13 +7,13 @@ package sistema.de.emergencia.medica;
 public abstract class Persona {
     private String nombre;
     private String apellido;
-    private String sexo;
+    private boolean sexo;
     private String dni;
     private String direccion;
     
     public Persona(){};
     
-    public Persona(String nombre,String apellido,String sexo,String dni,String direccion){
+    public Persona(String nombre,String apellido,boolean sexo,String dni,String direccion){
         this.nombre = nombre;
         this.apellido = apellido;
         this.sexo = sexo;
@@ -31,11 +31,11 @@ public abstract class Persona {
         this.apellido = apellido;
     }
 
-    public String getSexo() {
+    public boolean getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(boolean sexo) {
         this.sexo = sexo;
     }
 
