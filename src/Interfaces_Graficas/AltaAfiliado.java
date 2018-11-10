@@ -8,24 +8,27 @@ package Interfaces_Graficas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.Afiliado;
+import sistema.de.emergencia.medica.Hospital;
 
 /**
  *
  * @author FRANCO
  */
 public class AltaAfiliado extends javax.swing.JFrame {
-
+Hospital hospital;
     /**
      * Creates new form AltaAfiliado
      */
-    public AltaAfiliado() {
+      public AltaAfiliado(Hospital hospital) {
+        
+        this.hospital = hospital;
+        
         initComponents();
         
         
         bgsexo.add(this.rbtnmasculino);
         bgsexo.add(this.rbtnfemenino);
         
-        afiliados = new ArrayList<>();
 
 
         this.setLocationRelativeTo(null);
@@ -66,7 +69,6 @@ public class AltaAfiliado extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTaño = new javax.swing.JTextField();
         jBlimpiar = new javax.swing.JButton();
-        txtbuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ALTA AFILIADO");
@@ -121,13 +123,6 @@ public class AltaAfiliado extends javax.swing.JFrame {
         jBlimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBlimpiarActionPerformed(evt);
-            }
-        });
-
-        txtbuscar.setText("BUSCAR");
-        txtbuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtbuscarActionPerformed(evt);
             }
         });
 
@@ -194,9 +189,7 @@ public class AltaAfiliado extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jBguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtbuscar)
-                        .addComponent(jBlimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jBlimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -217,7 +210,7 @@ public class AltaAfiliado extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel9)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -236,14 +229,11 @@ public class AltaAfiliado extends javax.swing.JFrame {
                         .addComponent(rbtnmasculino)
                         .addGap(2, 2, 2)
                         .addComponent(rbtnfemenino)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtbuscar)
                         .addGap(9, 9, 9)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBlimpiar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addComponent(jBguardar)
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
@@ -266,7 +256,8 @@ public class AltaAfiliado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
-                System.exit(0);
+                this.dispose();
+                
     }//GEN-LAST:event_jBsalirActionPerformed
 
     private void jTnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTnombreActionPerformed
@@ -277,17 +268,13 @@ public class AltaAfiliado extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try {
-            //Cojo los datos
             
             String dni = this.jTdni.getText();
             String nombre = this.jTnombre.getText();
             String apellido = this.jTapellido.getText();
             String direccion = this.jTdireccion.getText();
             Integer edad = Integer.parseInt(this.jTedad.getText());           
-           
-            Integer numafiliado = Integer.parseInt(this.jTnum.getText()); 
-
-            
+            Integer numafiliado = Integer.parseInt(this.jTnum.getText());      
             Integer dia = Integer.parseInt(this.jTdia.getText());
             Integer mes = Integer.parseInt(this.jTmes.getText());
             Integer ano = Integer.parseInt(this.jTaño.getText());
@@ -303,14 +290,8 @@ public class AltaAfiliado extends javax.swing.JFrame {
             //Valido el dni, sino esta bien se lanza una excepcion
             Metodos.validarDNI(dni);
 
-            boolean encontrado = false;
-
-            //recorro la lista de profesores
-            for (Afiliado a : afiliados) {
-                if (a.getDni().equals(dni)) {
-                    encontrado = true;
-                }
-            }
+              boolean  encontrado = hospital.validarDni(dni);
+              
 
             //si lo encuentro, muestro un error
             if (encontrado) {
@@ -320,7 +301,8 @@ public class AltaAfiliado extends javax.swing.JFrame {
                 //Sino esta en la lista, lo añado
                 Afiliado a = new Afiliado(numafiliado,nombre,apellido,sexo,dni,direccion,dia,mes,ano);
 
-                afiliados.add(a);
+                hospital.addAfiliado(a);
+                
 
                 JOptionPane.showMessageDialog(this, "Se ha añadido el afiliado",
                         "Añadido", JOptionPane.INFORMATION_MESSAGE);
@@ -350,41 +332,6 @@ public class AltaAfiliado extends javax.swing.JFrame {
             bgsexo.clearSelection();
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
-    private void txtbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscarActionPerformed
-        // TODO add your handling code here:
-        
-        
-                
-        //cojo el DNI
-        String DNI = this.jTdni.getText();
-
-        boolean encontrado = false;
-
-        
-        Afiliado a_buscado = null;
-        for (Afiliado a  : afiliados) {
-            if (a.getDni().equals(DNI)) {
-                encontrado = true;
-                a_buscado = a; //
-            }
-        }
-
-        //si lo encuentro, pongo los datos
-        if (encontrado) {
-
-            this.jTnombre.setText(a_buscado.getNombre());
-            this.jTapellido.setText(a_buscado.getApellido());
-            //this.txtnumero.setText(a_buscado.getNumeroAfiliado());
-
-            
-
-        } else {
-            JOptionPane.showMessageDialog(this, " El afiliado  no existe",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }//GEN-LAST:event_txtbuscarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -413,13 +360,9 @@ public class AltaAfiliado extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AltaAfiliado().setVisible(true);
-            }
-        });
+
     }
-    private ArrayList<Afiliado> afiliados;
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bgsexo;
     private javax.swing.JButton jBguardar;
@@ -447,6 +390,5 @@ public class AltaAfiliado extends javax.swing.JFrame {
     private javax.swing.JTextField jTnum;
     private javax.swing.JRadioButton rbtnfemenino;
     private javax.swing.JRadioButton rbtnmasculino;
-    private javax.swing.JButton txtbuscar;
     // End of variables declaration//GEN-END:variables
 }

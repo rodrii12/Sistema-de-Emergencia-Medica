@@ -5,6 +5,8 @@
  */
 package Interfaces_Graficas;
 
+import sistema.de.emergencia.medica.Hospital;
+
 /**
  *
  * @author FRANCO
@@ -14,7 +16,10 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+       private Hospital hospital;
     public Principal() {
+        
+        hospital= new Hospital();
         initComponents();
     }
 
@@ -28,17 +33,36 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         jBSalir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMaltaafiliado = new javax.swing.JMenu();
+        Afiliados = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMbajaafiliado = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMmodafiliado = new javax.swing.JMenuItem();
+        jMmostrar = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        Empleados = new javax.swing.JMenu();
+        jMaltaemp = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMostraremp = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        Moviles = new javax.swing.JMenu();
+        jMagregar = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenu2.setText("File");
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar2.add(jMenu3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,7 +73,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jMaltaafiliado.setText("Afiliados");
+        Afiliados.setText("Afiliados");
 
         jMenuItem1.setText("Alta Afiliado");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -57,7 +81,7 @@ public class Principal extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMaltaafiliado.add(jMenuItem1);
+        Afiliados.add(jMenuItem1);
 
         jMbajaafiliado.setText("Baja Afiliado");
         jMbajaafiliado.addActionListener(new java.awt.event.ActionListener() {
@@ -65,20 +89,49 @@ public class Principal extends javax.swing.JFrame {
                 jMbajaafiliadoActionPerformed(evt);
             }
         });
-        jMaltaafiliado.add(jMbajaafiliado);
+        Afiliados.add(jMbajaafiliado);
 
-        jMenuItem3.setText("jMenuItem3");
-        jMaltaafiliado.add(jMenuItem3);
+        jMmodafiliado.setText("Modificar Afiliado");
+        Afiliados.add(jMmodafiliado);
 
-        jMenuItem4.setText("jMenuItem4");
-        jMaltaafiliado.add(jMenuItem4);
+        jMmostrar.setText("Mostrar Afiliado");
+        jMmostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMmostrarActionPerformed(evt);
+            }
+        });
+        Afiliados.add(jMmostrar);
 
-        jMenuBar1.add(jMaltaafiliado);
+        jMenuItem4.setText("Agregar Familiar");
+        Afiliados.add(jMenuItem4);
 
-        jMenu3.setText("Empleados");
-        jMenu3.add(jMenuItem5);
+        jMenuBar1.add(Afiliados);
 
-        jMenuBar1.add(jMenu3);
+        Empleados.setText("Empleados");
+
+        jMaltaemp.setText("Alta Empleado");
+        Empleados.add(jMaltaemp);
+
+        jMenuItem3.setText("Baja Empleado");
+        Empleados.add(jMenuItem3);
+
+        jMostraremp.setText("Mostrar Empleado");
+        Empleados.add(jMostraremp);
+
+        jMenuItem5.setText("Modificar Empleado");
+        Empleados.add(jMenuItem5);
+
+        jMenuBar1.add(Empleados);
+
+        Moviles.setText("Movil");
+
+        jMagregar.setText("Agregar Movil");
+        Moviles.add(jMagregar);
+
+        jMenuItem7.setText("Baja movil");
+        Moviles.add(jMenuItem7);
+
+        jMenuBar1.add(Moviles);
 
         setJMenuBar(jMenuBar1);
 
@@ -104,10 +157,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMbajaafiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMbajaafiliadoActionPerformed
        
-        BajaAfiliado afi1 = new BajaAfiliado();
+        BajaAfiliado afi1 = new BajaAfiliado(hospital);
         afi1.show();
-        this.dispose();
-        
+
     }//GEN-LAST:event_jMbajaafiliadoActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -116,11 +168,14 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         
-        AltaAfiliado afi = new AltaAfiliado();
+        AltaAfiliado afi = new AltaAfiliado(hospital);
         afi.show();
-        this.dispose();
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmostrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMmostrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,15 +213,26 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Afiliados;
+    private javax.swing.JMenu Empleados;
+    private javax.swing.JMenu Moviles;
     private javax.swing.JButton jBSalir;
-    private javax.swing.JMenu jMaltaafiliado;
+    private javax.swing.JMenuItem jMagregar;
+    private javax.swing.JMenuItem jMaltaemp;
     private javax.swing.JMenuItem jMbajaafiliado;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMmodafiliado;
+    private javax.swing.JMenuItem jMmostrar;
+    private javax.swing.JMenuItem jMostraremp;
     // End of variables declaration//GEN-END:variables
 }

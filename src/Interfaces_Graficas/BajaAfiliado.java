@@ -8,6 +8,7 @@ package Interfaces_Graficas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.Afiliado;
+import sistema.de.emergencia.medica.Hospital;
 
 /**
  *
@@ -15,12 +16,16 @@ import sistema.de.emergencia.medica.Afiliado;
  */
 public class BajaAfiliado extends javax.swing.JFrame {
 
+        Hospital hospital;
     /**
      * Creates new form BajaAfiliado
      */
-    public BajaAfiliado() {
+    public BajaAfiliado(Hospital hospital) {
+        
+        this.hospital=hospital;
+        
         initComponents();
-                afiliados = new ArrayList<>();
+    
 
         //centrar frame
         this.setLocationRelativeTo(null);
@@ -65,6 +70,11 @@ public class BajaAfiliado extends javax.swing.JFrame {
         });
 
         jButton3.setText("ELIMINAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Ingrese el dni del afiliado");
 
@@ -113,7 +123,6 @@ public class BajaAfiliado extends javax.swing.JFrame {
                                         .addComponent(jButton2)
                                         .addGap(26, 26, 26)
                                         .addComponent(jButton4)))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addGap(61, 61, 61))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -156,38 +165,28 @@ public class BajaAfiliado extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        //cojo el DNI
+        
+       
         String DNI = this.txtdni.getText();
 
-        boolean encontrado = false;
-
+        Afiliado afil= hospital.buscarDni(DNI);
         
-        Afiliado a_buscado = null;
-        for (Afiliado a  : afiliados) {
-            if (a.getDni().equals(DNI)) {
-                encontrado = true;
-                a_buscado = a; //
-            }
-        }
+        
 
         //si lo encuentro, pongo los datos
-        if (encontrado) {
+        if (afil!=null) {
 
-            this.txtnombre.setText(a_buscado.getNombre());
-            this.txtapellido.setText(a_buscado.getApellido());
+            this.txtnombre.setText(afil.getNombre());
+            this.txtapellido.setText(afil.getApellido());
             //this.txtnumero.setText(a_buscado.getNumeroAfiliado());
-
-            
 
         } else {
             JOptionPane.showMessageDialog(this, " El afiliado  no existe",
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-        
-        
-        
-        
+     
+      
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -202,8 +201,27 @@ public class BajaAfiliado extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
             
-        System.exit(0);      
+      //  System.exit(0);  
+          this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         String DNI = this.txtdni.getText();
+
+        boolean borrado = hospital.deleteAfiliado(DNI);
+        
+        if(borrado){
+            JOptionPane.showMessageDialog(this, "Se ha eliminado correctamente",
+            "Eliminado", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(this," no se pudo eliminar" , "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,11 +251,7 @@ public class BajaAfiliado extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BajaAfiliado().setVisible(true);
-            }
-        });
+
     }
 private ArrayList<Afiliado> afiliados;
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -250,8 +264,6 @@ private ArrayList<Afiliado> afiliados;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtapellido;
-    private javax.swing.JButton txtbuscar;
-    private javax.swing.JButton txtbuscar1;
     private javax.swing.JTextField txtdni;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtnumero;

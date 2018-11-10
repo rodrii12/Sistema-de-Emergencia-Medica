@@ -1,6 +1,8 @@
 
 package sistema.de.emergencia.medica;
 
+import Interfaces_Graficas.Principal;
+
 
 public class SistemaEmergenciaMedica {
 
@@ -8,9 +10,9 @@ public class SistemaEmergenciaMedica {
     public static void main(String[] args) {
         
         
-        Ventana V1 =new Ventana();
+        Principal p1 =new Principal();
         
-       V1.setVisible(true);//mostrar ventana
+       p1.setVisible(true);//mostrar ventana
     }
     
 }
