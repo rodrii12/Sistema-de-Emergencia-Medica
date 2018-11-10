@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfazGrafica.ventanasafiliados;
+package interfazGrafica.ventanaEmpleados;
 
+import interfazGrafica.ventanasafiliados.*;
 import clasessimples.Afiliado;
+import clasessimples.Doctor;
 import java.time.LocalDate;
 import java.time.Month;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -14,13 +16,13 @@ import sistema.de.emergencia.medica.GestionHospital;
  *
  * @author Miguel
  */
-public class FormularioAltaAfiliado extends javax.swing.JFrame {
+public class FormularioAltaDoctor extends javax.swing.JFrame {
 
-    GestionHospital ventanaFormularioAltaEmpleado;
+    GestionHospital ventanaFormularioAltaDoctor;
     
-    public FormularioAltaAfiliado(GestionHospital gh) {
+    public FormularioAltaDoctor(GestionHospital gh) {
         initComponents();
-        ventanaFormularioAltaEmpleado = gh;
+        ventanaFormularioAltaDoctor = gh;
         this.setVisible(true);
     }
 
@@ -34,61 +36,54 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        nombreaa = new javax.swing.JTextField();
+        nombread = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        apellidoaa = new javax.swing.JTextField();
+        apellidoad = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        dniaa = new javax.swing.JTextField();
-        sexoaa = new javax.swing.JComboBox<>();
+        dniad = new javax.swing.JTextField();
+        sexoad = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         diaFechaNacimientoaa = new javax.swing.JTextField();
         mesFechaNacimientoaa = new javax.swing.JTextField();
         anioFechaNacimientoaa = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        diaFechaPagoaa = new javax.swing.JTextField();
-        mesFechaPagoaa = new javax.swing.JTextField();
-        anioFechaPagoaa = new javax.swing.JTextField();
+        numeroDeEmpleado = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        numero = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1400, 1400));
-        setPreferredSize(new java.awt.Dimension(900, 600));
         setResizable(false);
 
         jLabel1.setText("NOMBRE");
 
-        nombreaa.addKeyListener(new java.awt.event.KeyAdapter() {
+        nombread.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                nombreaaKeyTyped(evt);
+                nombreadKeyTyped(evt);
             }
         });
 
         jLabel2.setText("APELLIDO");
 
-        apellidoaa.addKeyListener(new java.awt.event.KeyAdapter() {
+        apellidoad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                apellidoaaKeyTyped(evt);
+                apellidoadKeyTyped(evt);
             }
         });
 
         jLabel3.setText("DNI");
 
-        dniaa.addKeyListener(new java.awt.event.KeyAdapter() {
+        dniad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                dniaaKeyTyped(evt);
+                dniadKeyTyped(evt);
             }
         });
 
-        sexoaa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino\t", "Femenino", " " }));
-        sexoaa.addActionListener(new java.awt.event.ActionListener() {
+        sexoad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino\t", "Femenino", " " }));
+        sexoad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sexoaaActionPerformed(evt);
+                sexoadActionPerformed(evt);
             }
         });
 
@@ -126,25 +121,16 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
 
         jLabel6.setText("FECHA DE NACIMIENTO");
 
-        jLabel7.setText("DD     /     MM     /     AAAA");
+        jLabel8.setText("NUMERO DE EMPLEADO");
 
-        jLabel8.setText("FECHA DE INSCRIPCION");
-
-        diaFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                diaFechaPagoaaKeyTyped(evt);
+        numeroDeEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numeroDeEmpleadoActionPerformed(evt);
             }
         });
-
-        mesFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
+        numeroDeEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                mesFechaPagoaaKeyTyped(evt);
-            }
-        });
-
-        anioFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                anioFechaPagoaaKeyTyped(evt);
+                numeroDeEmpleadoKeyTyped(evt);
             }
         });
 
@@ -161,19 +147,6 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        numero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numeroActionPerformed(evt);
-            }
-        });
-        numero.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                numeroKeyTyped(evt);
-            }
-        });
-
-        jLabel9.setText("NUMERO DE AFILIADO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,44 +166,36 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(dniad, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel1)
-                                        .addComponent(nombreaa, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton1)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(numero, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(dniaa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
-                                        .addComponent(jLabel9))
+                                        .addComponent(nombread, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(164, 164, 164)
-                                            .addComponent(sexoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(sexoad, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(62, 62, 62)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(jButton2)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(jLabel2)
-                                                    .addComponent(apellidoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(apellidoad, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                                                     .addComponent(jLabel8)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(diaFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(mesFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(12, 12, 12)
-                                                        .addComponent(anioFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                                    .addComponent(numeroDeEmpleado))))))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(diaFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(mesFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(anioFechaNacimientoaa))
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton1)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(diaFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(mesFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(anioFechaNacimientoaa))
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(549, 549, 549)))
                             .addComponent(jLabel6))
-                        .addContainerGap(97, Short.MAX_VALUE))))
+                        .addContainerGap(96, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,65 +206,57 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(apellidoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombread, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(apellidoad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dniaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sexoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dniad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sexoad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7))
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(diaFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mesFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(anioFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(diaFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mesFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(anioFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(numeroDeEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addComponent(jButton2)
                 .addGap(136, 136, 136))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nombreaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreaaKeyTyped
+    private void nombreadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreadKeyTyped
         char c = evt.getKeyChar();
         
         if(Character.isDigit(c)) evt.consume();
-    }//GEN-LAST:event_nombreaaKeyTyped
+    }//GEN-LAST:event_nombreadKeyTyped
 
-    private void apellidoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoaaKeyTyped
+    private void apellidoadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoadKeyTyped
         char c = evt.getKeyChar();
         
         if(Character.isDigit(c)) evt.consume();
-    }//GEN-LAST:event_apellidoaaKeyTyped
+    }//GEN-LAST:event_apellidoadKeyTyped
 
-    private void dniaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniaaKeyTyped
+    private void dniadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniadKeyTyped
         char c = evt.getKeyChar();
         
         if(Character.isLetter(c)) evt.consume();
         
-        if(dniaa.getText().length() >= 8) evt.consume();
-    }//GEN-LAST:event_dniaaKeyTyped
+        if(dniad.getText().length() >= 8) evt.consume();
+    }//GEN-LAST:event_dniadKeyTyped
 
     private void diaFechaNacimientoaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaFechaNacimientoaaActionPerformed
         // TODO add your handling code here:
@@ -325,13 +282,13 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_anioFechaNacimientoaaActionPerformed
 
-    private void anioFechaPagoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anioFechaPagoaaKeyTyped
+    private void numeroDeEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroDeEmpleadoKeyTyped
         char c = evt.getKeyChar();
         
         if(Character.isLetter(c)) evt.consume();
         
-        if(anioFechaPagoaa.getText().length() >= 4) evt.consume();
-    }//GEN-LAST:event_anioFechaPagoaaKeyTyped
+        if(numeroDeEmpleado.getText().length() >= 4) evt.consume();
+    }//GEN-LAST:event_numeroDeEmpleadoKeyTyped
 
     private void anioFechaNacimientoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anioFechaNacimientoaaKeyTyped
         char c = evt.getKeyChar();
@@ -341,64 +298,36 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         if(anioFechaNacimientoaa.getText().length() >= 4) evt.consume();
     }//GEN-LAST:event_anioFechaNacimientoaaKeyTyped
 
-    private void diaFechaPagoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diaFechaPagoaaKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(diaFechaPagoaa.getText().length() >= 2) evt.consume();
-    }//GEN-LAST:event_diaFechaPagoaaKeyTyped
-
-    private void mesFechaPagoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesFechaPagoaaKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(mesFechaPagoaa.getText().length() >= 2) evt.consume();
-    }//GEN-LAST:event_mesFechaPagoaaKeyTyped
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Integer dn,mn,an,dp,mp,ap;
+        Integer dn,mn,an,numeroEmpleado, dni;
+        dni = Integer.parseInt(dniad.getText());
         dn= Integer.parseInt(diaFechaNacimientoaa.getText());
         mn=Integer.parseInt(mesFechaNacimientoaa.getText());
         an=Integer.parseInt(anioFechaNacimientoaa.getText());
-        dp=Integer.parseInt(diaFechaPagoaa.getText());
-        mp=Integer.parseInt(mesFechaPagoaa.getText());
-        ap=Integer.parseInt(anioFechaPagoaa.getText());
-        String sexo = (String) sexoaa.getSelectedItem();
+        numeroEmpleado=Integer.parseInt(numeroDeEmpleado.getText());
+        String sexo = (String) sexoad.getSelectedItem();
         LocalDate fechaNacimiento = LocalDate.of(an, mn, dn);
-        LocalDate fechaPago = LocalDate.of(ap, mp, dp);
-        ventanaFormularioAltaEmpleado.altaAfiliado(new Afiliado(12331, nombreaa.getText(), apellidoaa.getText(),Integer.parseInt(dniaa.getText()) ,sexo , fechaNacimiento, fechaPago));
+        ventanaFormularioAltaDoctor.altaDoctor(new Doctor(numeroEmpleado, nombread.getText(), apellidoad.getText(), dni, sexo, fechaNacimiento));
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void sexoaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoaaActionPerformed
+    private void sexoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoadActionPerformed
         
-    }//GEN-LAST:event_sexoaaActionPerformed
+    }//GEN-LAST:event_sexoadActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void numeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(dniaa.getText().length() >= 4) evt.consume();
-    }//GEN-LAST:event_numeroKeyTyped
-
-    private void numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroActionPerformed
+    private void numeroDeEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroDeEmpleadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_numeroActionPerformed
+    }//GEN-LAST:event_numeroDeEmpleadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anioFechaNacimientoaa;
-    private javax.swing.JTextField anioFechaPagoaa;
-    private javax.swing.JTextField apellidoaa;
+    private javax.swing.JTextField apellidoad;
     private javax.swing.JTextField diaFechaNacimientoaa;
-    private javax.swing.JTextField diaFechaPagoaa;
-    private javax.swing.JTextField dniaa;
+    private javax.swing.JTextField dniad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -407,13 +336,10 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField mesFechaNacimientoaa;
-    private javax.swing.JTextField mesFechaPagoaa;
-    private javax.swing.JTextField nombreaa;
-    private javax.swing.JTextField numero;
-    private javax.swing.JComboBox<String> sexoaa;
+    private javax.swing.JTextField nombread;
+    private javax.swing.JTextField numeroDeEmpleado;
+    private javax.swing.JComboBox<String> sexoad;
     // End of variables declaration//GEN-END:variables
 }

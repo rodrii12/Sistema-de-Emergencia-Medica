@@ -1,136 +1,68 @@
 
 package sistema.de.emergencia.medica;
 
+import clasessimples.Administrativo;
+import clasessimples.Afiliado;
+import clasessimples.Chofer;
+import clasessimples.Doctor;
+import clasessimples.Empleado;
+import clasessimples.Enfermero;
+import clasessimples.Movil;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
  * @author FRANCO
  */
-public class GestionHospital {
-    private ArrayList<Afiliado> afiliado =  new ArrayList<Afiliado>();
-    private ArrayList<GrupoFamiliar> familiares=  new ArrayList<GrupoFamiliar>();
-    private ArrayList<Doctor> doctores =  new ArrayList<Doctor>();
-    private ArrayList<Administrativo> administrativos =  new ArrayList<Administrativo>();
-    private ArrayList<Enfermero> enfermeros =  new ArrayList<Enfermero>();
-    private ArrayList<Chofer> choferes =  new ArrayList<Chofer>();
-
-    public ArrayList<Afiliado> getAfiliado() {
-        return afiliado;
-    }
-
-    public void setAfiliado(ArrayList<Afiliado> afiliado) {
-        this.afiliado = afiliado;
-    }
-
-    public ArrayList<GrupoFamiliar> getFamiliares() {
-        return familiares;
-    }
-
-    public void setFamiliares(ArrayList<GrupoFamiliar> familiares) {
-        this.familiares = familiares;
-    }
-
-    public ArrayList<Doctor> getDoctores() {
-        return doctores;
-    }
-
-    public void setDoctores(ArrayList<Doctor> doctores) {
-        this.doctores = doctores;
-    }
-
-    public ArrayList<Administrativo> getAdministrativos() {
-        return administrativos;
-    }
-
-    public void setAdministrativos(ArrayList<Administrativo> administrativos) {
-        this.administrativos = administrativos;
-    }
-
-    public ArrayList<Enfermero> getEnfermeros() {
-        return enfermeros;
-    }
-
-    public void setEnfermeros(ArrayList<Enfermero> enfermeros) {
-        this.enfermeros = enfermeros;
-    }
-
-    public ArrayList<Chofer> getChoferes() {
-        return choferes;
-    }
-
-    public void setChoferes(ArrayList<Chofer> choferes) {
-        this.choferes = choferes;
-    }
-    
-    
-        public void addAfiliado(Afiliado afi){
-        
-        afiliado.add(afi);
-        
-    }
-    
-        public boolean validarDni(String dni){
-        
-            //recorro la lista de afiliados
-            for (Afiliado a : afiliado) {
-                if (a.getDni().equals(dni)) {
-                    return true;
-                }
-            }
-            return false;
-    }
-    public Afiliado buscarDni(String dni){
-            for (Afiliado a : afiliado) {
-                if (a.getDni().equals(dni)) {
-                    return a;
-                }
-            }
-            return null;
-    }
-    
-    public boolean deleteAfiliado( String dni){
-            for (int i=0; i<afiliado.size();i++) {
-                if (afiliado.get(i).getDni().equals(dni)) {
-                afiliado.remove(i);
-                return true;
-                }
-            }
-            return false;
-    
-    }
-    
-            /*private ArrayList<clasessimples.Empleado> empleados;
-          private ArrayList<clasessimples.Movil> moviles;
+    public class GestionHospital {
+          private ArrayList<clasessimples.Empleado> empleados = new ArrayList<>();
+          private ArrayList<clasessimples.Movil> moviles = new ArrayList<>();
           private ArrayList<clasessimples.Afiliado> afiliados = new ArrayList<>();
           
           public GestionHospital(){
               //ArrayList<Afiliado> afiliados= new ArrayList<Afiliado>();
           }
           
-          public void altaAfiliado(clasessimples.Afiliado afiliado){
+          public void altaAfiliado(Afiliado afiliado){
               afiliados.add(afiliado);
           }
           
-          public void bajaAfiliado(clasessimples.Afiliado afiliado){
+          public void bajaAfiliado(Afiliado afiliado){
               afiliados.remove(afiliado);
           }
           
-          public clasessimples.Afiliado buscarAfiliado(Integer dni){
-              for(clasessimples.Afiliado i: afiliados){
+          public Afiliado buscarAfiliadoPorNumero(Integer numero){
+              Afiliado a = null;
+              for(Afiliado i: afiliados){
                  // if(i instanceof Afiliado){
                       //Afiliado a= (Afiliado)i;
-                      if(i.getDNI()==dni){
-                          return i;
+                      if(Objects.equals(i.getNumeroAfiliado(), numero)){
+                          a = i;
+
                       //}
                   }
               }
-          return null;
+                return a;
           }
           
-          public void verificarAbonoAfiliado(clasessimples.Afiliado afiliado){
+          public Afiliado buscarAfiliado(Integer dni){
+              Afiliado a = null;
+              for(Afiliado i: afiliados){
+                 // if(i instanceof Afiliado){
+                      //Afiliado a= (Afiliado)i;
+                      if(Objects.equals(i.getDNI(), dni)){
+                          a = i;
+
+                      //}
+                  }
+              }
+                return a;
+            }
+          
+          public void verificarAbonoAfiliado(Afiliado afiliado){
               LocalDate fechaActual= LocalDate.now();
               //Period periodo = Period.between(fechaActual, afiliado.getFechaDePago());
               // LA FUNCION CHRONOUNIT ME DEVUELVE LA CANTIDAD DE DIAS EN TIPO LONG "TENER EN CUENTA A lA HORA DE COMPARAR"
@@ -149,7 +81,7 @@ public class GestionHospital {
           
           
           
-          public void pagarAbonoAfiliado(clasessimples.Afiliado afiliado){
+          public void pagarAbonoAfiliado(Afiliado afiliado){
               LocalDate fechaActual= LocalDate.now();
               if(ChronoUnit.DAYS.between(afiliado.getFechaDePago(), fechaActual)<60){
                     //NO DEBE PAGAR ABONO, ESTA AL DIA
@@ -162,58 +94,131 @@ public class GestionHospital {
           }
           
           public void mostrarPrimerAfliado(){
-             System.out.println("nombre: "+afiliados.get(0).getNombre());
+             System.out.println("nombre: "+afiliados.get(0).getNumeroAfiliado());
             //for(Afiliado i: afiliados)
               // if(i instanceof Afiliado){
                //Afiliado a= (Afiliado)i;
               //}
           }
           
-          public void altaDoctor(clasessimples.Doctor doctor){
+          public void mostrarPrimerEmpleado(){
+              System.out.println("nombre: "+empleados.get(0).getNombre());
+          }
+          
+          public void altaDoctor(Doctor doctor){
               empleados.add(doctor);
           } 
           
-          public void altaEnfermero(clasessimples.Enfermero enfermero){
+          public void altaEnfermero(Enfermero enfermero){
               empleados.add(enfermero);
           } 
           
-          public void AltaMovil(clasessimples.Movil movil){
+          public void AltaMovil(Movil movil){
               moviles.add(movil);
           }
           
-          public void altaChofer(clasessimples.Chofer chofer){
+          public void altaChofer(Chofer chofer){
               empleados.add(chofer);
           }
           
-          public void bajaChofer(clasessimples.Chofer chofer){
+          public void bajaChofer(Chofer chofer){
               empleados.remove(chofer);
           }
           
           
-          public void bajaDoctor(clasessimples.Doctor doctor){
+          public void bajaDoctor(Doctor doctor){
               empleados.remove(doctor);
           }
           
-          public void bajaEnfermero(clasessimples.Enfermero enfermero){
+          public void bajaEnfermero(Enfermero enfermero){
               empleados.remove(enfermero);
           }
           
-          public void bajaMovil(clasessimples.Movil movil){
+          public void bajaMovil(Movil movil){
               moviles.remove(movil);
           }
           
-          public clasessimples.Doctor buscarDoctor(Integer dni){
-              clasessimples.Doctor b = null;
-              for(clasessimples.Empleado i: empleados){
-                  if(i instanceof clasessimples.Doctor){
-                      clasessimples.Doctor a= (clasessimples.Doctor)i;
-                      if(a.getDNI()==dni){
+          public void altaAdmin(Administrativo admin){
+              empleados.add(admin);
+          }
+          
+          public void bajaAdmin(Administrativo admin){
+              empleados.remove(admin);
+          }
+          
+          public Doctor buscarDoctor(Integer dni){
+              Doctor b = null;
+              for(Empleado i: empleados){
+                  if(i instanceof Doctor){
+                      Doctor a = (Doctor)i;
+                      if(Objects.equals(a.getDNI(), dni)){
                             //DOCTOR ENCONTRADO
                             b = a;
-                            break;
+              
                       }
                   }
               }
           return b;    
-          }*/
+          }
+          
+          public Administrativo buscarAdmin(Integer dni){
+              Administrativo b = null;
+              for(Empleado i: empleados){
+                  if(i instanceof Administrativo){
+                      Administrativo a = (Administrativo)i;
+                      if(Objects.equals(a.getDNI(), dni)){
+                            //DOCTOR ENCONTRADO
+                            b = a;
+              
+                      }
+                  }
+              }
+          return b;    
+          }
+          
+          public Chofer buscarChofer(Integer dni){
+              Chofer b = null;
+              for(Empleado i: empleados){
+                  if(i instanceof Chofer){
+                      Chofer a = (Chofer)i;
+                      if(Objects.equals(a.getDNI(), dni)){
+                            //DOCTOR ENCONTRADO
+                            b = a;
+              
+                      }
+                  }
+              }
+          return b;    
+          }
+          
+          public Enfermero buscarEnfermero(Integer dni){
+              Enfermero b = null;
+              for(Empleado i: empleados){
+                  if(i instanceof Enfermero){
+                      Enfermero a = (Enfermero)i;
+                      if(Objects.equals(a.getDNI(), dni)){
+                            //DOCTOR ENCONTRADO
+                            b = a;
+              
+                      }
+                  }
+              }
+          return b;    
+          }
+          
+          public void modificarAfiliado(Afiliado afi,Integer numeroAfiliado, String Nombre, String apellido, Integer DNI, LocalDate FechaNacimiento){
+              for(Afiliado i: afiliados){
+                 // if(i instanceof Afiliado){
+                      //Afiliado a= (Afiliado)i;
+                      if(Objects.equals(i.getNumeroAfiliado(), numeroAfiliado)){
+                          i.setNombre(Nombre);
+                          i.setApellido(apellido);
+                          i.setDNI(DNI);
+                          i.setFechaNacimiento(FechaNacimiento);
+
+                      //}
+                  }
+              }
+          }
+       
 }

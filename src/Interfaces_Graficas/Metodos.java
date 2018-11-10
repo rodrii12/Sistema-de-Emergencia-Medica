@@ -6,14 +6,7 @@ package Interfaces_Graficas;
  */
 public class Metodos {
 
-    /**
-     * Valida un DNI Comprueba si tiene entre 8 y 9 caracteres Comprueba si la
-     * parte numerica es correcta Comprueba si la letra es correcta Comprueba si
-     * el numero y la letra es corrrecta
-     *
-     * @param DNI
-     * @throws DNIException
-     */
+    
     public static void validarDNI(String DNI) throws DNIException {
 
         //Comprobamos la longitud del dni
