@@ -1,16 +1,15 @@
+package clasessimples;
 
-package sistema.de.emergencia.medica;
+import clasessimples.Persona;
+import java.time.LocalDate;
 
 public class Empleado extends Persona{
     private Integer numeroEmpleado;
 
-    public Empleado(Integer numeroEmpleado, String nombre, String apellido, boolean sexo, String dni, String direccion) {
-        super(nombre, apellido, sexo, dni, direccion);
+    public Empleado(Integer numeroEmpleado, String Nombre, String apellido, Integer DNI, String sexo, LocalDate FechaNacimiento) {
+        super(Nombre, apellido, DNI, sexo, FechaNacimiento);
         this.numeroEmpleado = numeroEmpleado;
     }
-
-
-
 
     public Integer getNumeroEmpleado() {
         return numeroEmpleado;
