@@ -333,4 +333,18 @@ import javax.swing.JOptionPane;
             return estado;
     }    
  
+          public Movil buscarMovil(String patente){
+              Movil b = null;
+              for(Movil i: moviles){
+                  if(i instanceof Movil){
+                      Movil a = (Movil)i;
+                      if(Objects.equals(a.getPatente(), patente)){
+                            //Movil encontrado
+                            b = a;
+              
+                      }
+                  }
+              }
+          return b;    
+          }  
 }
