@@ -64,17 +64,13 @@ import javax.swing.JOptionPane;
                 return a;
             }
           
-          public Boolean verificarAbonoAfiliado(Afiliado afiliado){
+         public Boolean verificarAbonoAfiliado(Afiliado afiliado){
               Boolean a = true;
               LocalDate fechaActual= LocalDate.now();
               if(ChronoUnit.DAYS.between(afiliado.getFechaDePago(), fechaActual)>60){
                     afiliado.setAbonoHabilitado(false);
                     a = false;
                     //DEBE EL ABONO NO PUEDE SER ATENDIDO
-              }
-              else{
-                    a = true;
-                    //ACCION QUE VA A HACER SI ESTA HABILITADO PARA ATENDERLO CON EL SISTEMA MEDICO                    
               }
           return a;    
           }
@@ -239,7 +235,7 @@ import javax.swing.JOptionPane;
                       Doctor a = (Doctor)i;
                       if(a.getDisponible()){
                           b = a;
-                          b.setDisponible(false);
+                          //b.setDisponible(false);
                           break;
                       }
                   }
@@ -255,7 +251,7 @@ import javax.swing.JOptionPane;
                       Enfermero a = (Enfermero)i;
                       if(a.getDisponible()){
                           b = a;
-                          b.setDisponible(false);
+                          //b.setDisponible(false);
                           break;
                       }
                   }
@@ -271,7 +267,7 @@ import javax.swing.JOptionPane;
                       Chofer a = (Chofer)i;
                       if(a.getDisponible()){
                           b = a;
-                          b.setDisponible(false);
+                          //b.setDisponible(false);
                           break;
                       }
                   
@@ -285,7 +281,7 @@ import javax.swing.JOptionPane;
               for(Movil i: moviles){
                   if(i.getDisponible()){
                           b = i;
-                          b.setDisponible(false);
+                          //b.setDisponible(false);
                           break;
                       }
                   }
@@ -296,27 +292,26 @@ import javax.swing.JOptionPane;
           
           public AsistenciaMedica generarAsistencia(Afiliado a){
               LocalDate fecha = LocalDate.now();
-              AsistenciaMedica am = null;
               Doctor d = doctorDisponible();
               Chofer c = choferDisponible();
               Enfermero e = enfermeroDisponible();
               Movil m = movilDisponible();
-              if(verificarAbonoAfiliado(a)){
+              AsistenciaMedica am = new AsistenciaMedica(a,m, fecha, e, d, c);
+              //if(verificarAbonoAfiliado(a)){
                   if(d != null){
                       if(c != null){
                           if(e != null){
                               if(m != null){
-                                  am.setAfiliado(a);
+                                  /*am.setAfiliado(a);
                                   am.setChofer(c);
                                   am.setDotor(d);
-                                  am.setEnfermero(e);
                                   am.setFecha(fecha);
-                                  am.setMovil(m);
-                              }
-                          }
-                      }
-                  }
-              }
+                                  am.setMovil(m);*/
+                              }else JOptionPane.showConfirmDialog(null, "NO HAY AMBULACIA EN ESTE MOMENTO");
+                          }else JOptionPane.showConfirmDialog(null, "NO HAY ENFERMERO DISPONIBLE");
+                      }else JOptionPane.showConfirmDialog(null, "NO HAY CHOFER DISPONIBLE");;
+                  }else JOptionPane.showConfirmDialog(null, "NO HAY DOCTOR DISPONIBLE");;
+              //}else JOptionPane.showConfirmDialog(null, "EL AFILIADO ESTA EN MORA");
           
           return am;
           }
