@@ -47,14 +47,16 @@ public class BajaMovil extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         mostrarMarca = new javax.swing.JTextField();
         BotonEliminarAuto = new javax.swing.JButton();
-        BotonVolverAuto = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema de Emergencias Medica");
 
         jLabel1.setText("INGRESAR EL NUMERO DE PATENTE DEL VEHICULO :");
 
+        BotonBuscarAuto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/buscar_1.png"))); // NOI18N
         BotonBuscarAuto.setText("BUSCAR");
+        BotonBuscarAuto.setContentAreaFilled(false);
         BotonBuscarAuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonBuscarAutoActionPerformed(evt);
@@ -63,25 +65,32 @@ public class BajaMovil extends javax.swing.JFrame {
 
         jLabel2.setText("MODELO");
 
+        mostrarModelo.setEditable(false);
+
         jLabel3.setText("MARCA");
 
+        mostrarMarca.setEditable(false);
         mostrarMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mostrarMarcaActionPerformed(evt);
             }
         });
 
+        BotonEliminarAuto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/borrar_1.png"))); // NOI18N
         BotonEliminarAuto.setText("ELIMINAR");
+        BotonEliminarAuto.setContentAreaFilled(false);
         BotonEliminarAuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarAutoActionPerformed(evt);
             }
         });
 
-        BotonVolverAuto.setText("VOLVER");
-        BotonVolverAuto.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/TRAS.png"))); // NOI18N
+        jButton6.setText("VOLVER");
+        jButton6.setContentAreaFilled(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonVolverAutoActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -101,27 +110,26 @@ public class BajaMovil extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mostrarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addComponent(BotonBuscarAuto)
-                .addGap(148, 148, 148))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BotonEliminarAuto)
-                .addGap(76, 76, 76)
-                .addComponent(BotonVolverAuto)
-                .addGap(69, 69, 69))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BotonEliminarAuto)
+                            .addComponent(mostrarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BotonBuscarAuto)
+                    .addComponent(jButton6))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(busquedaAuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(busquedaAuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(BotonBuscarAuto))
-                .addGap(52, 52, 52)
+                .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(mostrarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -129,11 +137,11 @@ public class BajaMovil extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(mostrarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonEliminarAuto)
-                    .addComponent(BotonVolverAuto))
-                .addGap(52, 52, 52))
+                    .addComponent(jButton6))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -156,9 +164,9 @@ public class BajaMovil extends javax.swing.JFrame {
         bajaMovil.bajaMovil(eliminarMovil);
     }//GEN-LAST:event_BotonEliminarAutoActionPerformed
 
-    private void BotonVolverAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVolverAutoActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         this.setVisible(false);
-    }//GEN-LAST:event_BotonVolverAutoActionPerformed
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,8 +206,11 @@ public class BajaMovil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonBuscarAuto;
     private javax.swing.JButton BotonEliminarAuto;
-    private javax.swing.JButton BotonVolverAuto;
     private javax.swing.JTextField busquedaAuto;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

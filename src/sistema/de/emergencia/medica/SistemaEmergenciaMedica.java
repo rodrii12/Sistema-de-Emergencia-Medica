@@ -1,7 +1,7 @@
 
 package sistema.de.emergencia.medica;
 
-import Interfaces_Graficas.Principal;
+
 import clasessimples.Afiliado;
 import clasessimples.Chofer;
 import clasessimples.Doctor;
@@ -34,9 +34,7 @@ public class SistemaEmergenciaMedica {
         
         
         
-        //Principal p1 =new Principal();
-        
-        //p1.setVisible(true);//mostrar ventana
+
     }
     
 }
