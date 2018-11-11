@@ -9,6 +9,7 @@ import interfazGrafica.ventanasafiliados.MenuAfiliados;
 import clasessimples.Afiliado;
 import interfazGrafica.ventanaAsistenciaMedica.MenuAsistenciaMedica;
 import interfazGrafica.ventanaEmpleados.MenuEmpleados;
+import interfazGrafica.ventanaMovil.MenuMovil;
 import java.time.LocalDate;
 import sistema.de.emergencia.medica.GestionHospital;
 
@@ -45,13 +46,12 @@ public class PrincipalMenu extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 400));
-        setPreferredSize(new java.awt.Dimension(950, 350));
         setResizable(false);
         setSize(new java.awt.Dimension(400, 300));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,7 +62,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 94, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jButton2.setText("MostrarPrimero");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +70,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 235, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         jButton3.setText("MostrarPrimerEmpleado");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, 100));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, 100));
 
         jButton4.setText("Empleados");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +86,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 163, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jButton5.setText("Emergencia");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +94,15 @@ public class PrincipalMenu extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+
+        jButton6.setText("Flota");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 90, -1));
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -120,6 +128,10 @@ public class PrincipalMenu extends javax.swing.JFrame {
         MenuAsistenciaMedica mam = new MenuAsistenciaMedica(ventanap);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        MenuMovil mv = new MenuMovil(ventanap);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -127,6 +139,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
