@@ -5,9 +5,12 @@
  */
 package interfazGrafica.ventanasafiliados;
 
+import Interfaces_Graficas.DNIException;
+import Interfaces_Graficas.Metodos;
 import clasessimples.Afiliado;
 import java.time.LocalDate;
 import java.time.Month;
+import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -51,7 +54,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         diaFechaPagoaa = new javax.swing.JTextField();
         mesFechaPagoaa = new javax.swing.JTextField();
         anioFechaPagoaa = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        inscribir = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         numero = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -79,6 +82,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
 
         jLabel3.setText("DNI");
 
+        dniaa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dniaaActionPerformed(evt);
+            }
+        });
         dniaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 dniaaKeyTyped(evt);
@@ -148,10 +156,10 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("INSCRIBIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        inscribir.setText("INSCRIBIR");
+        inscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                inscribirActionPerformed(evt);
             }
         });
 
@@ -195,7 +203,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel1)
                                         .addComponent(nombreaa, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton1)
+                                        .addComponent(inscribir)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(numero, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(dniaa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
@@ -230,7 +238,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(549, 549, 549)))
                             .addComponent(jLabel6))
-                        .addContainerGap(97, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,14 +275,14 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                     .addComponent(diaFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mesFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(anioFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(inscribir))
                 .addGap(136, 136, 136))
         );
 
@@ -357,7 +365,9 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         if(mesFechaPagoaa.getText().length() >= 2) evt.consume();
     }//GEN-LAST:event_mesFechaPagoaaKeyTyped
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void inscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscribirActionPerformed
+        try{
+            
         Integer dn,mn,an,dp,mp,ap;
         dn= Integer.parseInt(diaFechaNacimientoaa.getText());
         mn=Integer.parseInt(mesFechaNacimientoaa.getText());
@@ -368,8 +378,30 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         String sexo = (String) sexoaa.getSelectedItem();
         LocalDate fechaNacimiento = LocalDate.of(an, mn, dn);
         LocalDate fechaPago = LocalDate.of(ap, mp, dp);
-        ventanaFormularioAltaEmpleado.altaAfiliado(new Afiliado(12331, nombreaa.getText(), apellidoaa.getText(),Integer.parseInt(dniaa.getText()) ,sexo , fechaNacimiento, fechaPago));
-    }//GEN-LAST:event_jButton1ActionPerformed
+        Integer dni = Integer.parseInt(this.dniaa.getText());
+        
+        Metodos.validarDNI(dni);
+        boolean  encontrado = ventanaFormularioAltaEmpleado.validarDni(dni);
+
+            //si lo encuentro, muestro un error
+            if (encontrado) {
+                JOptionPane.showMessageDialog(this, "Ya existe un afiliado con ese DNI",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                //Sino esta en la lista, lo añado
+                ventanaFormularioAltaEmpleado.altaAfiliado(new Afiliado(12331, nombreaa.getText(), apellidoaa.getText(),Integer.parseInt(dniaa.getText()) ,sexo , fechaNacimiento, fechaPago));
+                JOptionPane.showMessageDialog(this, "Se ha añadido el afiliado",
+                        "Añadido", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+     } catch (DNIException | NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+     } catch (Exception ex) {
+           JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        
+     }  
+        
+    }//GEN-LAST:event_inscribirActionPerformed
 
     private void sexoaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoaaActionPerformed
         
@@ -391,6 +423,10 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numeroActionPerformed
 
+    private void dniaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniaaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dniaaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anioFechaNacimientoaa;
@@ -399,7 +435,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
     private javax.swing.JTextField diaFechaNacimientoaa;
     private javax.swing.JTextField diaFechaPagoaa;
     private javax.swing.JTextField dniaa;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton inscribir;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

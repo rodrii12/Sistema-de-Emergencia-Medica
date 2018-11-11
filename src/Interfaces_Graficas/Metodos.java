@@ -7,15 +7,16 @@ package Interfaces_Graficas;
 public class Metodos {
 
     
-    public static void validarDNI(String DNI) throws DNIException {
-
+    public static void validarDNI(Integer DNI) throws DNIException {
+        String dni = String.valueOf(DNI);
+        
         //Comprobamos la longitud del dni
-        if (!(DNI.length() >= 8 && DNI.length() <= 8)) {
+        if (!(dni.length() >= 8 && dni.length() <= 8)) {
             throw new DNIException(DNIException.LONGITUD_NO_CORRECTA);
         }
       
         
-       String parte_numerica = DNI.substring(0, DNI.length());     
+       String parte_numerica = dni.substring(0, dni.length());     
                int numeroDNI = 0;
 
         try {
