@@ -416,7 +416,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         
         if(Character.isLetter(c)) evt.consume();
         
-        if(dniaa.getText().length() >= 4) evt.consume();
+        if(numero.getText().length() >= 4) evt.consume();
     }//GEN-LAST:event_numeroKeyTyped
 
     private void numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroActionPerformed

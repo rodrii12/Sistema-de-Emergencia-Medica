@@ -23,6 +23,7 @@ public class ModificarAfiliado extends javax.swing.JFrame {
         initComponents();
         modificarAfiliado = gh;
         this.setVisible(true);
+        guardar.setVisible(false);;
     }
 
     /**
