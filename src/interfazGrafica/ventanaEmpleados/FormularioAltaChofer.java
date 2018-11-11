@@ -5,6 +5,8 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
+import Interfaces_Graficas.DNIException;
+import Interfaces_Graficas.Metodos;
 import clasessimples.Administrativo;
 import interfazGrafica.ventanasafiliados.*;
 import clasessimples.Afiliado;
@@ -12,6 +14,7 @@ import clasessimples.Chofer;
 import clasessimples.Doctor;
 import java.time.LocalDate;
 import java.time.Month;
+import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -301,6 +304,8 @@ public class FormularioAltaChofer extends javax.swing.JFrame {
     }//GEN-LAST:event_anioFechaNacimientoaadKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
+        
         Integer dn,mn,an,numeroEmpleado, dni;
         dni = Integer.parseInt(dniaad.getText());
         dn= Integer.parseInt(diaFechaNacimientoaad.getText());
@@ -309,7 +314,40 @@ public class FormularioAltaChofer extends javax.swing.JFrame {
         numeroEmpleado=Integer.parseInt(numeroDeEmpleado.getText());
         String sexo = (String) sexoad.getSelectedItem();
         LocalDate fechaNacimiento = LocalDate.of(an, mn, dn);
-        ventanaFormularioAltaChofer.altaChofer(new Chofer(numeroEmpleado, nombreaad.getText(), apellidoaad.getText(), dni, sexo,fechaNacimiento));
+        
+        Metodos.validarDNI(dni);
+        boolean  encontrado = ventanaFormularioAltaChofer.validarDniEnfer(dni);
+
+            //si lo encuentro, muestro un error
+            if (encontrado) {
+                JOptionPane.showMessageDialog(this, "Ya existe un Empleado con ese DNI",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                //limpiar dni
+                this.dniaad.setText("");
+            } else {
+                //Sino esta en la lista, lo añado
+                ventanaFormularioAltaChofer.altaChofer(new Chofer(numeroEmpleado, nombreaad.getText(), apellidoaad.getText(), dni, sexo,fechaNacimiento));
+                JOptionPane.showMessageDialog(this, "Se ha añadido el Chofer",
+                    "Añadido", JOptionPane.INFORMATION_MESSAGE);
+                
+                //limpiar casillas si es correcto
+           this.dniaad.setText("");
+           this.nombreaad.setText("");
+           this.apellidoaad.setText("");
+           this.anioFechaNacimientoaad.setText("");
+           this.mesFechaNacimientoaad.setText("");
+           this.diaFechaNacimientoaad.setText("");
+           this.numeroDeEmpleado.setText("");
+           
+            }
+     } catch (DNIException | NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+     } catch (Exception ex) {
+           JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        
+     } 
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void sexoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoadActionPerformed

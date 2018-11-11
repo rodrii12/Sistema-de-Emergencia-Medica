@@ -5,6 +5,8 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
+import Interfaces_Graficas.DNIException;
+import Interfaces_Graficas.Metodos;
 import clasessimples.Administrativo;
 import interfazGrafica.ventanasafiliados.*;
 import clasessimples.Afiliado;
@@ -12,6 +14,7 @@ import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import java.time.LocalDate;
 import java.time.Month;
+import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -52,8 +55,8 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         numeroDeEmpleado = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        inscribir = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -136,17 +139,17 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("INSCRIBIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        inscribir.setText("INSCRIBIR");
+        inscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                inscribirActionPerformed(evt);
             }
         });
 
-        jButton2.setText("VOLVER");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        volver.setText("VOLVER");
+        volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                volverActionPerformed(evt);
             }
         });
 
@@ -177,25 +180,25 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
                                             .addComponent(sexoad, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(62, 62, 62)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jButton2)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(jLabel2)
-                                                    .addComponent(apellidoaad, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                                    .addComponent(jLabel8)
-                                                    .addComponent(numeroDeEmpleado))))))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jLabel2)
+                                                .addComponent(apellidoaad, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                                                .addComponent(jLabel8)
+                                                .addComponent(numeroDeEmpleado)))))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton1)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(diaFechaNacimientoaad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(mesFechaNacimientoaad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(anioFechaNacimientoaad))
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(549, 549, 549)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(diaFechaNacimientoaad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(mesFechaNacimientoaad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(anioFechaNacimientoaad))
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(549, 549, 549))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(inscribir)
+                                    .addGap(311, 311, 311)
+                                    .addComponent(volver)))
                             .addComponent(jLabel6))
                         .addContainerGap(96, Short.MAX_VALUE))))
         );
@@ -231,10 +234,10 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
                     .addComponent(anioFechaNacimientoaad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(numeroDeEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(136, 136, 136))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inscribir)
+                    .addComponent(volver))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
 
         pack();
@@ -300,7 +303,8 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
         if(anioFechaNacimientoaad.getText().length() >= 4) evt.consume();
     }//GEN-LAST:event_anioFechaNacimientoaadKeyTyped
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void inscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscribirActionPerformed
+      try{  
         Integer dn,mn,an,numeroEmpleado, dni;
         dni = Integer.parseInt(dniaad.getText());
         dn= Integer.parseInt(diaFechaNacimientoaad.getText());
@@ -309,20 +313,48 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
         numeroEmpleado=Integer.parseInt(numeroDeEmpleado.getText());
         String sexo = (String) sexoad.getSelectedItem();
         LocalDate fechaNacimiento = LocalDate.of(an, mn, dn);
-        ventanaFormularioAltaEnfermero.altaEnfermero(new Enfermero(numeroEmpleado, nombreaad.getText(), apellidoaad.getText(), dni, sexo,fechaNacimiento));
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        Metodos.validarDNI(dni);
+        boolean  encontrado = ventanaFormularioAltaEnfermero.validarDniEnfer(dni);
+
+            //si lo encuentro, muestro un error
+            if (encontrado) {
+                JOptionPane.showMessageDialog(this, "Ya existe un Empleado con ese DNI",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                this.dniaad.setText("");
+            } else {
+                //Sino esta en la lista, lo añado
+                ventanaFormularioAltaEnfermero.altaEnfermero(new Enfermero(numeroEmpleado, nombreaad.getText(), apellidoaad.getText(), dni, sexo,fechaNacimiento));
+                JOptionPane.showMessageDialog(this, "Se ha añadido el Enfermero",
+                        "Añadido", JOptionPane.INFORMATION_MESSAGE);
+           this.dniaad.setText("");
+           this.nombreaad.setText("");
+           this.apellidoaad.setText("");
+           this.anioFechaNacimientoaad.setText("");
+           this.mesFechaNacimientoaad.setText("");
+           this.diaFechaNacimientoaad.setText("");
+           this.numeroDeEmpleado.setText("");
+
+            }
+     } catch (DNIException | NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+     } catch (Exception ex) {
+           JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        
+     }  
+    }//GEN-LAST:event_inscribirActionPerformed
 
     private void sexoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoadActionPerformed
         
     }//GEN-LAST:event_sexoadActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void numeroDeEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroDeEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numeroDeEmpleadoActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_volverActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -330,8 +362,7 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
     private javax.swing.JTextField apellidoaad;
     private javax.swing.JTextField diaFechaNacimientoaad;
     private javax.swing.JTextField dniaad;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton inscribir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -343,5 +374,6 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
     private javax.swing.JTextField nombreaad;
     private javax.swing.JTextField numeroDeEmpleado;
     private javax.swing.JComboBox<String> sexoad;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

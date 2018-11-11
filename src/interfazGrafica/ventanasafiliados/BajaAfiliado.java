@@ -175,7 +175,7 @@ public class BajaAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_volverActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-
+        //ventanaBajaAfiliado.bajaAfiliado(afiParaEliminar); 
         
         if(afiParaEliminar != null){
            ventanaBajaAfiliado.bajaAfiliado(afiParaEliminar); 

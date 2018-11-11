@@ -151,7 +151,20 @@ public class BajaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        bajaAdmin.bajaAdmin(adminParaEliminar);
+        //bajaAdmin.bajaAdmin(adminParaEliminar);
+        
+        if(adminParaEliminar != null){
+           bajaAdmin.bajaAdmin(adminParaEliminar);
+           JOptionPane.showMessageDialog(this, "Se ha eliminado correctamente",
+            "Eliminado", JOptionPane.INFORMATION_MESSAGE);
+           this.mostrarNombre.setText("");
+           this.mostrarApellido.setText("");
+           this.mostrarNumeroDeEmpleado.setText("");
+           
+        }
+        else{
+            JOptionPane.showMessageDialog(this," no se pudo eliminar" , "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
