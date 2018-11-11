@@ -3,6 +3,7 @@ package sistema.de.emergencia.medica;
 
 import clasessimples.Administrativo;
 import clasessimples.Afiliado;
+import clasessimples.AsistenciaMedica;
 import clasessimples.Chofer;
 import clasessimples.Doctor;
 import clasessimples.Empleado;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Objects;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,21 +64,19 @@ import java.util.Objects;
                 return a;
             }
           
-          public void verificarAbonoAfiliado(Afiliado afiliado){
+          public Boolean verificarAbonoAfiliado(Afiliado afiliado){
+              Boolean a = true;
               LocalDate fechaActual= LocalDate.now();
-              //Period periodo = Period.between(fechaActual, afiliado.getFechaDePago());
-              // LA FUNCION CHRONOUNIT ME DEVUELVE LA CANTIDAD DE DIAS EN TIPO LONG "TENER EN CUENTA A lA HORA DE COMPARAR"
-              // EL PERIOD NO ME SIRVIO
-              //System.out.println(ChronoUnit.DAYS.between(afiliado.getFechaDePago(), fechaActual));
               if(ChronoUnit.DAYS.between(afiliado.getFechaDePago(), fechaActual)>60){
-                    afiliado.setAbonoHabilitado(1);
-                    System.out.println("SE ENTRO AL PRIMER IF");
+                    afiliado.setAbonoHabilitado(false);
+                    a = false;
                     //DEBE EL ABONO NO PUEDE SER ATENDIDO
               }
               else{
-                    System.out.println("SE ENTRO AL ELSE");
+                    a = true;
                     //ACCION QUE VA A HACER SI ESTA HABILITADO PARA ATENDERLO CON EL SISTEMA MEDICO                    
               }
+          return a;    
           }
           
           
@@ -84,11 +84,11 @@ import java.util.Objects;
           public void pagarAbonoAfiliado(Afiliado afiliado){
               LocalDate fechaActual= LocalDate.now();
               if(ChronoUnit.DAYS.between(afiliado.getFechaDePago(), fechaActual)<60){
-                    //NO DEBE PAGAR ABONO, ESTA AL DIA
+                    JOptionPane.showConfirmDialog(null , "EL ABONO YA ESTA PAGADO");
               }
               else{
                   afiliado.setFechaDePago(fechaActual);
-                  afiliado.setAbonoHabilitado(0);
+                  afiliado.setAbonoHabilitado(true);
                   //PAGADO
               }
           }
@@ -231,5 +231,94 @@ import java.util.Objects;
             }
             return estado;
     }
-       
+          
+          public Doctor doctorDisponible(){
+              Doctor b = null;
+              for(Empleado i: empleados){
+                  if(i instanceof Doctor){
+                      Doctor a = (Doctor)i;
+                      if(a.getDisponible()){
+                          b = a;
+                          b.setDisponible(false);
+                          break;
+                      }
+                  }
+                  
+              }
+          return b;
+          }
+          
+          public Enfermero enfermeroDisponible(){
+              Enfermero b = null;
+              for(Empleado i: empleados){
+                  if(i instanceof Enfermero){
+                      Enfermero a = (Enfermero)i;
+                      if(a.getDisponible()){
+                          b = a;
+                          b.setDisponible(false);
+                          break;
+                      }
+                  }
+                  
+              }
+          return b;
+          }
+          
+          public Chofer choferDisponible(){
+              Chofer b = null;
+              for(Empleado i: empleados){
+                  if(i instanceof Chofer){
+                      Chofer a = (Chofer)i;
+                      if(a.getDisponible()){
+                          b = a;
+                          b.setDisponible(false);
+                          break;
+                      }
+                  
+                  }
+              }
+          return b;
+        }
+          
+          public Movil movilDisponible(){
+              Movil b = null;
+              for(Movil i: moviles){
+                  if(i.getDisponible()){
+                          b = i;
+                          b.setDisponible(false);
+                          break;
+                      }
+                  }
+                  
+              
+          return b;
+          }
+          
+          public AsistenciaMedica generarAsistencia(Afiliado a){
+              LocalDate fecha = LocalDate.now();
+              AsistenciaMedica am = null;
+              Doctor d = doctorDisponible();
+              Chofer c = choferDisponible();
+              Enfermero e = enfermeroDisponible();
+              Movil m = movilDisponible();
+              if(verificarAbonoAfiliado(a)){
+                  if(d != null){
+                      if(c != null){
+                          if(e != null){
+                              if(m != null){
+                                  am.setAfiliado(a);
+                                  am.setChofer(c);
+                                  am.setDotor(d);
+                                  am.setEnfermero(e);
+                                  am.setFecha(fecha);
+                                  am.setMovil(m);
+                              }
+                          }
+                      }
+                  }
+              }
+          
+          return am;
+          }
+ 
 }

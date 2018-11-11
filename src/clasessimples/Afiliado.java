@@ -10,22 +10,22 @@ public class Afiliado extends Persona{
     private Integer numeroAfiliado;
     private ArrayList<Persona> grupoFamiliar;
     private LocalDate fechaDePago;
-    private Integer abonoHabilitado;
+    private Boolean pago;
 
     public Afiliado(Integer numeroAfiliado, String Nombre, String apellido, Integer DNI, String sexo, LocalDate FechaNacimiento, LocalDate fechaDePago) {
         super(Nombre, apellido, DNI, sexo, FechaNacimiento);
         this.numeroAfiliado = numeroAfiliado;
         this.fechaDePago = fechaDePago;
-        this.abonoHabilitado= 0;
+        this.pago= true;
         //ABONO HABILITADO ES LA VARIABLE PARA SABER SI ESTA PAGO EL ABONO DEL AFILIADO
     }
 
-    public Integer getAbonoHabilitado() {
-        return abonoHabilitado;
+    public Boolean getAbonoHabilitado() {
+        return pago;
     }
 
-    public void setAbonoHabilitado(Integer abonoHabilitado) {
-        this.abonoHabilitado = abonoHabilitado;
+    public void setAbonoHabilitado(Boolean pago) {
+        this.pago = pago;
     }
 
     public Integer getNumeroAfiliado() {

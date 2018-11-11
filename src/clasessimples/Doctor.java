@@ -3,19 +3,19 @@ package clasessimples;
 import java.time.LocalDate;
 
 public class Doctor extends Empleado{
-    private Integer disponibilidad;
+    private Boolean disponible;
     
     public Doctor(Integer numeroEmpleado, String Nombre, String apellido, Integer DNI, String sexo, LocalDate fechaNacimiento) {
         super(numeroEmpleado, Nombre, apellido, DNI, sexo, fechaNacimiento);
-        disponibilidad = 0;
+        disponible = true;
     }
 
-    public Integer getDisponibilidad() {
-        return disponibilidad;
+    public Boolean getDisponible() {
+        return disponible;
     }
 
-    public void setDisponibilidad(Integer disponibilidad) {
-        this.disponibilidad = disponibilidad;
+    public void setDisponible(Boolean disponible) {
+        this.disponible = disponible;
     }
     
     

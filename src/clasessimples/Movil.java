@@ -5,13 +5,23 @@ public class Movil{
     private String marca;
     private String modelo;
     private String patente;
-    private int año;
+    private Integer año;
+    private Boolean disponible; 
 
-    public Movil(String marca, String modelo, String patente, int año) {
+    public Movil(String marca, String modelo, String patente, Integer año) {
         this.marca = marca;
         this.modelo = modelo;
         this.patente = patente;
         this.año = año;
+        disponible = true;
+    }
+
+    public Boolean getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(Boolean disponible) {
+        this.disponible = disponible;
     }
 
     public String getMarca() {
@@ -38,7 +48,7 @@ public class Movil{
         this.patente = patente;
     }
 
-    public int getAño() {
+    public Integer getAño() {
         return año;
     }
 

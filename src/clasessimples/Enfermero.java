@@ -4,20 +4,19 @@ package clasessimples;
 import java.time.LocalDate;
 
 public class Enfermero extends Empleado{
-    private Integer disponible;
+    private Boolean disponible;
 
     public Enfermero(Integer numeroEmpleado, String nombre, String apellido, Integer DNI, String sexo, LocalDate fechaNacimiento) {
         super(numeroEmpleado, nombre, apellido, DNI, sexo, fechaNacimiento);
-        disponible= 0;
+        disponible= true;
     }
 
-    public Integer getDisponible() {
+    public Boolean getDisponible() {
         return disponible;
     }
 
-    public void setDisponible(Integer disponible) {
+    public void setDisponible(Boolean disponible) {
         this.disponible = disponible;
     }
 
-    
 }
