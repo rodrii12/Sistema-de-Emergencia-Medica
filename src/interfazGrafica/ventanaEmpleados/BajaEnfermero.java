@@ -156,7 +156,21 @@ public class BajaEnfermero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        bajaEnfermero.bajaEnfermero(enfermeroParaEliminar);
+        
+        //bajaEnfermero.bajaEnfermero(enfermeroParaEliminar);
+        
+                if(enfermeroParaEliminar != null){
+           bajaEnfermero.bajaEnfermero(enfermeroParaEliminar);
+           JOptionPane.showMessageDialog(this, "Se ha eliminado correctamente",
+            "Eliminado", JOptionPane.INFORMATION_MESSAGE);
+           this.mostrarNombre.setText("");
+           this.mostrarApellido.setText("");
+           this.mostrarNumeroDeEmpleado.setText("");
+           
+        }
+        else{
+            JOptionPane.showMessageDialog(this," no se pudo eliminar" , "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

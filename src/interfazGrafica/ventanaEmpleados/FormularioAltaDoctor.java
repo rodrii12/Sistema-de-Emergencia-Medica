@@ -5,11 +5,15 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
+import Interfaces_Graficas.DNIException;
+import Interfaces_Graficas.Metodos;
 import interfazGrafica.ventanasafiliados.*;
 import clasessimples.Afiliado;
 import clasessimples.Doctor;
+import clasessimples.Enfermero;
 import java.time.LocalDate;
 import java.time.Month;
+import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -51,7 +55,7 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         numeroDeEmpleado = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -141,10 +145,10 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("VOLVER");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        volver.setText("VOLVER");
+        volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                volverActionPerformed(evt);
             }
         });
 
@@ -175,32 +179,33 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
                                             .addComponent(sexoad, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(62, 62, 62)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jButton2)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(jLabel2)
-                                                    .addComponent(apellidoad, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                                    .addComponent(jLabel8)
-                                                    .addComponent(numeroDeEmpleado))))))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jLabel2)
+                                                .addComponent(apellidoad, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                                                .addComponent(jLabel8)
+                                                .addComponent(numeroDeEmpleado)))))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton1)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(diaFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(mesFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(anioFechaNacimientoaa))
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(549, 549, 549)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(diaFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(mesFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(anioFechaNacimientoaa))
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(545, 545, 545)))
                             .addComponent(jLabel6))
-                        .addContainerGap(96, Short.MAX_VALUE))))
+                        .addContainerGap(96, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(volver)
+                        .addGap(215, 215, 215))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -216,7 +221,7 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dniad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sexoad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel8))
@@ -229,10 +234,10 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
                     .addComponent(anioFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(numeroDeEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(136, 136, 136))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(volver))
+                .addContainerGap(402, Short.MAX_VALUE))
         );
 
         pack();
@@ -299,6 +304,7 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_anioFechaNacimientoaaKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
         Integer dn,mn,an,numeroEmpleado, dni;
         dni = Integer.parseInt(dniad.getText());
         dn= Integer.parseInt(diaFechaNacimientoaa.getText());
@@ -307,20 +313,52 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
         numeroEmpleado=Integer.parseInt(numeroDeEmpleado.getText());
         String sexo = (String) sexoad.getSelectedItem();
         LocalDate fechaNacimiento = LocalDate.of(an, mn, dn);
-        ventanaFormularioAltaDoctor.altaDoctor(new Doctor(numeroEmpleado, nombread.getText(), apellidoad.getText(), dni, sexo, fechaNacimiento));
+        
+            Metodos.validarDNI(dni);
+        boolean  encontrado = ventanaFormularioAltaDoctor.validarDniEnfer(dni);
+
+            //si lo encuentro, muestro un error
+            if (encontrado) {
+                JOptionPane.showMessageDialog(this, "Ya existe un Empleado con ese DNI",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                
+                this.dniad.setText("");
+            } else {
+                //Sino esta en la lista, lo añado
+                ventanaFormularioAltaDoctor.altaDoctor(new Doctor(numeroEmpleado, nombread.getText(), apellidoad.getText(), dni, sexo, fechaNacimiento));
+                JOptionPane.showMessageDialog(this, "Se ha añadido el Doctor",
+                        "Añadido", JOptionPane.INFORMATION_MESSAGE);
+           
+                this.dniad.setText("");
+                this.nombread.setText("");
+                this.apellidoad.setText("");
+                this.anioFechaNacimientoaa.setText("");
+                this.mesFechaNacimientoaa.setText("");
+                this.diaFechaNacimientoaa.setText("");
+                this.numeroDeEmpleado.setText("");
+           
+
+            }
+     } catch (DNIException | NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+     } catch (Exception ex) {
+           JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        
+     }    
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void sexoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoadActionPerformed
         
     }//GEN-LAST:event_sexoadActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void numeroDeEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroDeEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numeroDeEmpleadoActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_volverActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -329,7 +367,6 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
     private javax.swing.JTextField diaFechaNacimientoaa;
     private javax.swing.JTextField dniad;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -341,5 +378,6 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
     private javax.swing.JTextField nombread;
     private javax.swing.JTextField numeroDeEmpleado;
     private javax.swing.JComboBox<String> sexoad;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

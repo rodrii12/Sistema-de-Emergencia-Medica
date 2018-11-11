@@ -47,6 +47,11 @@ public class TipoDeEmpleadoAlta extends javax.swing.JFrame {
         });
 
         jButton2.setText("ENFERMERO");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("ADMINISTRATIVO");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +130,11 @@ public class TipoDeEmpleadoAlta extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         FormularioAltaChofer fac = new FormularioAltaChofer(tipoDeEmpleadoAlta);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    FormularioAltaEnfermero fae = new FormularioAltaEnfermero(tipoDeEmpleadoAlta);
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

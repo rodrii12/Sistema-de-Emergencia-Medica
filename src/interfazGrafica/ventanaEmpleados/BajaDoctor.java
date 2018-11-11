@@ -155,7 +155,21 @@ public class BajaDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        bajaDoctor.bajaDoctor(doctorParaEliminar);
+        //bajaDoctor.bajaDoctor(doctorParaEliminar);
+        
+        if(doctorParaEliminar != null){
+            bajaDoctor.bajaDoctor(doctorParaEliminar);
+            JOptionPane.showMessageDialog(this, "Se ha eliminado correctamente",
+                    "Eliminado", JOptionPane.INFORMATION_MESSAGE);
+            this.mostrarNombre.setText("");
+            this.mostrarApellido.setText("");
+            this.mostrarNumeroDeEmpleado.setText("");
+           
+        }
+        else{
+            JOptionPane.showMessageDialog(this," no se pudo eliminar" , "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
