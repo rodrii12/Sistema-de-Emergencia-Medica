@@ -162,6 +162,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
 
+        numero.setEditable(false);
         numero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numeroActionPerformed(evt);
