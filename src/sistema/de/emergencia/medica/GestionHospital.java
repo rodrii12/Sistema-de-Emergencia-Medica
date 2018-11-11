@@ -220,5 +220,16 @@ import java.util.Objects;
                   }
               }
           }
+          public boolean validarDni(Integer dni){
+            Boolean estado = false;
+            //recorro la lista de afiliados
+            for (Afiliado a : afiliados) {
+                //if (a.getDNI().equals(dni)) {
+                    if(Objects.equals(a.getDNI(), dni)){
+                    estado = true;
+                }
+            }
+            return estado;
+    }
        
 }

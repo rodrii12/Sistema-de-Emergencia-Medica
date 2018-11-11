@@ -203,18 +203,27 @@ public class ModificarAfiliado extends javax.swing.JFrame {
             jButton1.setVisible(false);
             jLabel1.setVisible(false);
             numeroAfiliado.setVisible(false);
-            guardar.setVisible(true);
-        }else JOptionPane.showMessageDialog(null, "AFILIADO NO ENCONTRADO");
+            
+        }else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
+
+           
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        modificarAfiliado.bajaAfiliado(afiliadoAModificar);
+        if(afiliadoAModificar != null){
+        
         String nombrema = nombre.getText();
         String apellidoma = apellido.getText();
         Integer dnima = Integer.parseInt(dni.getText());
         LocalDate fechaNacimiento = LocalDate.of(Integer.parseInt(an.getText()),Integer.parseInt(mn.getText()), Integer.parseInt(dn.getText()));
+        
         Afiliado na= new Afiliado(afiliadoAModificar.getNumeroAfiliado(), nombrema, apellidoma, dnima, afiliadoAModificar.getSexo(), fechaNacimiento, afiliadoAModificar.getFechaDePago());
-        modificarAfiliado.altaAfiliado(na);
+        JOptionPane.showMessageDialog(this, "Se ha MODIFICADO correctamente","Modificado", JOptionPane.INFORMATION_MESSAGE);
+        } else{
+            
+            JOptionPane.showMessageDialog(this," no se pudo modificar " , "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_guardarActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
