@@ -27,7 +27,6 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
         initComponents();
         generarAsistenciaAfiliado = gh;
         this.setVisible(true);
-        asistenciaMedica.setVisible(false);
     }
 
     /**
@@ -43,27 +42,13 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         dni = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        asistenciaMedica = new javax.swing.JInternalFrame();
-        jLabel3 = new javax.swing.JLabel();
-        nombre = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        nombreDoctor = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        patenteAmbulancia = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        fecha = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        enfermero = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        chofer = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        nroAfiliado = new javax.swing.JLabel();
-        nombrea = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("INGRESE DNI DE AFILIADO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/buscar.png"))); // NOI18N
         jButton1.setText("BUSCAR");
@@ -73,6 +58,7 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
         dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,99 +70,8 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
                 dniKeyTyped(evt);
             }
         });
-
-        asistenciaMedica.setTitle("ASISTENCIA MEDICA");
-        asistenciaMedica.setVisible(true);
-
-        jLabel3.setText("NOMBRE: ");
-
-        jLabel5.setText("DOCTOR DESIGNADO:");
-
-        jLabel7.setText("PATENTE AMBULANCIA : ");
-
-        jLabel4.setText("FECHA DE EXPENDIO : ");
-
-        jLabel6.setText("ENFERMERO DESIGNADO : ");
-
-        jLabel8.setText("CHOFER DE AMBULANCIA :");
-
-        jLabel9.setText("NRO DE AFILIADO : ");
-
-        javax.swing.GroupLayout asistenciaMedicaLayout = new javax.swing.GroupLayout(asistenciaMedica.getContentPane());
-        asistenciaMedica.getContentPane().setLayout(asistenciaMedicaLayout);
-        asistenciaMedicaLayout.setHorizontalGroup(
-            asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(asistenciaMedicaLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(asistenciaMedicaLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nroAfiliado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(asistenciaMedicaLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chofer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(asistenciaMedicaLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(enfermero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(asistenciaMedicaLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(asistenciaMedicaLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(patenteAmbulancia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(asistenciaMedicaLayout.createSequentialGroup()
-                        .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(asistenciaMedicaLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nombrea, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombreDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(174, Short.MAX_VALUE))
-        );
-        asistenciaMedicaLayout.setVerticalGroup(
-            asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(asistenciaMedicaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(nombrea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(nombreDoctor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(patenteAmbulancia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(fecha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(enfermero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(chofer))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(asistenciaMedicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(nroAfiliado))
-                .addContainerGap(275, Short.MAX_VALUE))
-        );
+        getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 128, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 754, -1, -1));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/TRAS.png"))); // NOI18N
         jButton7.setText("VOLVER");
@@ -186,51 +81,7 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(asistenciaMedica)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(176, 176, 176)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(143, 143, 143)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jButton1)))
-                .addGap(60, 60, 60)
-                .addComponent(asistenciaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jButton7)
-                .addGap(22, 22, 22)
-                .addComponent(jLabel2))
-        );
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 130, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,22 +101,8 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Integer dam = Integer.parseInt(dni.getText());
         Afiliado afi = generarAsistenciaAfiliado.buscarAfiliado(dam);
-       // LocalDate fecha = LocalDate.now();
-       // Doctor d = generarAsistenciaAfiliado.doctorDisponible();
-       // Chofer c = generarAsistenciaAfiliado.choferDisponible();
-      //  Enfermero e = generarAsistenciaAfiliado.enfermeroDisponible();
-      //  Movil m = generarAsistenciaAfiliado.movilDisponible();
-      //  AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c);
-        //if(am != null){
-            //asistenciaMedica.setVisible(true);
-            nombrea.setText(afi.getNombre());
-            //nombreDoctor.setText(am.getDotor().getNombre());
-            //patenteAmbulancia.setText(am.getMovil().getPatente());
-            //fecha.setText(String.valueOf(am.getFecha()));
-            //enfermero.setText(am.getEnfermero().getNombre()  +am.getEnfermero().getApellido());
-            //chofer.setText(am.getChofer().getNombre()  +am.getEnfermero().getApellido());
-            //nroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
-        //}else JOptionPane.showInputDialog("NO SE PUDO GENERAR UNA ASISTENCIA MEDICA");
+        AsistenciaMedicaAfiliado ama = new AsistenciaMedicaAfiliado(generarAsistenciaAfiliado, afi);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -274,28 +111,10 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JInternalFrame asistenciaMedica;
-    private javax.swing.JLabel chofer;
     private javax.swing.JTextField dni;
-    private javax.swing.JLabel enfermero;
-    private javax.swing.JLabel fecha;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel nombre;
-    private javax.swing.JLabel nombreDoctor;
-    private javax.swing.JTextField nombrea;
-    private javax.swing.JLabel nroAfiliado;
-    private javax.swing.JLabel patenteAmbulancia;
     // End of variables declaration//GEN-END:variables
 }
