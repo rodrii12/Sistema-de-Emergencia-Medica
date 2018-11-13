@@ -11,6 +11,7 @@ import interfazGrafica.ventanaAsistenciaMedica.MenuAsistenciaMedica;
 import interfazGrafica.ventanaEmpleados.MenuEmpleados;
 import interfazGrafica.ventanaMovil.MenuMovil;
 import java.time.LocalDate;
+import javax.swing.ImageIcon;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -26,9 +27,10 @@ public class PrincipalMenu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("EMERGENCIA MEDICA");
+        //setTitle("EMERGENCIA MEDICA");
         ventanap= h;
         setVisible(true);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     /**
@@ -45,65 +47,69 @@ public class PrincipalMenu extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de Emergencia Medica");
+        setMaximumSize(new java.awt.Dimension(1000, 600));
+        setMinimumSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
-        setSize(new java.awt.Dimension(400, 300));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setSize(new java.awt.Dimension(1000, 600));
+        getContentPane().setLayout(null);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/afiliado.png"))); // NOI18N
-        jButton1.setText("afiliado");
+        jButton1.setToolTipText("Menu Afiliado");
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(60, 170, 129, 105);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/empleado.png"))); // NOI18N
-        jButton4.setText("Empleado");
+        jButton4.setToolTipText("Menu Empleado");
         jButton4.setContentAreaFilled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        getContentPane().add(jButton4);
+        jButton4.setBounds(30, 320, 179, 105);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/asistencia.png"))); // NOI18N
-        jButton5.setText("Emergencia");
+        jButton5.setToolTipText("Menu Emergencia");
         jButton5.setContentAreaFilled(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, -1));
+        getContentPane().add(jButton5);
+        jButton5.setBounds(260, 320, 129, 105);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/movil.png"))); // NOI18N
-        jButton6.setText("Flota");
+        jButton6.setToolTipText("Menu Flota");
         jButton6.setContentAreaFilled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 200, -1));
+        getContentPane().add(jButton6);
+        jButton6.setBounds(230, 170, 200, 105);
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/TRAS.png"))); // NOI18N
-        jButton7.setText("VOLVER");
-        jButton7.setContentAreaFilled(false);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/FondoMenuP.jpg"))); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(1000, 570));
+        jLabel2.setMinimumSize(new java.awt.Dimension(1000, 570));
+        jLabel2.setPreferredSize(new java.awt.Dimension(1000, 570));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1000, 570);
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -125,18 +131,14 @@ public class PrincipalMenu extends javax.swing.JFrame {
         MenuMovil mv = new MenuMovil(ventanap);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

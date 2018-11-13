@@ -10,6 +10,7 @@ import Interfaces_Graficas.Metodos;
 import clasessimples.Afiliado;
 import java.time.LocalDate;
 import java.time.Month;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
@@ -25,6 +26,9 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         initComponents();
         ventanaFormularioAltaEmpleado = gh;
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     /**
@@ -59,28 +63,41 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1400, 1400));
-        setPreferredSize(new java.awt.Dimension(900, 600));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Alta Afiliado");
+        setMaximumSize(new java.awt.Dimension(600, 600));
+        setMinimumSize(new java.awt.Dimension(600, 600));
+        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
+        getContentPane().setLayout(null);
 
         jLabel1.setText("NOMBRE");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(41, 59, 60, 14);
 
         nombreaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 nombreaaKeyTyped(evt);
             }
         });
+        getContentPane().add(nombreaa);
+        nombreaa.setBounds(41, 79, 232, 20);
 
         jLabel2.setText("APELLIDO");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(336, 59, 70, 14);
 
         apellidoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 apellidoaaKeyTyped(evt);
             }
         });
+        getContentPane().add(apellidoaa);
+        apellidoaa.setBounds(336, 79, 176, 20);
 
         jLabel3.setText("DNI");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(43, 146, 40, 14);
 
         dniaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +109,8 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                 dniaaKeyTyped(evt);
             }
         });
+        getContentPane().add(dniaa);
+        dniaa.setBounds(41, 166, 232, 20);
 
         sexoaa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino\t", "Femenino", " " }));
         sexoaa.addActionListener(new java.awt.event.ActionListener() {
@@ -99,8 +118,12 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                 sexoaaActionPerformed(evt);
             }
         });
+        getContentPane().add(sexoaa);
+        sexoaa.setBounds(336, 166, 87, 20);
 
         jLabel4.setText("SEXO");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(336, 146, 50, 14);
 
         diaFechaNacimientoaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,12 +135,16 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                 diaFechaNacimientoaaKeyTyped(evt);
             }
         });
+        getContentPane().add(diaFechaNacimientoaa);
+        diaFechaNacimientoaa.setBounds(41, 281, 30, 20);
 
         mesFechaNacimientoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 mesFechaNacimientoaaKeyTyped(evt);
             }
         });
+        getContentPane().add(mesFechaNacimientoaa);
+        mesFechaNacimientoaa.setBounds(81, 281, 30, 20);
 
         anioFechaNacimientoaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,32 +156,48 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                 anioFechaNacimientoaaKeyTyped(evt);
             }
         });
+        getContentPane().add(anioFechaNacimientoaa);
+        anioFechaNacimientoaa.setBounds(121, 281, 61, 20);
 
         jLabel5.setText("DD     /     MM     /     AAAA");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(41, 261, 141, 14);
 
         jLabel6.setText("FECHA DE NACIMIENTO");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(41, 241, 140, 14);
 
         jLabel7.setText("DD     /     MM     /     AAAA");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(336, 261, 141, 14);
 
         jLabel8.setText("FECHA DE INSCRIPCION");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(336, 241, 140, 14);
 
         diaFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 diaFechaPagoaaKeyTyped(evt);
             }
         });
+        getContentPane().add(diaFechaPagoaa);
+        diaFechaPagoaa.setBounds(336, 281, 30, 20);
 
         mesFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 mesFechaPagoaaKeyTyped(evt);
             }
         });
+        getContentPane().add(mesFechaPagoaa);
+        mesFechaPagoaa.setBounds(376, 281, 30, 20);
 
         anioFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 anioFechaPagoaaKeyTyped(evt);
             }
         });
+        getContentPane().add(anioFechaPagoaa);
+        anioFechaPagoaa.setBounds(418, 281, 57, 20);
 
         inscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/guardar.png"))); // NOI18N
         inscribir.setText("INSCRIBIR");
@@ -164,6 +207,8 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                 inscribirActionPerformed(evt);
             }
         });
+        getContentPane().add(inscribir);
+        inscribir.setBounds(41, 385, 150, 57);
 
         numero.setEditable(false);
         numero.addActionListener(new java.awt.event.ActionListener() {
@@ -176,8 +221,12 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                 numeroKeyTyped(evt);
             }
         });
+        getContentPane().add(numero);
+        numero.setBounds(41, 330, 232, 20);
 
         jLabel9.setText("NUMERO DE AFILIADO");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(41, 310, 140, 14);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/TRAS.png"))); // NOI18N
         jButton6.setText("VOLVER");
@@ -187,101 +236,8 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1)
-                                .addComponent(numero)
-                                .addComponent(dniaa)
-                                .addComponent(jLabel9)
-                                .addComponent(nombreaa, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(inscribir))
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(sexoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(diaFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(mesFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(anioFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(128, 128, 128))
-                                    .addComponent(apellidoaa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(diaFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(mesFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(anioFechaNacimientoaa))
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel3))
-                    .addComponent(jLabel6))
-                .addGap(57, 57, 57))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(apellidoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dniaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sexoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(diaFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mesFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(anioFechaNacimientoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(diaFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mesFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(anioFechaPagoaa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(inscribir))
-                .addGap(61, 61, 61))
-        );
+        getContentPane().add(jButton6);
+        jButton6.setBounds(389, 385, 123, 57);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

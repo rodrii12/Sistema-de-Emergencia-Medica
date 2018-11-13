@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanasafiliados;
 
+import javax.swing.ImageIcon;
 import sistema.de.emergencia.medica.GestionHospital;
 
 
@@ -21,6 +22,9 @@ public class MenuAfiliados extends javax.swing.JFrame {
         initComponents();
         ventanaMenuAfiliados = ventanap;
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     /**
@@ -37,7 +41,9 @@ public class MenuAfiliados extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Menu Afiliado");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         botonAltaAfiliado.setText("Alta Afiliado");
         botonAltaAfiliado.addActionListener(new java.awt.event.ActionListener() {
