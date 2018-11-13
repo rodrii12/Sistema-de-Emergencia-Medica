@@ -44,6 +44,9 @@ public class MenuAfiliados extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu Afiliado");
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(400, 400));
+        setMinimumSize(new java.awt.Dimension(400, 400));
+        setPreferredSize(new java.awt.Dimension(400, 400));
 
         botonAltaAfiliado.setText("Alta Afiliado");
         botonAltaAfiliado.addActionListener(new java.awt.event.ActionListener() {

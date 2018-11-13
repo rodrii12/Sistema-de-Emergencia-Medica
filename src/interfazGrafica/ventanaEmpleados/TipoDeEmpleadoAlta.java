@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
+import javax.swing.ImageIcon;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -19,6 +20,9 @@ public class TipoDeEmpleadoAlta extends javax.swing.JFrame {
         initComponents();
         tipoDeEmpleadoAlta = menuEmpleado;
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     /**
@@ -34,13 +38,20 @@ public class TipoDeEmpleadoAlta extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Empleados");
+        setMaximumSize(new java.awt.Dimension(600, 450));
+        setMinimumSize(new java.awt.Dimension(600, 450));
+        setPreferredSize(new java.awt.Dimension(600, 450));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/doctor.png"))); // NOI18N
-        jButton1.setText("DOCTOR");
+        jButton1.setToolTipText("DOCTOR");
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,7 +60,7 @@ public class TipoDeEmpleadoAlta extends javax.swing.JFrame {
         });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/enfermero.png"))); // NOI18N
-        jButton2.setText("ENFERMERO");
+        jButton2.setToolTipText("ENFERMERO");
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +69,7 @@ public class TipoDeEmpleadoAlta extends javax.swing.JFrame {
         });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/administrativo.png"))); // NOI18N
-        jButton3.setText("ADMINISTRATIVO");
+        jButton3.setToolTipText("ADMINISTRATIVO");
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,15 +78,13 @@ public class TipoDeEmpleadoAlta extends javax.swing.JFrame {
         });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/chofer.png"))); // NOI18N
-        jButton4.setText("CHOFER");
+        jButton4.setToolTipText("CHOFER");
         jButton4.setContentAreaFilled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("MENU ALTA EMPLEADOS ");
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/TRAS.png"))); // NOI18N
         jButton5.setText("VOLVER");
@@ -86,46 +95,69 @@ public class TipoDeEmpleadoAlta extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("DOCTOR");
+
+        jLabel3.setText("ADMINISTRATIVO");
+
+        jLabel4.setText("ENFERMERO");
+
+        jLabel5.setText("CHOFER");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addContainerGap(24, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(189, 189, 189))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(60, 60, 60)))
+                .addComponent(jButton5)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(163, 163, 163))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(19, 19, 19))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jButton4))
-                .addGap(18, 18, 18)
-                .addComponent(jButton5)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -158,6 +190,9 @@ public class TipoDeEmpleadoAlta extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

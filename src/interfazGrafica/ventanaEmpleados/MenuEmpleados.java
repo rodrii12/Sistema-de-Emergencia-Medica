@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
+import javax.swing.ImageIcon;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -19,6 +20,9 @@ public class MenuEmpleados extends javax.swing.JFrame {
         initComponents();
         menuEmpleado = ventanap;
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
 
@@ -31,14 +35,15 @@ public class MenuEmpleados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setText("MENU EMPLEADOS");
+        setTitle("Menu de Empleados");
+        setMaximumSize(new java.awt.Dimension(400, 400));
+        setMinimumSize(new java.awt.Dimension(400, 400));
+        setPreferredSize(new java.awt.Dimension(400, 400));
 
         jButton1.setText("ALTA EMPLEADOS");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,16 +75,11 @@ public class MenuEmpleados extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton1)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(161, 161, 161)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 116, Short.MAX_VALUE))
+                            .addComponent(jButton2)
+                            .addComponent(jButton1))
+                        .addGap(0, 200, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton3)))
@@ -88,9 +88,7 @@ public class MenuEmpleados extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(51, 51, 51)
+                .addGap(92, 92, 92)
                 .addComponent(jButton1)
                 .addGap(45, 45, 45)
                 .addComponent(jButton2)
@@ -119,6 +117,5 @@ public class MenuEmpleados extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

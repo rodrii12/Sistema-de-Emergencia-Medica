@@ -1,5 +1,6 @@
 package interfazGrafica.ventanaEmpleados;
 
+import javax.swing.ImageIcon;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -14,6 +15,9 @@ public class TipoDeEmpleadoBaja extends javax.swing.JFrame {
         initComponents();
         tipoDeEmpleadoBaja = menuEmpleado;
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     /**
@@ -25,17 +29,27 @@ public class TipoDeEmpleadoBaja extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel2.setText("DOCTOR");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Empleados");
+        setMaximumSize(new java.awt.Dimension(600, 450));
+        setMinimumSize(new java.awt.Dimension(600, 450));
+        setPreferredSize(new java.awt.Dimension(600, 450));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/doctor.png"))); // NOI18N
-        jButton1.setText("DOCTOR");
+        jButton1.setToolTipText("DOCTOR");
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,11 +58,16 @@ public class TipoDeEmpleadoBaja extends javax.swing.JFrame {
         });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/enfermero.png"))); // NOI18N
-        jButton2.setText("ENFERMERO");
+        jButton2.setToolTipText("ENFERMERO");
         jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/administrativo.png"))); // NOI18N
-        jButton3.setText("ADMINISTRATIVO");
+        jButton3.setToolTipText("ADMINISTRATIVO");
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +76,7 @@ public class TipoDeEmpleadoBaja extends javax.swing.JFrame {
         });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/chofer.png"))); // NOI18N
-        jButton4.setText("CHOFER");
+        jButton4.setToolTipText("CHOFER");
         jButton4.setContentAreaFilled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,48 +93,72 @@ public class TipoDeEmpleadoBaja extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("MENU BAJA EMPLEADOS ");
+        jLabel3.setText("DOCTOR");
+
+        jLabel4.setText("ADMINISTRATIVO");
+
+        jLabel5.setText("ENFERMERO");
+
+        jLabel6.setText("CHOFER");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(368, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel5)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton2))
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(95, 95, 95)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton3)
                                     .addComponent(jButton4)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2)
-                                .addGap(183, 183, 183)))
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addContainerGap())))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel2)
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addContainerGap())
         );
@@ -139,6 +182,10 @@ public class TipoDeEmpleadoBaja extends javax.swing.JFrame {
         BajaChofer bc = new BajaChofer(tipoDeEmpleadoBaja);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        BajaEnfermero be = new BajaEnfermero(tipoDeEmpleadoBaja);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -146,5 +193,9 @@ public class TipoDeEmpleadoBaja extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }
