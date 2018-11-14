@@ -62,7 +62,9 @@ public class GenerarAsistenciaMedicaFamiliar extends javax.swing.JFrame {
         Integer dni = Integer.parseInt(dniaa.getText());
         Afiliado a = generarAsistenciaMedicaFamiliar.buscarAfiliado(dni);
         if(a != null){
-            BuscarFamiliar bf = new BuscarFamiliar(generarAsistenciaMedicaFamiliar, a);
+            if(generarAsistenciaMedicaFamiliar.verificarAbonoAfiliado(a)){
+                BuscarFamiliar bf = new BuscarFamiliar(generarAsistenciaMedicaFamiliar, a);
+            }else JOptionPane.showMessageDialog(null, "ABONO NO PAGO");
         }else JOptionPane.showMessageDialog(null, "Afiliado no encontrado", "Error", ERROR);
     }//GEN-LAST:event_jButton1ActionPerformed
 
