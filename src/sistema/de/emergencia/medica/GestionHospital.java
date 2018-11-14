@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
           private ArrayList<clasessimples.Afiliado> afiliados = new ArrayList<>();
           
           public GestionHospital(){
-              //ArrayList<Afiliado> afiliados= new ArrayList<Afiliado>();
+
           }
           
           public void altaAfiliado(Afiliado afiliado){
@@ -309,11 +309,11 @@ import javax.swing.JOptionPane;
                                   am.setDotor(d);
                                   am.setFecha(fecha);
                                   am.setMovil(m);*/
-                              }else JOptionPane.showConfirmDialog(null, "NO HAY AMBULACIA EN ESTE MOMENTO");
-                          }else JOptionPane.showConfirmDialog(null, "NO HAY ENFERMERO DISPONIBLE");
-                      }else JOptionPane.showConfirmDialog(null, "NO HAY CHOFER DISPONIBLE");;
-                  }else JOptionPane.showConfirmDialog(null, "NO HAY DOCTOR DISPONIBLE");;
-              //}else JOptionPane.showConfirmDialog(null, "EL AFILIADO ESTA EN MORA");
+                              }else JOptionPane.showMessageDialog(null,"NO HAY AMBULACIA EN ESTE MOMENTO" , "Error", JOptionPane.ERROR_MESSAGE);
+                          }else JOptionPane.showMessageDialog(null,"NO HAY ENFERMERO DISPONIBLE" , "Error", JOptionPane.ERROR_MESSAGE);//JOptionPane.showConfirmDialog(null, "NO HAY ENFERMERO DISPONIBLE");
+                      }else JOptionPane.showMessageDialog(null, "NO HAY CHOFER DISPONIBLE" , "Error", JOptionPane.ERROR_MESSAGE);//JOptionPane.showConfirmDialog(null, "NO HAY CHOFER DISPONIBLE");;
+                  }else JOptionPane.showMessageDialog(null,"NO HAY DOCTOR DISPONIBLE" , "Error", JOptionPane.ERROR_MESSAGE);//JOptionPane.showConfirmDialog(null, "NO HAY DOCTOR DISPONIBLE");;
+              //}else JOptionPane.showMessageDialog(null,"EL AFILIADO ESTA EN MORA" , "Error", JOptionPane.ERROR_MESSAGE); //JOptionPane.showConfirmDialog(null, "EL AFILIADO ESTA EN MORA");
           
           return am;
           }
