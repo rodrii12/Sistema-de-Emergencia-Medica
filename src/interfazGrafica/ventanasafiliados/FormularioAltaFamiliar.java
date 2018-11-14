@@ -8,6 +8,7 @@ package interfazGrafica.ventanasafiliados;
 import Interfaces_Graficas.DNIException;
 import Interfaces_Graficas.Metodos;
 import clasessimples.Afiliado;
+import clasessimples.Familiar;
 import java.time.LocalDate;
 import java.time.Month;
 import javax.swing.ImageIcon;
@@ -18,13 +19,13 @@ import sistema.de.emergencia.medica.GestionHospital;
  *
  * @author Miguel
  */
-public class FormularioAltaAfiliado extends javax.swing.JFrame {
+public class FormularioAltaFamiliar extends javax.swing.JFrame {
 
-    GestionHospital ventanaFormularioAltaEmpleado;
+    Afiliado ventanaFormularioAltaEmpleado;
     
-    public FormularioAltaAfiliado(GestionHospital gh) {
+    public FormularioAltaFamiliar(Afiliado a) {
         initComponents();
-        ventanaFormularioAltaEmpleado = gh;
+        ventanaFormularioAltaEmpleado = a;
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -53,21 +54,14 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         anioFechaNacimientoaa = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        diaFechaPagoaa = new javax.swing.JTextField();
-        mesFechaPagoaa = new javax.swing.JTextField();
-        anioFechaPagoaa = new javax.swing.JTextField();
         inscribir = new javax.swing.JButton();
-        numero = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        relacion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alta Afiliado");
-        setMaximumSize(new java.awt.Dimension(600, 600));
         setMinimumSize(new java.awt.Dimension(600, 600));
-        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -81,11 +75,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nombreaa);
-        nombreaa.setBounds(41, 79, 232, 19);
+        nombreaa.setBounds(41, 79, 190, 19);
 
         jLabel2.setText("APELLIDO");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(336, 59, 70, 15);
+        jLabel2.setBounds(300, 60, 70, 15);
 
         apellidoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -93,7 +87,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(apellidoaa);
-        apellidoaa.setBounds(336, 79, 176, 19);
+        apellidoaa.setBounds(300, 80, 190, 19);
 
         jLabel3.setText("DNI");
         getContentPane().add(jLabel3);
@@ -110,7 +104,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(dniaa);
-        dniaa.setBounds(41, 166, 232, 19);
+        dniaa.setBounds(41, 166, 180, 19);
 
         sexoaa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino\t", "Femenino", " " }));
         sexoaa.addActionListener(new java.awt.event.ActionListener() {
@@ -119,11 +113,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(sexoaa);
-        sexoaa.setBounds(336, 166, 87, 24);
+        sexoaa.setBounds(300, 170, 87, 24);
 
         jLabel4.setText("SEXO");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(336, 146, 50, 15);
+        jLabel4.setBounds(300, 150, 50, 15);
 
         diaFechaNacimientoaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,37 +161,9 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(41, 241, 140, 15);
 
-        jLabel7.setText("DD     /     MM     /     AAAA");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(336, 261, 141, 15);
-
-        jLabel8.setText("FECHA DE INSCRIPCION");
+        jLabel8.setText("TIPO DE RELACION");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(336, 241, 140, 15);
-
-        diaFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                diaFechaPagoaaKeyTyped(evt);
-            }
-        });
-        getContentPane().add(diaFechaPagoaa);
-        diaFechaPagoaa.setBounds(336, 281, 30, 19);
-
-        mesFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                mesFechaPagoaaKeyTyped(evt);
-            }
-        });
-        getContentPane().add(mesFechaPagoaa);
-        mesFechaPagoaa.setBounds(376, 281, 30, 19);
-
-        anioFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                anioFechaPagoaaKeyTyped(evt);
-            }
-        });
-        getContentPane().add(anioFechaPagoaa);
-        anioFechaPagoaa.setBounds(418, 281, 57, 19);
+        jLabel8.setBounds(300, 260, 140, 15);
 
         inscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/guardar.png"))); // NOI18N
         inscribir.setText("INSCRIBIR");
@@ -208,25 +174,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inscribir);
-        inscribir.setBounds(41, 385, 150, 58);
-
-        numero.setEditable(false);
-        numero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numeroActionPerformed(evt);
-            }
-        });
-        numero.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                numeroKeyTyped(evt);
-            }
-        });
-        getContentPane().add(numero);
-        numero.setBounds(41, 330, 232, 19);
-
-        jLabel9.setText("NUMERO DE AFILIADO");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(41, 310, 140, 15);
+        inscribir.setBounds(40, 400, 150, 58);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/TRAS.png"))); // NOI18N
         jButton6.setText("VOLVER");
@@ -237,7 +185,21 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(389, 385, 129, 58);
+        jButton6.setBounds(360, 400, 129, 58);
+
+        relacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hijo", "Padre", "Abuelo", "Sobrino", "Hermano", "Otro" }));
+        relacion.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                relacionComponentAdded(evt);
+            }
+        });
+        relacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relacionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(relacion);
+        relacion.setBounds(300, 280, 100, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -286,14 +248,6 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_anioFechaNacimientoaaActionPerformed
 
-    private void anioFechaPagoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anioFechaPagoaaKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(anioFechaPagoaa.getText().length() >= 4) evt.consume();
-    }//GEN-LAST:event_anioFechaPagoaaKeyTyped
-
     private void anioFechaNacimientoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anioFechaNacimientoaaKeyTyped
         char c = evt.getKeyChar();
         
@@ -302,22 +256,6 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         if(anioFechaNacimientoaa.getText().length() >= 4) evt.consume();
     }//GEN-LAST:event_anioFechaNacimientoaaKeyTyped
 
-    private void diaFechaPagoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diaFechaPagoaaKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(diaFechaPagoaa.getText().length() >= 2) evt.consume();
-    }//GEN-LAST:event_diaFechaPagoaaKeyTyped
-
-    private void mesFechaPagoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesFechaPagoaaKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(mesFechaPagoaa.getText().length() >= 2) evt.consume();
-    }//GEN-LAST:event_mesFechaPagoaaKeyTyped
-
     private void inscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscribirActionPerformed
         try{
             
@@ -325,13 +263,10 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         dn= Integer.parseInt(diaFechaNacimientoaa.getText());
         mn=Integer.parseInt(mesFechaNacimientoaa.getText());
         an=Integer.parseInt(anioFechaNacimientoaa.getText());
-        dp=Integer.parseInt(diaFechaPagoaa.getText());
-        mp=Integer.parseInt(mesFechaPagoaa.getText());
-        ap=Integer.parseInt(anioFechaPagoaa.getText());
         String sexo = (String) sexoaa.getSelectedItem();
         LocalDate fechaNacimiento = LocalDate.of(an, mn, dn);
-        LocalDate fechaPago = LocalDate.of(ap, mp, dp);
         Integer dni = Integer.parseInt(this.dniaa.getText());
+        String relacionFamiliar = (String) relacion.getSelectedItem();
         
         Metodos.validarDNI(dni);
         boolean  encontrado = ventanaFormularioAltaEmpleado.validarDni(dni);
@@ -342,7 +277,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                         "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 //Sino esta en la lista, lo añado
-                ventanaFormularioAltaEmpleado.altaAfiliado(new Afiliado(12331, nombreaa.getText(), apellidoaa.getText(),Integer.parseInt(dniaa.getText()) ,sexo , fechaNacimiento, fechaPago));
+                ventanaFormularioAltaEmpleado.agregarFamiliar(new Familiar(nombreaa.getText(), apellidoaa.getText(),Integer.parseInt(dniaa.getText()) ,sexo , fechaNacimiento, relacionFamiliar));
                 JOptionPane.showMessageDialog(this, "Se ha añadido el afiliado",
                         "Añadido", JOptionPane.INFORMATION_MESSAGE);
 
@@ -360,18 +295,6 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         
     }//GEN-LAST:event_sexoaaActionPerformed
 
-    private void numeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(numero.getText().length() >= 4) evt.consume();
-    }//GEN-LAST:event_numeroKeyTyped
-
-    private void numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numeroActionPerformed
-
     private void dniaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniaaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dniaaActionPerformed
@@ -380,13 +303,19 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void relacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_relacionActionPerformed
+
+    private void relacionComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_relacionComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_relacionComponentAdded
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anioFechaNacimientoaa;
-    private javax.swing.JTextField anioFechaPagoaa;
     private javax.swing.JTextField apellidoaa;
     private javax.swing.JTextField diaFechaNacimientoaa;
-    private javax.swing.JTextField diaFechaPagoaa;
     private javax.swing.JTextField dniaa;
     private javax.swing.JButton inscribir;
     private javax.swing.JButton jButton6;
@@ -396,13 +325,10 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField mesFechaNacimientoaa;
-    private javax.swing.JTextField mesFechaPagoaa;
     private javax.swing.JTextField nombreaa;
-    private javax.swing.JTextField numero;
+    private javax.swing.JComboBox<String> relacion;
     private javax.swing.JComboBox<String> sexoaa;
     // End of variables declaration//GEN-END:variables
 }

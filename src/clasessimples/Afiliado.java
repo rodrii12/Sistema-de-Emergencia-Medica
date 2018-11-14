@@ -4,11 +4,12 @@ import clasessimples.Persona;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Objects;
 import javax.swing.text.DateFormatter;
 
 public class Afiliado extends Persona{
     private Integer numeroAfiliado;
-    private ArrayList<Persona> grupoFamiliar;
+    private ArrayList<Familiar> grupoFamiliar = new ArrayList<Familiar>();
     private LocalDate fechaDePago;
     private Boolean pago;
 
@@ -36,11 +37,11 @@ public class Afiliado extends Persona{
         this.numeroAfiliado = numeroAfiliado;
     }   
 
-    public ArrayList<Persona> getGrupoFamiliar() {
+    public ArrayList<Familiar> getGrupoFamiliar() {
         return grupoFamiliar;
     }
 
-    public void setGrupoFamiliar(ArrayList<Persona> grupoFamiliar) {
+    public void setGrupoFamiliar(ArrayList<Familiar> grupoFamiliar) {
         this.grupoFamiliar = grupoFamiliar;
     }
 
@@ -51,6 +52,38 @@ public class Afiliado extends Persona{
     public void setFechaDePago(LocalDate fechaDePago) {
         this.fechaDePago = fechaDePago;
     }
-
     
+    public void agregarFamiliar(Familiar f){
+        grupoFamiliar.add(f);
+    }
+    
+    public Familiar buscarFamiliar(Integer dni){
+        Familiar fami = null;
+        for(Familiar i: grupoFamiliar){
+            if(Objects.equals(i.getDNI(), dni)){
+            fami = i;
+            break;
+            }
+        }
+    return fami;    
+    }
+    
+    public boolean validarDni(Integer dni){
+        Boolean estado = false;
+        //recorro la lista de familiares
+            for (Familiar i : grupoFamiliar) {
+                //if (a.getDNI().equals(dni)) {
+                    if(Objects.equals(i.getDNI(), dni)){
+                    estado = true;
+                }
+            }
+            return estado;
+        }
+     
+    public void mostrarPrimerFamiliar(){
+        try {
+        System.out.println(grupoFamiliar.get(0).getNombre());    
+        } catch (Exception e) {
+        }
+    }
 }

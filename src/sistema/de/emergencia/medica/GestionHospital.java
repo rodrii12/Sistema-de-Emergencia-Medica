@@ -8,6 +8,7 @@ import clasessimples.Chofer;
 import clasessimples.Doctor;
 import clasessimples.Empleado;
 import clasessimples.Enfermero;
+import clasessimples.Familiar;
 import clasessimples.Movil;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -216,6 +217,7 @@ import javax.swing.JOptionPane;
                   }
               }
           }
+        
           public boolean validarDni(Integer dni){
             Boolean estado = false;
             //recorro la lista de afiliados
@@ -226,7 +228,7 @@ import javax.swing.JOptionPane;
                 }
             }
             return estado;
-    }
+        }
           
           public Doctor doctorDisponible(){
               Doctor b = null;
@@ -342,4 +344,5 @@ import javax.swing.JOptionPane;
               }
           return b;    
           }  
+          
 }
