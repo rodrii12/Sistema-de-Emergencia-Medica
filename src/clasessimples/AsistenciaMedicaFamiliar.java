@@ -12,6 +12,7 @@ import java.time.LocalDate;
  * @author Miguel
  */
 public class AsistenciaMedicaFamiliar {
+    private String enfermedad;
     private Familiar familiar;
     private Afiliado afiliado;
     private Movil movil;
@@ -20,7 +21,7 @@ public class AsistenciaMedicaFamiliar {
     private Doctor dotor;
     private Chofer chofer;
 
-    public AsistenciaMedicaFamiliar(Familiar familiar, Afiliado afiliado, Movil movil, LocalDate fecha, Enfermero enfermero, Doctor dotor, Chofer chofer) {
+    public AsistenciaMedicaFamiliar(Familiar familiar, Afiliado afiliado, Movil movil, LocalDate fecha, Enfermero enfermero, Doctor dotor, Chofer chofer, String enfermedad) {
         this.afiliado = afiliado;
         this.movil = movil;
         this.fecha = fecha;
@@ -28,6 +29,7 @@ public class AsistenciaMedicaFamiliar {
         this.dotor = dotor;
         this.chofer = chofer;
         this.familiar= familiar;
+        this.enfermedad = enfermedad;
     }    
 
     public Familiar getFamiliar() {

@@ -19,6 +19,7 @@ public class BuscarFamiliar extends javax.swing.JFrame {
 
     Afiliado afi;
     GestionHospital buscaFamiliar;
+    Familiar fami;
     
     public BuscarFamiliar(GestionHospital gh, Afiliado a) {
         initComponents();
@@ -28,6 +29,9 @@ public class BuscarFamiliar extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
+        jButton3.setVisible(false);
+        enfermedadFamiliar.setVisible(false);
+        ingreseEnfemerdad.setVisible(false);
     }
 
     /**
@@ -43,10 +47,19 @@ public class BuscarFamiliar extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        enfermedadFamiliar = new javax.swing.JTextField();
+        ingreseEnfemerdad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(dniaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, -1));
+
+        dniaa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dniaaKeyTyped(evt);
+            }
+        });
+        getContentPane().add(dniaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 190, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/buscar.png"))); // NOI18N
         jButton1.setText("BUSCAR");
@@ -56,10 +69,10 @@ public class BuscarFamiliar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
         jLabel1.setText("DNI DEL FAMILIAR A ATENDER");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, 10));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/TRAS.png"))); // NOI18N
         jButton2.setText("VOLVER");
@@ -69,29 +82,65 @@ public class BuscarFamiliar extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, -1));
+
+        jButton3.setText("GENERAR ASISTENCIA");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 160, 60));
+        getContentPane().add(enfermedadFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 210, -1));
+
+        ingreseEnfemerdad.setText("INGRESE LA ENFERMEDAD");
+        getContentPane().add(ingreseEnfemerdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 150, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
         Integer dni = Integer.parseInt(dniaa.getText());
-        Familiar fami = afi.buscarFamiliar(dni);
+        fami = afi.buscarFamiliar(dni);
         if(fami != null){
-            AsistenciaMedicaParaUnFamiliar amf = new AsistenciaMedicaParaUnFamiliar(buscaFamiliar, afi, fami);
+            jLabel1.setVisible(false);
+            jButton1.setVisible(false);
+            dniaa.setVisible(false);
+            ingreseEnfemerdad.setVisible(true);
+            jButton3.setVisible(true);
+            enfermedadFamiliar.setVisible(true);
         }else JOptionPane.showMessageDialog(null, "Familiar no encontrado", "Error", ERROR);
+        }catch(RuntimeException e){
+            JOptionPane.showMessageDialog(null, "Familiar no encontrado", "Error", ERROR);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void dniaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniaaKeyTyped
+        char C= evt.getKeyChar();
+        if(Character.isLetter(C)) evt.consume();
+        
+        if(dniaa.getText().length() >= 8) evt.consume();
+    }//GEN-LAST:event_dniaaKeyTyped
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String enfer = enfermedadFamiliar.getText();
+        AsistenciaMedicaParaUnFamiliar amf = new AsistenciaMedicaParaUnFamiliar(buscaFamiliar, afi, fami, enfer);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dniaa;
+    private javax.swing.JTextField enfermedadFamiliar;
+    private javax.swing.JLabel ingreseEnfemerdad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

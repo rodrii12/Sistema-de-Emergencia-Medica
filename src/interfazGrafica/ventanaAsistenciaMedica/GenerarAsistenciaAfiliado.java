@@ -23,6 +23,7 @@ import sistema.de.emergencia.medica.GestionHospital;
 public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
 
     GestionHospital generarAsistenciaAfiliado;
+    Afiliado afi;
     
     public GenerarAsistenciaAfiliado(GestionHospital gh) {
         initComponents();
@@ -32,6 +33,9 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
+        ingreseEnfermedad.setVisible(false);
+        jButton3.setVisible(false);
+        enfermedad.setVisible(false);
     }
 
     /**
@@ -43,18 +47,29 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        ingreseDNI = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         dni = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        enfermedad = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        ingreseEnfermedad = new javax.swing.JLabel();
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(450, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("INGRESE DNI DE AFILIADO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        ingreseDNI.setText("INGRESE DNI DE AFILIADO");
+        getContentPane().add(ingreseDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/buscar.png"))); // NOI18N
         jButton1.setText("BUSCAR");
@@ -64,7 +79,7 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
 
         dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +103,18 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 130, 50));
+        getContentPane().add(enfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 130, -1));
+
+        jButton3.setText("GENERAR ASISTENCIA");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 150, 60));
+
+        ingreseEnfermedad.setText("INGRESE LA ENFERMEDAD DEL PACIENTE");
+        getContentPane().add(ingreseEnfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 210, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,22 +133,45 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Integer dam = Integer.parseInt(dni.getText());
-        Afiliado afi = generarAsistenciaAfiliado.buscarAfiliado(dam);
-        if(generarAsistenciaAfiliado.verificarAbonoAfiliado(afi)){
-            AsistenciaMedicaAfiliado ama = new AsistenciaMedicaAfiliado(generarAsistenciaAfiliado, afi);
-        }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
+        afi = generarAsistenciaAfiliado.buscarAfiliado(dam);
+        if(afi != null){
+            if(generarAsistenciaAfiliado.verificarAbonoAfiliado(afi)){
+                jButton1.setVisible(false);
+                ingreseDNI.setVisible(false);
+                dni.setVisible(false);
+                ingreseEnfermedad.setVisible(true);
+                jButton3.setVisible(true);
+                enfermedad.setVisible(true);
+                 }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
+        }else   JOptionPane.showMessageDialog(this, "Afiliado no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String enfer= enfermedad.getText();
+            if (enfer != null){
+                AsistenciaMedicaAfiliado ama = new AsistenciaMedicaAfiliado(generarAsistenciaAfiliado, afi, enfer);
+            }else JOptionPane.showMessageDialog(this, "Especifique enfermedad", "Error", JOptionPane.ERROR_MESSAGE);
+           
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dni;
+    private javax.swing.JTextField enfermedad;
+    private javax.swing.JLabel ingreseDNI;
+    private javax.swing.JLabel ingreseEnfermedad;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

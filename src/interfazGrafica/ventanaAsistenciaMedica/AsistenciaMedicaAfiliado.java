@@ -24,31 +24,44 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
 
     GestionHospital llenarAsistenciaMedica;
     Afiliado afi;
+    String enfer;
     
-    public AsistenciaMedicaAfiliado(GestionHospital gh, Afiliado a) {
+    public AsistenciaMedicaAfiliado(GestionHospital gh, Afiliado a, String s) {
         initComponents();
-        this.setVisible(true);
+        this.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
         afi = a;
+        enfer = s;
+        
+        
+        
         llenarAsistenciaMedica = gh;LocalDate fecha = LocalDate.now();
         Doctor d = llenarAsistenciaMedica.doctorDisponible();
         Chofer c = llenarAsistenciaMedica.choferDisponible();
         Enfermero e = llenarAsistenciaMedica.enfermeroDisponible();
         Movil m = llenarAsistenciaMedica.movilDisponible();
-        AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c);
-        if(am != null){
-            nombreAfiliado.setText(afi.getNombre());
-            nombreDoctor.setText(am.getDotor().getNombre());
-            //patenteAmbulancia.setText(am.getMovil().getPatente());
-            //fecha.setText(String.valueOf(am.getFecha()));
-            //enfermero.setText(am.getEnfermero().getNombre()  +am.getEnfermero().getApellido());
-            nombreChofer.setText(am.getChofer().getNombre()  +am.getEnfermero().getApellido());
-            //nroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
-        }else {
-            JOptionPane.showMessageDialog(this, "NO SE PUDO GENERAR UNA ASISTENCIA MEDICA", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        //AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);
+        if(d != null){
+            if(c != null){
+                if(e != null){
+                    if(m != null){
+                        AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);
+                        this.setVisible(true);
+                        tipoEnfermedad.setText(enfer);
+                        nombreAfiliado.setText(afi.getNombre()+ "  " +afi.getApellido());
+                        nombreDoctor.setText(am.getDotor().getNombre()+ "  " + am.getDotor().getApellido());
+                        dniAfiliado.setText(String.valueOf(am.getAfiliado().getDNI()));
+                        patente.setText(am.getMovil().getPatente());
+                        //fecha.setText(String.valueOf(am.getFecha()));
+                        enfemero.setText(am.getEnfermero().getNombre()+ "  " +am.getEnfermero().getApellido());
+                        nombreChofer.setText(am.getChofer().getNombre()+ "  " +am.getChofer().getApellido());
+                        numeroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
+                    }else JOptionPane.showMessageDialog(this, "AMBULANCIA NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
+                }else JOptionPane.showMessageDialog(this, "ENFERMERO NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
+            }else JOptionPane.showMessageDialog(this, "CHOFER NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);    
+        }else JOptionPane.showMessageDialog(this, "DOCTOR NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);    
     }
 
     /**
@@ -68,80 +81,75 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
         numeroAfiliado = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         nombreChofer = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        enfemero = new javax.swing.JLabel();
+        patente = new javax.swing.JLabel();
+        dniAfiliado = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        tipoEnfermedad = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("DOCTOR DESIGNADO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        getContentPane().add(nombreDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 269, 10));
 
         jLabel2.setText("NOMBRE COMPLETO AFILIADO : ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 160, -1));
+        getContentPane().add(nombreAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 221, 10));
 
         jLabel3.setText("NUMERO AFILIADO");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        getContentPane().add(numeroAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 282, 10));
 
-        jLabel4.setText("NOMBRE CHOFER");
+        jLabel4.setText("CHOFER DESIGNADO");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        getContentPane().add(nombreChofer, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 282, 10));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(nombreAfiliado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(nombreDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(numeroAfiliado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nombreChofer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(nombreDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(nombreAfiliado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(numeroAfiliado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(nombreChofer))
-                .addGap(0, 35, Short.MAX_VALUE))
-        );
+        jLabel5.setText("ASISTENCIA MEDICA");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
+        jLabel6.setText("ENFERMERO DESIGNADO");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 130, -1));
+
+        jLabel7.setText("PATENTE AMBULANCIA");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+
+        jLabel8.setText("DNI AFILIADO");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        getContentPane().add(enfemero, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 250, 10));
+        getContentPane().add(patente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 230, 10));
+        getContentPane().add(dniAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 270, 10));
+
+        jLabel9.setText("ENFERMEDAD");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 120, -1));
+        getContentPane().add(tipoEnfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 230, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel dniAfiliado;
+    private javax.swing.JLabel enfemero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel nombreAfiliado;
     private javax.swing.JLabel nombreChofer;
     private javax.swing.JLabel nombreDoctor;
     private javax.swing.JLabel numeroAfiliado;
+    private javax.swing.JLabel patente;
+    private javax.swing.JLabel tipoEnfermedad;
     // End of variables declaration//GEN-END:variables
 }

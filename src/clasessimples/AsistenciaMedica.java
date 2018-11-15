@@ -8,6 +8,7 @@ import java.time.LocalDate;
 
 public class AsistenciaMedica {
     
+    private String enfemerdad;
     private Afiliado afiliado;
     private Movil movil;
     private LocalDate fecha;
@@ -15,7 +16,8 @@ public class AsistenciaMedica {
     private Doctor dotor;
     private Chofer chofer;
 
-    public AsistenciaMedica(Afiliado afiliado, Movil movil, LocalDate fecha, Enfermero enfermero, Doctor dotor, Chofer chofer) {
+    public AsistenciaMedica(Afiliado afiliado, Movil movil, LocalDate fecha, Enfermero enfermero, Doctor dotor, Chofer chofer, String enfemerdad) {
+        this.enfemerdad = enfemerdad;
         this.afiliado = afiliado;
         this.movil = movil;
         this.fecha = fecha;

@@ -237,7 +237,7 @@ public class GestionHospital {
                 Doctor a = (Doctor) i;
                 if (a.getDisponible()) {
                     b = a;
-                    //b.setDisponible(false);
+                    b.setDisponible(false);
                     break;
                 }
             }
@@ -253,7 +253,7 @@ public class GestionHospital {
                 Enfermero a = (Enfermero) i;
                 if (a.getDisponible()) {
                     b = a;
-                    //b.setDisponible(false);
+                    b.setDisponible(false);
                     break;
                 }
             }
@@ -269,7 +269,7 @@ public class GestionHospital {
                 Chofer a = (Chofer) i;
                 if (a.getDisponible()) {
                     b = a;
-                    //b.setDisponible(false);
+                    b.setDisponible(false);
                     break;
                 }
 
@@ -283,7 +283,7 @@ public class GestionHospital {
         for (Movil i : moviles) {
             if (i.getDisponible()) {
                 b = i;
-                //b.setDisponible(false);
+                b.setDisponible(false);
                 break;
             }
         }
@@ -291,13 +291,13 @@ public class GestionHospital {
         return b;
     }
 
-    public AsistenciaMedica generarAsistencia(Afiliado a) {
+    /*public AsistenciaMedica generarAsistencia(Afiliado a) {
         LocalDate fecha = LocalDate.now();
         Doctor d = doctorDisponible();
         Chofer c = choferDisponible();
         Enfermero e = enfermeroDisponible();
         Movil m = movilDisponible();
-        AsistenciaMedica am = new AsistenciaMedica(a, m, fecha, e, d, c);
+//        AsistenciaMedica am = new AsistenciaMedica(a, m, fecha, e, d, c);
         //if(verificarAbonoAfiliado(a)){
         if (d != null) {
             if (c != null) {
@@ -307,7 +307,7 @@ public class GestionHospital {
                                   am.setChofer(c);
                                   am.setDotor(d);
                                   am.setFecha(fecha);
-                                  am.setMovil(m);*/
+                                  am.setMovil(m);
                     } else {
                         JOptionPane.showMessageDialog(null, "NO HAY AMBULACIA EN ESTE MOMENTO", "Error", JOptionPane.ERROR_MESSAGE);
                     }
@@ -322,7 +322,7 @@ public class GestionHospital {
         }              //}else JOptionPane.showMessageDialog(null,"EL AFILIADO ESTA EN MORA" , "Error", JOptionPane.ERROR_MESSAGE); //JOptionPane.showConfirmDialog(null, "EL AFILIADO ESTA EN MORA");
 
         return am;
-    }
+    }*/
 
     public boolean validarDniEnfer(Integer dni) {
         Boolean estado = false;

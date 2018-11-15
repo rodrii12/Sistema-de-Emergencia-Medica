@@ -344,7 +344,7 @@ char C= evt.getKeyChar();
     }//GEN-LAST:event_diaFechaNacimientoaadKeyTyped
 
     private void mesFechaNacimientoaadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesFechaNacimientoaadKeyTyped
- char C= evt.getKeyChar();
+    char C= evt.getKeyChar();
      if(Character.isLetter(C))
      {
          getToolkit().beep();
