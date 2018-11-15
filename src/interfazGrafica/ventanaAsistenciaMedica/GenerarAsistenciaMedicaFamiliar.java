@@ -37,7 +37,7 @@ public class GenerarAsistenciaMedicaFamiliar extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("DNI DEL AFILIADO CABEZA");
@@ -53,11 +53,6 @@ public class GenerarAsistenciaMedicaFamiliar extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
         jButton2.setText("VOLVER");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 243, -1, -1));
 
         pack();
@@ -72,10 +67,6 @@ public class GenerarAsistenciaMedicaFamiliar extends javax.swing.JFrame {
             }else JOptionPane.showMessageDialog(null, "ABONO NO PAGO");
         }else JOptionPane.showMessageDialog(null, "Afiliado no encontrado", "Error", ERROR);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dniaa;
