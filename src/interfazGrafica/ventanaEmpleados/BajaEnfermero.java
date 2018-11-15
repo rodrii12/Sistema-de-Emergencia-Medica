@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
+import Interfaces_Graficas.VerficarCampoVacioException;
 import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import javax.swing.ImageIcon;
@@ -177,6 +178,8 @@ public class BajaEnfermero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+ try{
+ bajaEnfermero.verificarCampoDNI(dnibd.getText());   
         Integer dni= Integer.parseInt(dnibd.getText());
         enfermeroParaEliminar = bajaEnfermero.buscarEnfermero(dni);
         if(enfermeroParaEliminar != null){
@@ -184,6 +187,9 @@ public class BajaEnfermero extends javax.swing.JFrame {
             mostrarApellido.setText(enfermeroParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(enfermeroParaEliminar.getDNI()));
         }else JOptionPane.showMessageDialog(this," No se ha encontrado el Enfermero" , "Error", JOptionPane.ERROR_MESSAGE);
+        }catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

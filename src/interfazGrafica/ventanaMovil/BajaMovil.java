@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaMovil;
 
+import Interfaces_Graficas.VerficarCampoVacioException;
 import clasessimples.Movil;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -155,11 +156,18 @@ public class BajaMovil extends javax.swing.JFrame {
         
         //Evento del Boton para mostrar la busqueda del movil
     private void BotonBuscarAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarAutoActionPerformed
+  try{
+        bajaMovil.verificarCampoDNI(busquedaAuto.getText()); 
+        
         eliminarMovil = bajaMovil.buscarMovil(busquedaAuto.getText());
         if (eliminarMovil != null){
             mostrarMarca.setText(eliminarMovil.getMarca());
             mostrarModelo.setText(eliminarMovil.getModelo());
         } else JOptionPane.showMessageDialog(this," No se ha encontrado el Movil" , "Error", JOptionPane.ERROR_MESSAGE);
+        
+ }catch(VerficarCampoVacioException cav){
+        JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+        }
     }//GEN-LAST:event_BotonBuscarAutoActionPerformed
 
     private void mostrarMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarMarcaActionPerformed

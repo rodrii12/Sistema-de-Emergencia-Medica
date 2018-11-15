@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanasafiliados;
 
+import Interfaces_Graficas.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -70,12 +71,17 @@ public class BuscarAfiliadoAddFamiliar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  try{
+        buscarAfiliadoAddFamiliar.verificarCampoDNI(dniaa.getText()); 
         Integer dni = Integer.parseInt(dniaa.getText());
         Afiliado a = buscarAfiliadoAddFamiliar.buscarAfiliado(dni);
         a.mostrarPrimerFamiliar();
         if(a != null){
             FormularioAltaFamiliar faf = new FormularioAltaFamiliar(a);
         }else JOptionPane.showMessageDialog(null, "Afiliado no encontrado", "error", ERROR);
+   }catch(VerficarCampoVacioException cav){
+        JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void dniaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniaaKeyTyped
