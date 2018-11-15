@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaAsistenciaMedica;
 
+import Interfaces_Graficas.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -79,6 +80,8 @@ public class GenerarAsistenciaMedicaFamiliar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+ try{
+     generarAsistenciaMedicaFamiliar.verificarCampoDNI(dniaa.getText());  
         Integer dni = Integer.parseInt(dniaa.getText());
         Afiliado a = generarAsistenciaMedicaFamiliar.buscarAfiliado(dni);
         if(a != null){
@@ -86,6 +89,9 @@ public class GenerarAsistenciaMedicaFamiliar extends javax.swing.JFrame {
                 BuscarFamiliar bf = new BuscarFamiliar(generarAsistenciaMedicaFamiliar, a);
             }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
         }else JOptionPane.showMessageDialog(this, "Afiliado no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+}catch(VerficarCampoVacioException cav){
+        JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
