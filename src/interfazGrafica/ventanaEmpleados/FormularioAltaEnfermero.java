@@ -249,21 +249,67 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
     private void nombreaadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreaadKeyTyped
         char c = evt.getKeyChar();
         
-        if(Character.isDigit(c)) evt.consume();
+        if(Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_nombreaadKeyTyped
 
     private void apellidoaadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoaadKeyTyped
         char c = evt.getKeyChar();
         
-        if(Character.isDigit(c)) evt.consume();
+        if(Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_apellidoaadKeyTyped
 
     private void dniaadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniaadKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(dniaad.getText().length() >= 8) evt.consume();
+
+        char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaad.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaad.setCursor(null);
+     }
+     else if(dniaad.getText().length() >= 8){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de ocho caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         
+     }
     }//GEN-LAST:event_dniaadKeyTyped
 
     private void diaFechaNacimientoaadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaFechaNacimientoaadActionPerformed
@@ -271,19 +317,57 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
     }//GEN-LAST:event_diaFechaNacimientoaadActionPerformed
 
     private void diaFechaNacimientoaadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diaFechaNacimientoaadKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(diaFechaNacimientoaad.getText().length() >= 2) evt.consume();
+char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         diaFechaNacimientoaad.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         diaFechaNacimientoaad.setCursor(null);
+     }
+     else if(diaFechaNacimientoaad.getText().length() >= 2){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de dos caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         diaFechaNacimientoaad.setCursor(null);
+     }
     }//GEN-LAST:event_diaFechaNacimientoaadKeyTyped
 
     private void mesFechaNacimientoaadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesFechaNacimientoaadKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(mesFechaNacimientoaad.getText().length() >= 2) evt.consume();
+   char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         mesFechaNacimientoaad.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         mesFechaNacimientoaad.setCursor(null);
+     }
+     else if(mesFechaNacimientoaad.getText().length() >= 2){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de dos caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         mesFechaNacimientoaad.setCursor(null);
+     }
     }//GEN-LAST:event_mesFechaNacimientoaadKeyTyped
 
     private void anioFechaNacimientoaadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anioFechaNacimientoaadActionPerformed
@@ -291,21 +375,59 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
     }//GEN-LAST:event_anioFechaNacimientoaadActionPerformed
 
     private void numeroDeEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroDeEmpleadoKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(numeroDeEmpleado.getText().length() >= 4) evt.consume();
+
+        char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         numeroDeEmpleado.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         numeroDeEmpleado.setCursor(null);
+     }
+     else if(numeroDeEmpleado.getText().length() >= 4){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de cuatro caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         
+     }
     }//GEN-LAST:event_numeroDeEmpleadoKeyTyped
 
     private void anioFechaNacimientoaadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anioFechaNacimientoaadKeyTyped
-        
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(anioFechaNacimientoaad.getText().length() >= 4) evt.consume();
-        
+ 
+                char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         anioFechaNacimientoaad.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         anioFechaNacimientoaad.setCursor(null);
+     }
+     else if(anioFechaNacimientoaad.getText().length() >= 4){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de cuatro caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         anioFechaNacimientoaad.setCursor(null);
+     }
     }//GEN-LAST:event_anioFechaNacimientoaadKeyTyped
 
     private void inscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscribirActionPerformed

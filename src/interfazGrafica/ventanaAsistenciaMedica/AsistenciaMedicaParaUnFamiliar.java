@@ -14,6 +14,7 @@ import clasessimples.Enfermero;
 import clasessimples.Familiar;
 import clasessimples.Movil;
 import java.time.LocalDate;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
@@ -30,6 +31,10 @@ public class AsistenciaMedicaParaUnFamiliar extends javax.swing.JFrame {
     public AsistenciaMedicaParaUnFamiliar(GestionHospital gh, Afiliado a, Familiar f) {
         initComponents();
         this.setVisible(true);
+        
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
         fami = f;
         afi = a;
         llenarAsistenciaMedica = gh; 

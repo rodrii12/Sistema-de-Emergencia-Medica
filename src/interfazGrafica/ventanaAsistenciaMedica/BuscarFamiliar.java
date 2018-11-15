@@ -7,6 +7,7 @@ package interfazGrafica.ventanaAsistenciaMedica;
 
 import clasessimples.Afiliado;
 import clasessimples.Familiar;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
@@ -24,6 +25,9 @@ public class BuscarFamiliar extends javax.swing.JFrame {
         afi = a;
         buscaFamiliar = gh;
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     /**

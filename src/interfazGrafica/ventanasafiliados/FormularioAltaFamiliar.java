@@ -207,21 +207,67 @@ public class FormularioAltaFamiliar extends javax.swing.JFrame {
     private void nombreaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreaaKeyTyped
         char c = evt.getKeyChar();
         
-        if(Character.isDigit(c)) evt.consume();
+        if(Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_nombreaaKeyTyped
 
     private void apellidoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoaaKeyTyped
         char c = evt.getKeyChar();
         
-        if(Character.isDigit(c)) evt.consume();
+        if(Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_apellidoaaKeyTyped
 
     private void dniaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniaaKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(dniaa.getText().length() >= 8) evt.consume();
+
+        char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaa.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaa.setCursor(null);
+     }
+     else if(dniaa.getText().length() >= 8){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de ocho caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         
+     }
     }//GEN-LAST:event_dniaaKeyTyped
 
     private void diaFechaNacimientoaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaFechaNacimientoaaActionPerformed
@@ -229,19 +275,57 @@ public class FormularioAltaFamiliar extends javax.swing.JFrame {
     }//GEN-LAST:event_diaFechaNacimientoaaActionPerformed
 
     private void diaFechaNacimientoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diaFechaNacimientoaaKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(diaFechaNacimientoaa.getText().length() >= 2) evt.consume();
+   char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         diaFechaNacimientoaa.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         diaFechaNacimientoaa.setCursor(null);
+     }
+     else if(diaFechaNacimientoaa.getText().length() >= 2){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de dos caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         diaFechaNacimientoaa.setCursor(null);
+     }
     }//GEN-LAST:event_diaFechaNacimientoaaKeyTyped
 
     private void mesFechaNacimientoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesFechaNacimientoaaKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(mesFechaNacimientoaa.getText().length() >= 2) evt.consume();
+  char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         mesFechaNacimientoaa.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         mesFechaNacimientoaa.setCursor(null);
+     }
+     else if(mesFechaNacimientoaa.getText().length() >= 2){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de dos caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         mesFechaNacimientoaa.setCursor(null);
+     }
     }//GEN-LAST:event_mesFechaNacimientoaaKeyTyped
 
     private void anioFechaNacimientoaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anioFechaNacimientoaaActionPerformed
@@ -249,11 +333,30 @@ public class FormularioAltaFamiliar extends javax.swing.JFrame {
     }//GEN-LAST:event_anioFechaNacimientoaaActionPerformed
 
     private void anioFechaNacimientoaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anioFechaNacimientoaaKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();
-        
-        if(anioFechaNacimientoaa.getText().length() >= 4) evt.consume();
+          char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         anioFechaNacimientoaa.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         anioFechaNacimientoaa.setCursor(null);
+     }
+     else if(anioFechaNacimientoaa.getText().length() >= 4){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de cuatro caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         anioFechaNacimientoaa.setCursor(null);
+     }
     }//GEN-LAST:event_anioFechaNacimientoaaKeyTyped
 
     private void inscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscribirActionPerformed

@@ -12,6 +12,7 @@ import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import clasessimples.Movil;
 import java.time.LocalDate;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
@@ -26,7 +27,11 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
     public GenerarAsistenciaAfiliado(GestionHospital gh) {
         initComponents();
         generarAsistenciaAfiliado = gh;
+        
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     /**

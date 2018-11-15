@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaAsistenciaMedica;
 
+import javax.swing.ImageIcon;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -17,8 +18,12 @@ public class MenuAsistenciaMedica extends javax.swing.JFrame {
     
     public MenuAsistenciaMedica(GestionHospital gh) {
         initComponents();
-        this.setVisible(true);
+        
         menuAM = gh;
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
