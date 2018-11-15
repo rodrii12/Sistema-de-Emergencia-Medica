@@ -7,6 +7,7 @@ package interfazGrafica.ventanaEmpleados;
 
 import Interfaces_Graficas.DNIException;
 import Interfaces_Graficas.Metodos;
+import Interfaces_Graficas.VerficarCampoVacioException;
 import interfazGrafica.ventanasafiliados.*;
 import clasessimples.Afiliado;
 import clasessimples.Doctor;
@@ -316,6 +317,7 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
         String sexo = (String) sexoad.getSelectedItem();
         LocalDate fechaNacimiento = LocalDate.of(an, mn, dn);
         
+        ventanaFormularioAltaDoctor.verificarDatosEmpleado(dniad.getText(),nombread.getText(),apellidoad.getText(),numeroDeEmpleado.getText()); 
             Metodos.validarDNI(dni);
         boolean  encontrado = ventanaFormularioAltaDoctor.validarDniEnfer(dni);
 
@@ -343,9 +345,10 @@ public class FormularioAltaDoctor extends javax.swing.JFrame {
             }
      } catch (DNIException | NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-     } catch (Exception ex) {
-           JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    
         
+     }catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE); 
      }    
         
     }//GEN-LAST:event_jButton1ActionPerformed

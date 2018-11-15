@@ -42,7 +42,9 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
             //enfermero.setText(am.getEnfermero().getNombre()  +am.getEnfermero().getApellido());
             nombreChofer.setText(am.getChofer().getNombre()  +am.getEnfermero().getApellido());
             //nroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
-        }else JOptionPane.showInputDialog("NO SE PUDO GENERAR UNA ASISTENCIA MEDICA");
+        }else {
+            JOptionPane.showMessageDialog(this, "NO SE PUDO GENERAR UNA ASISTENCIA MEDICA", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -96,11 +98,11 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(numeroAfiliado, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE))
+                                .addComponent(numeroAfiliado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(nombreChofer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(59, 59, 59))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +115,7 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nombreAfiliado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(numeroAfiliado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -121,7 +123,7 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(nombreChofer))
-                .addGap(358, 358, 358))
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         pack();

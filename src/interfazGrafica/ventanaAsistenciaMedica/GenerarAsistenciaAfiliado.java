@@ -104,7 +104,7 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
         Afiliado afi = generarAsistenciaAfiliado.buscarAfiliado(dam);
         if(generarAsistenciaAfiliado.verificarAbonoAfiliado(afi)){
             AsistenciaMedicaAfiliado ama = new AsistenciaMedicaAfiliado(generarAsistenciaAfiliado, afi);
-        }else JOptionPane.showMessageDialog(null, "ABONO NO PAGO");
+        }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

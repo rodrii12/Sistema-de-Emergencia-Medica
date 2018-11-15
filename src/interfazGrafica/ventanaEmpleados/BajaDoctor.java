@@ -169,7 +169,7 @@ public class BajaDoctor extends javax.swing.JFrame {
             mostrarNombre.setText(doctorParaEliminar.getNombre());
             mostrarApellido.setText(doctorParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(doctorParaEliminar.getDNI()));
-        }else JOptionPane.showMessageDialog(null,"DOCTOR NO ENCONTRADO");
+        }else JOptionPane.showMessageDialog(this," No se ha encontrado el Doctor" , "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

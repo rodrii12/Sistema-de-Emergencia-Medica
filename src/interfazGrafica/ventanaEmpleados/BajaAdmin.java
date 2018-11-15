@@ -175,7 +175,7 @@ public class BajaAdmin extends javax.swing.JFrame {
             mostrarNombre.setText(adminParaEliminar.getNombre());
             mostrarApellido.setText(adminParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(adminParaEliminar.getDNI()));
-        }else JOptionPane.showMessageDialog(null,"DOCTOR NO ENCONTRADO");
+        }else JOptionPane.showMessageDialog(this," No se ha encontrado el Empleado Administrativo" , "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

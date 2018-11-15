@@ -179,7 +179,7 @@ public class BajaAfiliado extends javax.swing.JFrame {
             mostrarApellido.setText(afiParaEliminar.getApellido());
             mostrarDNI.setText(String.valueOf(afiParaEliminar.getDNI()));
         }else {
-            JOptionPane.showMessageDialog(this," no se ha encontrado el afiliado" , "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this," No se ha encontrado el afiliado" , "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_buscarActionPerformed

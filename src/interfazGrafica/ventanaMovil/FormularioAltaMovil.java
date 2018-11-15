@@ -5,8 +5,12 @@
  */
 package interfazGrafica.ventanaMovil;
 
+import Interfaces_Graficas.VerficarCampoVacioException;
 import clasessimples.Movil;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -164,7 +168,24 @@ public class FormularioAltaMovil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        formularioAltaMovil.AltaMovil(new Movil(nombreAuto.getText(),modeloAuto.getText(),patenteAuto.getText(), Integer.parseInt(añoAuto.getText())));
+    
+    try{ 
+        // String patente = "AAA123";
+         Pattern p = Pattern.compile("[A-Z]{3}[0-9]{3}"); //Formato de la patente, 3 letras 3 números
+         Matcher m = p.matcher(patenteAuto.getText());
+
+         formularioAltaMovil.verificarDatosMovil(nombreAuto.getText(),modeloAuto.getText(),patenteAuto.getText()); 
+
+         if (m.matches()) {
+                 JOptionPane.showMessageDialog(this, "Se ha añadido el vehiculo","Añadido", JOptionPane.INFORMATION_MESSAGE);
+                 formularioAltaMovil.AltaMovil(new Movil(nombreAuto.getText(),modeloAuto.getText(),patenteAuto.getText(), Integer.parseInt(añoAuto.getText())));
+         }else{
+              JOptionPane.showMessageDialog(null, "matricula incorrecta (AAA111) ", "ERROR", JOptionPane.ERROR_MESSAGE); 
+             }
+         } catch(VerficarCampoVacioException cav){
+                JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE); 
+         }   
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void patenteAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patenteAutoActionPerformed

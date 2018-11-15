@@ -48,7 +48,7 @@ public class AsistenciaMedicaParaUnFamiliar extends javax.swing.JFrame {
             //enfermero.setText(am.getEnfermero().getNombre()  +am.getEnfermero().getApellido());
             nombreChofer.setText(am.getChofer().getNombre()  +am.getEnfermero().getApellido());
             //nroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
-        }else JOptionPane.showInputDialog("NO SE PUDO GENERAR UNA ASISTENCIA MEDICA");
+        }else JOptionPane.showMessageDialog(this, "NO SE PUDO GENERAR UNA ASISTENCIA MEDICA", "Error", JOptionPane.ERROR_MESSAGE);
     }
 
     /**

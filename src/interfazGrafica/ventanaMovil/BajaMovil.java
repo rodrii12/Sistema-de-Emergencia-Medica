@@ -153,7 +153,7 @@ public class BajaMovil extends javax.swing.JFrame {
         if (eliminarMovil != null){
             mostrarMarca.setText(eliminarMovil.getMarca());
             mostrarModelo.setText(eliminarMovil.getModelo());
-        } else JOptionPane.showMessageDialog(null,"MOVIL NO ENCONTRADO"); 
+        } else JOptionPane.showMessageDialog(this," No se ha encontrado el Movil" , "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_BotonBuscarAutoActionPerformed
 
     private void mostrarMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarMarcaActionPerformed
@@ -161,7 +161,18 @@ public class BajaMovil extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarMarcaActionPerformed
 
     private void BotonEliminarAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarAutoActionPerformed
-        bajaMovil.bajaMovil(eliminarMovil);
+        //bajaMovil.bajaMovil(eliminarMovil);
+        
+        if(eliminarMovil!= null){
+           bajaMovil.bajaMovil(eliminarMovil);
+           JOptionPane.showMessageDialog(this, "Se ha eliminado correctamente", "Eliminado", JOptionPane.INFORMATION_MESSAGE);
+           this.mostrarMarca.setText("");
+           this.mostrarModelo.setText("");
+           
+        }
+        else{
+            JOptionPane.showMessageDialog(this," no se pudo eliminar" , "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BotonEliminarAutoActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

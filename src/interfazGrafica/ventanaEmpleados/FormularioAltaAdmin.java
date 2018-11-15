@@ -7,6 +7,7 @@ package interfazGrafica.ventanaEmpleados;
 
 import Interfaces_Graficas.DNIException;
 import Interfaces_Graficas.Metodos;
+import Interfaces_Graficas.VerficarCampoVacioException;
 import clasessimples.Administrativo;
 import interfazGrafica.ventanasafiliados.*;
 import clasessimples.Afiliado;
@@ -316,6 +317,8 @@ public class FormularioAltaAdmin extends javax.swing.JFrame {
         String sexo = (String) sexoad.getSelectedItem();
         LocalDate fechaNacimiento = LocalDate.of(an, mn, dn);
         
+          ventanaFormularioAltaAdmin.verificarDatosEmpleado(dniaad.getText(),nombreaad.getText(),apellidoaad.getText(),numeroDeEmpleado.getText()); 
+
                 Metodos.validarDNI(dni);
         boolean  encontrado = ventanaFormularioAltaAdmin.validarDniEnfer(dni);
 
@@ -339,10 +342,12 @@ public class FormularioAltaAdmin extends javax.swing.JFrame {
             }
      } catch (DNIException | NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-     } catch (Exception ex) {
+     /*} catch (Exception ex) {
            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        
-     }  
+        */
+     }catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE); 
+     }   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void sexoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoadActionPerformed

@@ -176,7 +176,7 @@ public class BajaChofer extends javax.swing.JFrame {
             mostrarNombre.setText(choferParaEliminar.getNombre());
             mostrarApellido.setText(choferParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(choferParaEliminar.getDNI()));
-        }else JOptionPane.showMessageDialog(null,"DOCTOR NO ENCONTRADO");
+        }JOptionPane.showMessageDialog(this," No se ha encontrado el Chofer" , "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

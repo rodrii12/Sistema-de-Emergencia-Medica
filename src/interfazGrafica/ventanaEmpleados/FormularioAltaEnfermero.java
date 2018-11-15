@@ -7,6 +7,7 @@ package interfazGrafica.ventanaEmpleados;
 
 import Interfaces_Graficas.DNIException;
 import Interfaces_Graficas.Metodos;
+import Interfaces_Graficas.VerficarCampoVacioException;
 import clasessimples.Administrativo;
 import interfazGrafica.ventanasafiliados.*;
 import clasessimples.Afiliado;
@@ -298,11 +299,13 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
     }//GEN-LAST:event_numeroDeEmpleadoKeyTyped
 
     private void anioFechaNacimientoaadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anioFechaNacimientoaadKeyTyped
+        
         char c = evt.getKeyChar();
         
         if(Character.isLetter(c)) evt.consume();
         
         if(anioFechaNacimientoaad.getText().length() >= 4) evt.consume();
+        
     }//GEN-LAST:event_anioFechaNacimientoaadKeyTyped
 
     private void inscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscribirActionPerformed
@@ -316,8 +319,11 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
         String sexo = (String) sexoad.getSelectedItem();
         LocalDate fechaNacimiento = LocalDate.of(an, mn, dn);
         
+        ventanaFormularioAltaEnfermero.verificarDatosEmpleado(dniaad.getText(),nombreaad.getText(),apellidoaad.getText(),numeroDeEmpleado.getText()); 
         Metodos.validarDNI(dni);
         boolean  encontrado = ventanaFormularioAltaEnfermero.validarDniEnfer(dni);
+
+         
 
             //si lo encuentro, muestro un error
             if (encontrado) {
@@ -340,12 +346,17 @@ public class FormularioAltaEnfermero extends javax.swing.JFrame {
             }
      } catch (DNIException | NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-     } catch (Exception ex) {
+     /*} catch (Exception ex) {
            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        
-     }  
+       */
+     } catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE); 
+     }
+      
     }//GEN-LAST:event_inscribirActionPerformed
 
+    
+    
     private void sexoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoadActionPerformed
         
     }//GEN-LAST:event_sexoadActionPerformed
