@@ -86,7 +86,8 @@ import javax.swing.JOptionPane;
               else{
                   afiliado.setFechaDePago(fechaActual);
                   afiliado.setAbonoHabilitado(true);
-                  //PAGADO
+                  //NO PAGADO
+                  JOptionPane.showMessageDialog(null,"ABONO PAGADO");
               }
           }
           
