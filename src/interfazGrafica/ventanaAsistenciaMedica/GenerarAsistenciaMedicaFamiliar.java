@@ -47,6 +47,12 @@ public class GenerarAsistenciaMedicaFamiliar extends javax.swing.JFrame {
 
         jLabel1.setText("DNI DEL AFILIADO CABEZA");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+
+        dniaa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dniaaKeyTyped(evt);
+            }
+        });
         getContentPane().add(dniaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 134, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/buscar.png"))); // NOI18N
@@ -86,11 +92,35 @@ public class GenerarAsistenciaMedicaFamiliar extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void dniaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniaaKeyTyped
+         char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaa.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaa.setCursor(null);
+     }
+     else if(dniaa.getText().length() >= 8){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de ocho caracteres","Error", JOptionPane.ERROR_MESSAGE);
+     } 
+    }//GEN-LAST:event_dniaaKeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dniaa;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

@@ -46,6 +46,12 @@ public class BuscarFamiliar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        dniaa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dniaaKeyTyped(evt);
+            }
+        });
         getContentPane().add(dniaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/buscar.png"))); // NOI18N
@@ -85,6 +91,32 @@ public class BuscarFamiliar extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void dniaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniaaKeyTyped
+    char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaa.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaa.setCursor(null);
+     }
+     else if(dniaa.getText().length() >= 8){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de ocho caracteres","Error", JOptionPane.ERROR_MESSAGE);
+     } 
+    }//GEN-LAST:event_dniaaKeyTyped
 
     
     
