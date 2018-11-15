@@ -59,7 +59,7 @@ public class BuscarFamiliar extends javax.swing.JFrame {
                 dniaaKeyTyped(evt);
             }
         });
-        getContentPane().add(dniaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 190, -1));
+        getContentPane().add(dniaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/buscar.png"))); // NOI18N
         jButton1.setText("BUSCAR");
@@ -129,10 +129,11 @@ public class BuscarFamiliar extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String enfer = enfermedadFamiliar.getText();
+        if(enfer != null){
         AsistenciaMedicaParaUnFamiliar amf = new AsistenciaMedicaParaUnFamiliar(buscaFamiliar, afi, fami, enfer);
+        }else JOptionPane.showMessageDialog(null, "INGRESE LA ENFERMEDAD A TRATAR");
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    
+   
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dniaa;

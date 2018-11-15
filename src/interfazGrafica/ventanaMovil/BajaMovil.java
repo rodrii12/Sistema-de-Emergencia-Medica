@@ -54,6 +54,12 @@ public class BajaMovil extends javax.swing.JFrame {
 
         jLabel1.setText("INGRESAR EL NUMERO DE PATENTE DEL VEHICULO :");
 
+        busquedaAuto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                busquedaAutoKeyTyped(evt);
+            }
+        });
+
         BotonBuscarAuto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/buscar_1.png"))); // NOI18N
         BotonBuscarAuto.setText("BUSCAR");
         BotonBuscarAuto.setContentAreaFilled(false);
@@ -179,6 +185,27 @@ public class BajaMovil extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void busquedaAutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_busquedaAutoKeyTyped
+     char C= evt.getKeyChar();
+     
+     if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo letras o numeros (AAA111)","Error", JOptionPane.ERROR_MESSAGE);
+         busquedaAuto.setCursor(null);
+     }
+     else if(busquedaAuto.getText().length() >= 6){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de seis caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         
+     }
+    }//GEN-LAST:event_busquedaAutoKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -218,9 +245,6 @@ public class BajaMovil extends javax.swing.JFrame {
     private javax.swing.JButton BotonBuscarAuto;
     private javax.swing.JButton BotonEliminarAuto;
     private javax.swing.JTextField busquedaAuto;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

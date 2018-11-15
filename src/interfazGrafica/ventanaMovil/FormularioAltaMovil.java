@@ -197,31 +197,63 @@ public class FormularioAltaMovil extends javax.swing.JFrame {
     }//GEN-LAST:event_modeloAutoActionPerformed
 
     private void nombreAutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreAutoKeyTyped
-        char c = evt.getKeyChar();
+     /*   char c = evt.getKeyChar();
         
-        if(Character.isDigit(c)) evt.consume();
+        if(Character.isDigit(c)) evt.consume();*/
     }//GEN-LAST:event_nombreAutoKeyTyped
 
     private void modeloAutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modeloAutoKeyTyped
-        char c = evt.getKeyChar();
+      /*  char c = evt.getKeyChar();
         
-        if(Character.isDigit(c)) evt.consume();
+        if(Character.isDigit(c)) evt.consume();*/
     }//GEN-LAST:event_modeloAutoKeyTyped
 
     private void patenteAutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patenteAutoKeyTyped
-        char c = evt.getKeyChar();
-        
-        //if(Character.isLetter(c)) evt.consume();// SOLAMENTE NUMEROS
-        
-        if(patenteAuto.getText().length() >= 6) evt.consume();
+ char C= evt.getKeyChar();
+     
+     if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo letras o numeros (AAA111)","Error", JOptionPane.ERROR_MESSAGE);
+         patenteAuto.setCursor(null);
+     }
+     else if(patenteAuto.getText().length() >= 6){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de seis caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         
+     }
     }//GEN-LAST:event_patenteAutoKeyTyped
 
     private void añoAutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_añoAutoKeyTyped
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) evt.consume();// SOLAMENTE NUMEROS
-        
-        if(añoAuto.getText().length() >= 4) evt.consume();
+                char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         añoAuto.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         añoAuto.setCursor(null);
+     }
+     else if(añoAuto.getText().length() >= 4){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de cuatro caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         añoAuto.setCursor(null);
+     }
     }//GEN-LAST:event_añoAutoKeyTyped
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
