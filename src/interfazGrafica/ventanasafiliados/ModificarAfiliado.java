@@ -24,7 +24,7 @@ public class ModificarAfiliado extends javax.swing.JFrame {
         initComponents();
         modificarAfiliado = gh;
         this.setVisible(true);
-        this.setVisible(true);
+        //this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
@@ -222,6 +222,7 @@ public class ModificarAfiliado extends javax.swing.JFrame {
             this.an.setText(String.valueOf(afi.getFechaNacimiento().getYear()));
             jButton1.setVisible(false);
             jLabel1.setVisible(false);
+            guardar.setVisible(true);
             numeroAfiliado.setVisible(false);
             
         }else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
@@ -232,18 +233,20 @@ public class ModificarAfiliado extends javax.swing.JFrame {
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
         if(afiliadoAModificar != null){
         
+        modificarAfiliado.bajaAfiliado(afiliadoAModificar);
         String nombrema = nombre.getText();
         String apellidoma = apellido.getText();
         Integer dnima = Integer.parseInt(dni.getText());
         LocalDate fechaNacimiento = LocalDate.of(Integer.parseInt(an.getText()),Integer.parseInt(mn.getText()), Integer.parseInt(dn.getText()));
-        
         Afiliado na= new Afiliado(afiliadoAModificar.getNumeroAfiliado(), nombrema, apellidoma, dnima, afiliadoAModificar.getSexo(), fechaNacimiento, afiliadoAModificar.getFechaDePago());
-        JOptionPane.showMessageDialog(this, "Se ha MODIFICADO correctamente","Modificado", JOptionPane.INFORMATION_MESSAGE);
+        if(na != null){    
+            JOptionPane.showMessageDialog(this, "Se ha MODIFICADO correctamente","Modificado", JOptionPane.INFORMATION_MESSAGE);
+            modificarAfiliado.altaAfiliado(na);
         } else{
             
             JOptionPane.showMessageDialog(this," no se pudo modificar " , "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+        }    
     }//GEN-LAST:event_guardarActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

@@ -238,7 +238,7 @@ import javax.swing.JOptionPane;
                       Doctor a = (Doctor)i;
                       if(a.getDisponible()){
                           b = a;
-                          //b.setDisponible(false);
+                          b.setDisponible(false);
                           break;
                       }
                   }

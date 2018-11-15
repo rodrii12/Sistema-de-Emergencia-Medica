@@ -28,21 +28,38 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         afi = a;
-        llenarAsistenciaMedica = gh;LocalDate fecha = LocalDate.now();
+        llenarAsistenciaMedica = gh;
+        LocalDate fecha = LocalDate.now();
         Doctor d = llenarAsistenciaMedica.doctorDisponible();
         Chofer c = llenarAsistenciaMedica.choferDisponible();
         Enfermero e = llenarAsistenciaMedica.enfermeroDisponible();
         Movil m = llenarAsistenciaMedica.movilDisponible();
-        AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c);
-        if(am != null){
-            nombreAfiliado.setText(afi.getNombre());
+        //if(am != null){
+                    if(d != null){
+                      if(c != null){
+                          if(e != null){
+                              if(m != null){
+                                AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c);
+                                nombreAfiliado.setText(afi.getNombre());
+                                nombreDoctor.setText(am.getDotor().getNombre());
+                                //patenteAmbulancia.setText(am.getMovil().getPatente());
+                                //fecha.setText(String.valueOf(am.getFecha()));
+                                //enfermero.setText(am.getEnfermero().getNombre()  +am.getEnfermero().getApellido());
+                                nombreChofer.setText(am.getChofer().getNombre()  +am.getEnfermero().getApellido());
+                                //nroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));*/
+                                
+                              }else JOptionPane.showMessageDialog(null,"NO HAY AMBULACIA EN ESTE MOMENTO" , "Error", JOptionPane.ERROR_MESSAGE);
+                          }else JOptionPane.showMessageDialog(null,"NO HAY ENFERMERO DISPONIBLE" , "Error", JOptionPane.ERROR_MESSAGE);//JOptionPane.showConfirmDialog(null, "NO HAY ENFERMERO DISPONIBLE");
+                      }else JOptionPane.showMessageDialog(null, "NO HAY CHOFER DISPONIBLE" , "Error", JOptionPane.ERROR_MESSAGE);//JOptionPane.showConfirmDialog(null, "NO HAY CHOFER DISPONIBLE");;
+                  }else JOptionPane.showMessageDialog(null,"NO HAY DOCTOR DISPONIBLE" , "Error", JOptionPane.ERROR_MESSAGE);//JOptionPane.showConfirmDialog(null, "NO HAY DOCTOR DISPONIBLE");;
+            /*nombreAfiliado.setText(afi.getNombre());
             nombreDoctor.setText(am.getDotor().getNombre());
             //patenteAmbulancia.setText(am.getMovil().getPatente());
             //fecha.setText(String.valueOf(am.getFecha()));
             //enfermero.setText(am.getEnfermero().getNombre()  +am.getEnfermero().getApellido());
             nombreChofer.setText(am.getChofer().getNombre()  +am.getEnfermero().getApellido());
-            //nroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
-        }else JOptionPane.showInputDialog("NO SE PUDO GENERAR UNA ASISTENCIA MEDICA");
+            //nroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));*/
+        //}else JOptionPane.showInputDialog("NO SE PUDO GENERAR UNA ASISTENCIA MEDICA");
     }
 
     /**
@@ -63,7 +80,7 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         nombreChofer = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("DOCTOR DESIGNADO");
 
