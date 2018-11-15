@@ -41,6 +41,7 @@ public class MenuAfiliados extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu Afiliado");
@@ -92,6 +93,14 @@ public class MenuAfiliados extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
+        jButton5.setText("Pagar Abono");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,6 +124,10 @@ public class MenuAfiliados extends javax.swing.JFrame {
         BuscarAfiliadoAddFamiliar baaf = new BuscarAfiliadoAddFamiliar(ventanaMenuAfiliados);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        PagarAbonoAfiliado paa = new PagarAbonoAfiliado(ventanaMenuAfiliados);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -123,5 +136,6 @@ public class MenuAfiliados extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     // End of variables declaration//GEN-END:variables
 }
