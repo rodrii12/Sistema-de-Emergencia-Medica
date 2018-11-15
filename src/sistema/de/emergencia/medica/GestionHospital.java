@@ -374,5 +374,11 @@ public class GestionHospital {
         }
 
     }
+    public void verificarCampoDNI(String dni) throws VerficarCampoVacioException {
 
+        if (dni.equals("") ) {
+            throw new VerficarCampoVacioException();
+        }
+
+    }
 }

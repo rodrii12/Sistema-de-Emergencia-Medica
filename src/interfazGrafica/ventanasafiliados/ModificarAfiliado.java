@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanasafiliados;
 
+import Interfaces_Graficas.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
@@ -244,6 +245,9 @@ public class ModificarAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_dniActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  try{
+        modificarAfiliado.verificarCampoDNI(dni.getText()); 
+
         Integer numero = Integer.parseInt(numeroAfiliado.getText());
         Afiliado afi = modificarAfiliado.buscarAfiliadoPorNumero(numero);
         afiliadoAModificar = afi;
@@ -260,8 +264,10 @@ public class ModificarAfiliado extends javax.swing.JFrame {
             numeroAfiliado.setVisible(false);
             
         }else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
-
-           
+    }catch(VerficarCampoVacioException cav){
+        JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+        }
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
