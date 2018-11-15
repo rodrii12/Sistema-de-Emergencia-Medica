@@ -251,7 +251,7 @@ public class ModificarAfiliado extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
   try{
-        modificarAfiliado.verificarCampoDNI(dni.getText()); 
+        modificarAfiliado.verificarCampoDNI(numeroAfiliado.getText()); 
 
         Integer numero = Integer.parseInt(numeroAfiliado.getText());
         Afiliado afi = modificarAfiliado.buscarAfiliadoPorNumero(numero);
@@ -443,7 +443,30 @@ public class ModificarAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_anKeyTyped
 
     private void numeroAfiliadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroAfiliadoKeyTyped
-
+         char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         numeroAfiliado.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         numeroAfiliado.setCursor(null);
+     }
+     else if(numeroAfiliado.getText().length() >= 4){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de cuatro caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         
+     }
     }//GEN-LAST:event_numeroAfiliadoKeyTyped
 
 
