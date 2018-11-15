@@ -111,7 +111,7 @@ public class PagarAbonoAfiliado extends javax.swing.JFrame {
         if(a !=null){
             pagarAbonoAfiliado.pagarAbonoAfiliado(a);
         }
-        else JOptionPane.showMessageDialog(null, "AFILIADO NO ENCONTRADO");
+        else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
     }catch(VerficarCampoVacioException cav){
         JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }

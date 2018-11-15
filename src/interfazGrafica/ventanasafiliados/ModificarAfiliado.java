@@ -71,6 +71,11 @@ public class ModificarAfiliado extends javax.swing.JFrame {
                 numeroAfiliadoActionPerformed(evt);
             }
         });
+        numeroAfiliado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numeroAfiliadoKeyTyped(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/buscar.png"))); // NOI18N
         jButton1.setText("BUSCAR");
@@ -436,6 +441,10 @@ public class ModificarAfiliado extends javax.swing.JFrame {
          an.setCursor(null);
      }
     }//GEN-LAST:event_anKeyTyped
+
+    private void numeroAfiliadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroAfiliadoKeyTyped
+
+    }//GEN-LAST:event_numeroAfiliadoKeyTyped
 
 
 

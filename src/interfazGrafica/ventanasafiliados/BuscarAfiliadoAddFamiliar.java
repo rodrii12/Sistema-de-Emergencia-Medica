@@ -75,10 +75,11 @@ public class BuscarAfiliadoAddFamiliar extends javax.swing.JFrame {
         buscarAfiliadoAddFamiliar.verificarCampoDNI(dniaa.getText()); 
         Integer dni = Integer.parseInt(dniaa.getText());
         Afiliado a = buscarAfiliadoAddFamiliar.buscarAfiliado(dni);
-        a.mostrarPrimerFamiliar();
+        //a.mostrarPrimerFamiliar();
         if(a != null){
             FormularioAltaFamiliar faf = new FormularioAltaFamiliar(a);
-        }else JOptionPane.showMessageDialog(null, "Afiliado no encontrado", "error", ERROR);
+            }else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
+        
    }catch(VerficarCampoVacioException cav){
         JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
         }
