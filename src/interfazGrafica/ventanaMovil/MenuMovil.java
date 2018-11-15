@@ -18,10 +18,12 @@ public class MenuMovil extends javax.swing.JFrame {
      * Creates new form Menu
      */
     public MenuMovil(GestionHospital gh) {
+        initComponents();
         this.menuMovil = gh;
         this.setVisible(true);
-        initComponents();
-        setIconImage (new ImageIcon(getClass().getResource("/interfazGrafica/red-38673_960_720.png")).getImage()); //Agrega el icono de la ventana
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage()); //Agrega el icono de la ventana
     }
 
     private MenuMovil() {
@@ -42,8 +44,11 @@ public class MenuMovil extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Sistema de Emergencia Medico");
+        setTitle("Menu Movil");
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(400, 300));
 
         BotonAltaMovil.setText("Alta Movil");
         BotonAltaMovil.addActionListener(new java.awt.event.ActionListener() {
