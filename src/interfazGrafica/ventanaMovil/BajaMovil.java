@@ -7,6 +7,7 @@ package interfazGrafica.ventanaMovil;
 
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Movil;
+import excepciones.MovilNoEncontradoExeption;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -169,14 +170,18 @@ public class BajaMovil extends javax.swing.JFrame {
         bajaMovil.verificarCampoDNI(busquedaAuto.getText()); 
         
         eliminarMovil = bajaMovil.buscarMovil(busquedaAuto.getText());
-        if (eliminarMovil != null){
+        
+        
             mostrarMarca.setText(eliminarMovil.getMarca());
             mostrarModelo.setText(eliminarMovil.getModelo());
-        } else JOptionPane.showMessageDialog(this," No se ha encontrado el Movil" , "Error", JOptionPane.ERROR_MESSAGE);
         
  }catch(VerficarCampoVacioException cav){
         JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-        }
+ }catch (MovilNoEncontradoExeption ex) {
+        JOptionPane.showMessageDialog(this," No se ha encontrado el Movil" , "Error", JOptionPane.ERROR_MESSAGE);
+ }catch (NullPointerException e) {
+        JOptionPane.showMessageDialog(null, " NO HAY NINGUN MOVIL EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}
     }//GEN-LAST:event_BotonBuscarAutoActionPerformed
 
     private void mostrarMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarMarcaActionPerformed

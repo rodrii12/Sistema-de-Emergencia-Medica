@@ -7,6 +7,8 @@ package interfazGrafica.ventanaAsistenciaMedica;
 
 import clasessimples.Afiliado;
 import clasessimples.Familiar;
+import excepciones.PersonaNoEncontradaException;
+import excepciones.VerficarCampoVacioException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -100,20 +102,25 @@ public class BuscarFamiliar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{
-        Integer dni = Integer.parseInt(dniaa.getText());
+try{
+    buscaFamiliar.verificarCampoDNI(dniaa.getText());    
+    Integer dni = Integer.parseInt(dniaa.getText());
         fami = afi.buscarFamiliar(dni);
-        if(fami != null){
+        
             jLabel1.setVisible(false);
             jButton1.setVisible(false);
             dniaa.setVisible(false);
             ingreseEnfemerdad.setVisible(true);
             jButton3.setVisible(true);
             enfermedadFamiliar.setVisible(true);
-        }else JOptionPane.showMessageDialog(null, "Familiar no encontrado", "Error", ERROR);
-        }catch(RuntimeException e){
-            JOptionPane.showMessageDialog(null, "Familiar no encontrado", "Error", ERROR);
-        }
+        JOptionPane.showMessageDialog(null, "Familiar no encontrado", "Error", ERROR);
+    }catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }catch (PersonaNoEncontradaException ex) {
+        JOptionPane.showMessageDialog(null, "Familiar no encontrado", "Error", ERROR);
+    }catch (NullPointerException e) {
+           JOptionPane.showMessageDialog(null, " NO HAY NINGUN FAMILIAR EN ASOCIADO A ESTE AFILIADO", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

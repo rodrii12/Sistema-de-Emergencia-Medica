@@ -1,6 +1,7 @@
 package clasessimples;
 
 import clasessimples.Persona;
+import excepciones.PersonaNoEncontradaException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -57,12 +58,16 @@ public class Afiliado extends Persona{
         grupoFamiliar.add(f);
     }
     
-    public Familiar buscarFamiliar(Integer dni){
+    public Familiar buscarFamiliar(Integer dni) throws PersonaNoEncontradaException{
         Familiar fami = null;
         for(Familiar i: grupoFamiliar){
             if(Objects.equals(i.getDNI(), dni)){
-            fami = i;
-            break;
+                fami = i;
+                break;
+            }
+            else{
+                PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
+                throw ne;
             }
         }
     return fami;    

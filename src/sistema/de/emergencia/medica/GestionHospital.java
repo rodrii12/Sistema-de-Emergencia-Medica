@@ -10,6 +10,7 @@ import clasessimples.Empleado;
 import clasessimples.Enfermero;
 import clasessimples.Familiar;
 import clasessimples.Movil;
+import excepciones.MovilNoEncontradoExeption;
 import excepciones.PersonaNoEncontradaException;
 import excepciones.SinPersonasExeption;
 import java.time.LocalDate;
@@ -416,15 +417,17 @@ public class GestionHospital {
         return estado;
     }
 
-    public Movil buscarMovil(String patente) {
+    public Movil buscarMovil(String patente) throws MovilNoEncontradoExeption {
         Movil b = null;
         for (Movil i : moviles) {
             if (i instanceof Movil) {
                 Movil a = (Movil) i;
                 if (Objects.equals(a.getPatente(), patente)) {
-                    //Movil encontrado
                     b = a;
-
+                }
+                else{
+                    MovilNoEncontradoExeption ne = new MovilNoEncontradoExeption();
+                    throw ne;
                 }
             }
         }
