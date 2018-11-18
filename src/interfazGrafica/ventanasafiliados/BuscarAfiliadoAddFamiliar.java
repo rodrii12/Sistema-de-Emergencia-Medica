@@ -7,6 +7,10 @@ package interfazGrafica.ventanasafiliados;
 
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
+import excepciones.PersonaNoEncontradaException;
+import excepciones.SinPersonasExeption;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -113,14 +117,17 @@ public class BuscarAfiliadoAddFamiliar extends javax.swing.JFrame {
         buscarAfiliadoAddFamiliar.verificarCampoDNI(dniaa.getText()); 
         Integer dni = Integer.parseInt(dniaa.getText());
         Afiliado a = buscarAfiliadoAddFamiliar.buscarAfiliado(dni);
-        //a.mostrarPrimerFamiliar();
-        if(a != null){
+
             FormularioAltaFamiliar faf = new FormularioAltaFamiliar(a);
-            }else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
         
    }catch(VerficarCampoVacioException cav){
         JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-        }
+   } catch (PersonaNoEncontradaException ex) {
+        JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+   } catch (NullPointerException  ex) {
+        JOptionPane.showMessageDialog(null, " NO EXISTE NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+   }
+  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void dniaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniaaKeyTyped

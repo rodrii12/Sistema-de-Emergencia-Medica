@@ -7,6 +7,7 @@ package interfazGrafica.ventanaAsistenciaMedica;
 
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
+import excepciones.PersonaNoEncontradaException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -113,14 +114,18 @@ public class GenerarAsistenciaMedicaFamiliar extends javax.swing.JFrame {
      generarAsistenciaMedicaFamiliar.verificarCampoDNI(dniaa.getText());  
         Integer dni = Integer.parseInt(dniaa.getText());
         Afiliado a = generarAsistenciaMedicaFamiliar.buscarAfiliado(dni);
-        if(a != null){
+        
             if(generarAsistenciaMedicaFamiliar.verificarAbonoAfiliado(a)){
                 BuscarFamiliar bf = new BuscarFamiliar(generarAsistenciaMedicaFamiliar, a);
             }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
-        }else JOptionPane.showMessageDialog(this, "Afiliado no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            
 }catch(VerficarCampoVacioException cav){
-        JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-    }   
+    JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}catch (PersonaNoEncontradaException ex) {
+    JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

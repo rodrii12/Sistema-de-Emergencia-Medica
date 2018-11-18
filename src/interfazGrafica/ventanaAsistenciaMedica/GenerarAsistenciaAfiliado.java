@@ -12,6 +12,7 @@ import clasessimples.Chofer;
 import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import clasessimples.Movil;
+import excepciones.PersonaNoEncontradaException;
 import excepciones.VerficarCampoVacioException;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
@@ -81,7 +82,7 @@ public class GenerarAsistenciaAfiliado extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
         dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +157,7 @@ char C= evt.getKeyChar();
      generarAsistenciaAfiliado.verificarCampoDNI(dni.getText());    
         Integer dam = Integer.parseInt(dni.getText());
         afi = generarAsistenciaAfiliado.buscarAfiliado(dam);
-        if(afi != null){
+       
             if(generarAsistenciaAfiliado.verificarAbonoAfiliado(afi)){
                 jButton1.setVisible(false);
                 ingreseDNI.setVisible(false);
@@ -165,10 +166,13 @@ char C= evt.getKeyChar();
                 jButton3.setVisible(true);
                 enfermedad.setVisible(true);
                  }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
-        }else   JOptionPane.showMessageDialog(this, "Afiliado no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
-        }catch(VerficarCampoVacioException cav){
-        JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-    }   
+    }catch(VerficarCampoVacioException cav){
+       JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    } catch (PersonaNoEncontradaException ex) {
+       JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }catch (NullPointerException e) {
+       JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

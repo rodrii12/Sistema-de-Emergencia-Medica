@@ -7,6 +7,7 @@ package interfazGrafica.ventanasafiliados;
 
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
+import excepciones.PersonaNoEncontradaException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -115,12 +116,15 @@ public class PagarAbonoAfiliado extends javax.swing.JFrame {
      pagarAbonoAfiliado.verificarCampoDNI(dniaa.getText());  
         Integer dni = Integer.parseInt(dniaa.getText());
         Afiliado a = pagarAbonoAfiliado.buscarAfiliado(dni);
-        if(a !=null){
+        
             pagarAbonoAfiliado.pagarAbonoAfiliado(a);
-        }
-        else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
+        
     }catch(VerficarCampoVacioException cav){
         JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }catch (NullPointerException e) {
+           JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }catch (PersonaNoEncontradaException ex) {
+           JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
