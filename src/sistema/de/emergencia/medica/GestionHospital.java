@@ -11,6 +11,7 @@ import clasessimples.Enfermero;
 import clasessimples.Familiar;
 import clasessimples.Movil;
 import excepciones.PersonaNoEncontradaException;
+import excepciones.SinPersonasExeption;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -51,8 +52,31 @@ public class GestionHospital {
                 throw ne;
             }
         }
-     return a;
-     }    
+     return a;  
+     }
+
+            public Afiliado buscarAfiliado(Integer dni) throws PersonaNoEncontradaException, SinPersonasExeption{
+                 Afiliado a = null;
+                 for (Afiliado i : afiliados) {
+                   
+                        if (Objects.equals(i.getDNI(), dni)) {
+                            a = i;
+                        } else{
+                                PersonaNoEncontradaException na = new PersonaNoEncontradaException();
+                             throw na;
+                          }
+/*             if (a!=null){
+                     
+                    
+                 }else{
+                                SinPersonasExeption ne = new SinPersonasExeption();
+                             throw ne;
+                    }*/
+                }
+
+        return a;
+            }
+                
           
          public Boolean verificarAbonoAfiliado(Afiliado afiliado){
               Boolean a = true;
@@ -206,19 +230,7 @@ public class GestionHospital {
               }
           }    
 
-            public Afiliado buscarAfiliado(Integer dni) {
-                 Afiliado a = null;
-                 for (Afiliado i : afiliados) {
-            // if(i instanceof Afiliado){
-            //Afiliado a= (Afiliado)i;
-                        if (Objects.equals(i.getDNI(), dni)) {
-                        a = i;
 
-                //}
-            }
-        }
-        return a;
-    }
 
     public boolean validarDni(Integer dni) {
         Boolean estado = false;

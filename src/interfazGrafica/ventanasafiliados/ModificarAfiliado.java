@@ -8,6 +8,7 @@ package interfazGrafica.ventanasafiliados;
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import excepciones.PersonaNoEncontradaException;
+import excepciones.SinPersonasExeption;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -252,6 +253,8 @@ public class ModificarAfiliado extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
+        modificarAfiliado.verificarCampoDNI(numeroAfiliado.getText());
+        
         Integer numero = Integer.parseInt(numeroAfiliado.getText());
         Afiliado afi = modificarAfiliado.buscarAfiliadoPorNumero(numero);
         afiliadoAModificar = afi;
@@ -267,9 +270,12 @@ public class ModificarAfiliado extends javax.swing.JFrame {
             jLabel1.setVisible(false);
             numeroAfiliado.setVisible(false);
         }catch(PersonaNoEncontradaException e){
-            JOptionPane.showMessageDialog(null, "PERSONA NO ENCONTRADA");
-        }
-               
+            JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+        }catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }catch (NullPointerException a){
+           JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }          
         //}else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
 
            

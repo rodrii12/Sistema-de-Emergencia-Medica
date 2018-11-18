@@ -7,6 +7,10 @@ package interfazGrafica.ventanasafiliados;
 
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
+import excepciones.PersonaNoEncontradaException;
+import excepciones.SinPersonasExeption;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -195,18 +199,21 @@ public class BajaAfiliado extends javax.swing.JFrame {
  try{    
         ventanaBajaAfiliado.verificarCampoDNI(dniba.getText());
         Integer dni= Integer.parseInt(dniba.getText());
-        afiParaEliminar = ventanaBajaAfiliado.buscarAfiliado(dni);
+        Afiliado afi =  ventanaBajaAfiliado.buscarAfiliado(dni);
         
-        if(afiParaEliminar != null){
-            mostrarNombre.setText(afiParaEliminar.getNombre());
-            mostrarApellido.setText(afiParaEliminar.getApellido());
-            mostrarDNI.setText(String.valueOf(afiParaEliminar.getDNI()));
-        }else {
-            JOptionPane.showMessageDialog(this," No se ha encontrado el afiliado" , "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        afiParaEliminar = afi;
+            mostrarNombre.setText(afi.getNombre());
+            mostrarApellido.setText(afi.getApellido());
+            mostrarDNI.setText(String.valueOf(afi.getDNI()));
+        
     }catch(VerficarCampoVacioException cav){
            JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }catch (PersonaNoEncontradaException ex) {
+           JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }catch (NullPointerException e) {
+           JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }
+ 
     }//GEN-LAST:event_buscarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
@@ -214,7 +221,7 @@ public class BajaAfiliado extends javax.swing.JFrame {
         
         if(afiParaEliminar != null){
            ventanaBajaAfiliado.bajaAfiliado(afiParaEliminar); 
-           JOptionPane.showMessageDialog(this, "Se ha eliminado correctamente",
+           JOptionPane.showMessageDialog(this, "Se ha ELIMINADO correctamente",
             "Eliminado", JOptionPane.INFORMATION_MESSAGE);
            this.mostrarNombre.setText("");
            this.mostrarApellido.setText("");
