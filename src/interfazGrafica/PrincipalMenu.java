@@ -69,7 +69,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(60, 170, 129, 105);
+        jButton1.setBounds(60, 170, 130, 106);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/empleado.png"))); // NOI18N
         jButton4.setToolTipText("Menu Empleado");
@@ -80,7 +80,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(30, 320, 179, 105);
+        jButton4.setBounds(30, 320, 179, 106);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/asistencia.png"))); // NOI18N
         jButton5.setToolTipText("Menu Emergencia");
@@ -91,7 +91,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(260, 320, 129, 105);
+        jButton5.setBounds(260, 320, 130, 106);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/movil.png"))); // NOI18N
         jButton6.setToolTipText("Menu Flota");
@@ -102,7 +102,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(230, 170, 200, 105);
+        jButton6.setBounds(230, 170, 200, 106);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/FondoMenuP.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(1000, 570));

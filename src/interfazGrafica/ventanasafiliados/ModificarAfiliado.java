@@ -6,6 +6,7 @@
 package interfazGrafica.ventanasafiliados;
 
 import clasessimples.Afiliado;
+import excepciones.PersonaNoEncontradaException;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -244,11 +245,12 @@ public class ModificarAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_dniActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
         Integer numero = Integer.parseInt(numeroAfiliado.getText());
         Afiliado afi = modificarAfiliado.buscarAfiliadoPorNumero(numero);
         afiliadoAModificar = afi;
         //Afiliado na= new Afiliado(afi.getNumeroAfiliado(), afi.)
-        if(afi != null){
+        //if(afi != null){
             this.nombre.setText(afi.getNombre());
             this.apellido.setText(afi.getApellido());
             this.dni.setText(String.valueOf(afi.getDNI()));
@@ -258,8 +260,11 @@ public class ModificarAfiliado extends javax.swing.JFrame {
             jButton1.setVisible(false);
             jLabel1.setVisible(false);
             numeroAfiliado.setVisible(false);
-            
-        }else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
+        }catch(PersonaNoEncontradaException e){
+            JOptionPane.showMessageDialog(null, "PERSONA NO ENCONTRADA");
+        }
+               
+        //}else JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
 
            
     }//GEN-LAST:event_jButton1ActionPerformed

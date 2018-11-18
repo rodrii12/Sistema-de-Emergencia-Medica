@@ -5,7 +5,7 @@
  */
 package interfazGrafica.ventanaMovil;
 
-import Interfaces_Graficas.VerficarCampoVacioException;
+import excepciones.VerficarCampoVacioException;
 import clasessimples.Movil;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,6 +1,6 @@
 package sistema.de.emergencia.medica;
 
-import Interfaces_Graficas.VerficarCampoVacioException;
+import excepciones.VerficarCampoVacioException;
 import clasessimples.Administrativo;
 import clasessimples.Afiliado;
 import clasessimples.AsistenciaMedica;
@@ -10,6 +10,7 @@ import clasessimples.Empleado;
 import clasessimples.Enfermero;
 import clasessimples.Familiar;
 import clasessimples.Movil;
+import excepciones.PersonaNoEncontradaException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -38,18 +39,19 @@ public class GestionHospital {
         afiliados.remove(afiliado);
     }
 
-    public Afiliado buscarAfiliadoPorNumero(Integer numero) {
+    public Afiliado buscarAfiliadoPorNumero(Integer numero) throws PersonaNoEncontradaException {
         Afiliado a = null;
         for (Afiliado i : afiliados) {
             // if(i instanceof Afiliado){
             //Afiliado a= (Afiliado)i;
             if (Objects.equals(i.getNumeroAfiliado(), numero)) {
                 a = i;
-
-                //}
+            }else{
+                PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
+                throw ne;
             }
         }
-        return a;
+     return a;
      }    
           
          public Boolean verificarAbonoAfiliado(Afiliado afiliado){

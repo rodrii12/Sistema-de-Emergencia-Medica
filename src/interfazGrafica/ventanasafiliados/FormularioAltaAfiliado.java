@@ -5,9 +5,9 @@
  */
 package interfazGrafica.ventanasafiliados;
 
-import Interfaces_Graficas.DNIException;
-import Interfaces_Graficas.Metodos;
-import Interfaces_Graficas.VerficarCampoVacioException;
+import excepciones.DNIException;
+import excepciones.Metodos;
+import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import java.time.LocalDate;
 import java.time.Month;

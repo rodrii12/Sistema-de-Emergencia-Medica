@@ -1,4 +1,4 @@
-package Interfaces_Graficas;
+package excepciones;
 
 /**
  *

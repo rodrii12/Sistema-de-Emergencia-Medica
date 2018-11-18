@@ -5,9 +5,9 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
-import Interfaces_Graficas.DNIException;
-import Interfaces_Graficas.Metodos;
-import Interfaces_Graficas.VerficarCampoVacioException;
+import excepciones.DNIException;
+import excepciones.Metodos;
+import excepciones.VerficarCampoVacioException;
 import clasessimples.Administrativo;
 import interfazGrafica.ventanasafiliados.*;
 import clasessimples.Afiliado;
