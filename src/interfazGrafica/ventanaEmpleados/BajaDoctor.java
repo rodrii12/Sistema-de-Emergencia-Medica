@@ -7,6 +7,7 @@ package interfazGrafica.ventanaEmpleados;
 
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Doctor;
+import excepciones.PersonaNoEncontradaException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -175,14 +176,17 @@ try{
         
         Integer dni= Integer.parseInt(dnibd.getText());
         doctorParaEliminar = bajaDoctor.buscarDoctor(dni);
-        if(doctorParaEliminar != null){
+        
             mostrarNombre.setText(doctorParaEliminar.getNombre());
             mostrarApellido.setText(doctorParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(doctorParaEliminar.getDNI()));
-        }else JOptionPane.showMessageDialog(this," No se ha encontrado el Doctor" , "Error", JOptionPane.ERROR_MESSAGE);
-        }catch(VerficarCampoVacioException cav){
-           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-    }
+}catch(VerficarCampoVacioException cav){
+    JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}catch (PersonaNoEncontradaException ex) {
+    JOptionPane.showMessageDialog(this," No se ha encontrado el Doctor" , "Error", JOptionPane.ERROR_MESSAGE);
+}catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(null, " NO HAY NINGUN DOCTOR EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

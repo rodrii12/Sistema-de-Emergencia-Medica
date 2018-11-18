@@ -8,6 +8,7 @@ package interfazGrafica.ventanaEmpleados;
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Doctor;
 import clasessimples.Enfermero;
+import excepciones.PersonaNoEncontradaException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -182,14 +183,17 @@ public class BajaEnfermero extends javax.swing.JFrame {
  bajaEnfermero.verificarCampoDNI(dnibd.getText());   
         Integer dni= Integer.parseInt(dnibd.getText());
         enfermeroParaEliminar = bajaEnfermero.buscarEnfermero(dni);
-        if(enfermeroParaEliminar != null){
+        
             mostrarNombre.setText(enfermeroParaEliminar.getNombre());
             mostrarApellido.setText(enfermeroParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(enfermeroParaEliminar.getDNI()));
-        }else JOptionPane.showMessageDialog(this," No se ha encontrado el Enfermero" , "Error", JOptionPane.ERROR_MESSAGE);
-        }catch(VerficarCampoVacioException cav){
-           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-    }
+}catch(VerficarCampoVacioException cav){
+    JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}catch (PersonaNoEncontradaException ex) {
+        JOptionPane.showMessageDialog(this," No se ha encontrado el Enfermero" , "Error", JOptionPane.ERROR_MESSAGE);
+}catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(null, " NO HAY NINGUN ENFERMERO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

@@ -8,6 +8,7 @@ package interfazGrafica.ventanaEmpleados;
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Chofer;
 import clasessimples.Doctor;
+import excepciones.PersonaNoEncontradaException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -181,14 +182,17 @@ try{
     bajaChofer.verificarCampoDNI(dnibd.getText());      
         Integer dni= Integer.parseInt(dnibd.getText());
         choferParaEliminar = bajaChofer.buscarChofer(dni);
-        if(choferParaEliminar != null){
+
             mostrarNombre.setText(choferParaEliminar.getNombre());
             mostrarApellido.setText(choferParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(choferParaEliminar.getDNI()));
-        }JOptionPane.showMessageDialog(this," No se ha encontrado el Chofer" , "Error", JOptionPane.ERROR_MESSAGE);
 }catch(VerficarCampoVacioException cav){
-           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-    }
+    JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}catch (PersonaNoEncontradaException ex) {
+    JOptionPane.showMessageDialog(this," No se ha encontrado el Chofer" , "Error", JOptionPane.ERROR_MESSAGE);
+}catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(null, " NO HAY NINGUN CHOFER EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

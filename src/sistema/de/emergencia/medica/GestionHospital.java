@@ -156,7 +156,7 @@ public class GestionHospital {
           public void bajaAdmin(Administrativo admin){
               empleados.remove(admin);
           }
-          
+        /*  
           public Doctor buscarDoctor(Integer dni){
               Doctor b = null;
               for(Empleado i: empleados){
@@ -185,15 +185,81 @@ public class GestionHospital {
                   }
               }
           return b;    
+          }*/
+ public Doctor buscarDoctor(Integer dni) throws PersonaNoEncontradaException{
+        Doctor b = null;
+        for(Empleado i: empleados){
+            if(i instanceof Doctor){
+               Doctor a = (Doctor)i;
+                if(Objects.equals(a.getDNI(), dni)){
+                    b = a;
+                }
+                else{
+                    PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
+                    throw ne;
+                }               
+            }
+        }
+    return b;    
+}          
+           
+ public Administrativo buscarAdmin(Integer dni) throws PersonaNoEncontradaException{
+              Administrativo b = null;
+              for(Empleado i: empleados){
+                  if(i instanceof Administrativo){
+                      Administrativo a = (Administrativo)i;
+                      if(Objects.equals(a.getDNI(), dni)){
+                            b = a;
+                      }
+                      else{
+                            PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
+                            throw ne;
+                      }
+                  }
+              }
+          return b;    
           }
-          
-          public Chofer buscarChofer(Integer dni){
+    
+          public Chofer buscarChofer(Integer dni) throws PersonaNoEncontradaException{
               Chofer b = null;
               for(Empleado i: empleados){
                   if(i instanceof Chofer){
                       Chofer a = (Chofer)i;
                       if(Objects.equals(a.getDNI(), dni)){
-                            //DOCTOR ENCONTRADO
+                            b = a;
+                      }
+                      else{
+                            PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
+                            throw ne;
+                      }
+                  }
+              }
+          return b;    
+          }
+          
+        public Enfermero buscarEnfermero(Integer dni) throws PersonaNoEncontradaException{
+            Enfermero b = null;
+            for(Empleado i: empleados){
+                if(i instanceof Enfermero){
+                      Enfermero a = (Enfermero)i;
+                     if(Objects.equals(a.getDNI(), dni)){
+                            b = a;
+                      }
+                    else{
+                        PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
+                        throw ne;
+                      }
+                  }
+              }
+          return b;    
+          }
+         /* public Chofer buscarChofer(Integer dni){
+              Chofer b = null;
+              for(Empleado i: empleados){
+                  if(i instanceof Chofer){
+                      Chofer a = (Chofer)i;
+                      if(Objects.equals(a.getDNI(), dni)){
+
                             b = a;
               
                       }
@@ -215,7 +281,7 @@ public class GestionHospital {
                   }
               }
           return b;    
-          }
+          }*/
           
           public void modificarAfiliado(Afiliado afi,Integer numeroAfiliado, String Nombre, String apellido, Integer DNI, LocalDate FechaNacimiento){
               for(Afiliado i: afiliados){

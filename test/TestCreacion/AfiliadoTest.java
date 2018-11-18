@@ -6,6 +6,7 @@
 package TestCreacion;
 
 import clasessimples.Afiliado;
+import excepciones.PersonaNoEncontradaException;
 import java.time.LocalDate;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -39,7 +40,7 @@ public class AfiliadoTest {
     
  @Test
  
- public void BuscarAfiliado(){
+ public void BuscarAfiliado() throws PersonaNoEncontradaException{
 
         Afiliado afi = new Afiliado(2506, "Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
         gh.buscarAfiliado(39998672);

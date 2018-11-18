@@ -26,10 +26,10 @@ public class SistemaEmergenciaMedica {
         gh.AltaMovil(mv);
         Doctor doctor = new Doctor(1111, "Raul", "asd", 11111111, "Masculino", LocalDate.of(1998, 05, 13));
         Chofer chofer = new Chofer(2222, "marito", "cabeza", 22222222, "Masculino", LocalDate.of(1998, 06, 13));
-        Enfermero enfer = new Enfermero(3333, "andres", "casd", 33333333, "Femenino", LocalDate.of(1992, 12, 25));
+       // Enfermero enfer = new Enfermero(3333, "andres", "casd", 33333333, "Femenino", LocalDate.of(1992, 12, 25));
         gh.altaDoctor(doctor);
         gh.altaChofer(chofer);
-        gh.altaEnfermero(enfer);
+       // gh.altaEnfermero(enfer);
         PrincipalMenu ventanaPrincipal= new PrincipalMenu(gh);
         
         
