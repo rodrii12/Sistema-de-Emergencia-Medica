@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
+import excepciones.VerficarCampoVacioException;
 import clasessimples.Chofer;
 import clasessimples.Doctor;
 import javax.swing.ImageIcon;
@@ -176,6 +177,8 @@ public class BajaChofer extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+try{
+    bajaChofer.verificarCampoDNI(dnibd.getText());      
         Integer dni= Integer.parseInt(dnibd.getText());
         choferParaEliminar = bajaChofer.buscarChofer(dni);
         if(choferParaEliminar != null){
@@ -183,6 +186,9 @@ public class BajaChofer extends javax.swing.JFrame {
             mostrarApellido.setText(choferParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(choferParaEliminar.getDNI()));
         }JOptionPane.showMessageDialog(this," No se ha encontrado el Chofer" , "Error", JOptionPane.ERROR_MESSAGE);
+}catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

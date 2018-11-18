@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
+import excepciones.VerficarCampoVacioException;
 import clasessimples.Administrativo;
 import clasessimples.Doctor;
 import javax.swing.ImageIcon;
@@ -175,6 +176,8 @@ public class BajaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+try{
+    bajaAdmin.verificarCampoDNI(dnibd.getText());
         Integer dni= Integer.parseInt(dnibd.getText());
         adminParaEliminar = bajaAdmin.buscarAdmin(dni);
         if(adminParaEliminar != null){
@@ -182,6 +185,9 @@ public class BajaAdmin extends javax.swing.JFrame {
             mostrarApellido.setText(adminParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(adminParaEliminar.getDNI()));
         }else JOptionPane.showMessageDialog(this," No se ha encontrado el Empleado Administrativo" , "Error", JOptionPane.ERROR_MESSAGE);
+}catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

@@ -2,21 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/interfazGrafica/ventanaAsistenciaMedica/GenerarAsistenciaMedicaFamiliar.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/interfazGrafica/ventanaAsistenciaMedica/BuscarFamiliar.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/interfazGrafica/ventanaMovil/BajaMovil.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/clasessimples/AsistenciaMedicaFamiliar.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/interfazGrafica/ventanaMovil/MenuMovil.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/interfazGrafica/ventanaAsistenciaMedica/GenerarAsistenciaAfiliado.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/clasessimples/AsistenciaMedica.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/interfazGrafica/ventanaAsistenciaMedica/AsistenciaMedicaParaUnFamiliar.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/interfazGrafica/PrincipalMenu.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/sistema/de/emergencia/medica/SistemaEmergenciaMedica.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/interfazGrafica/ventanaAsistenciaMedica/AsistenciaMedicaAfiliado.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/interfazGrafica/ventanaEmpleados/FormularioAltaAdmin.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/sistema/de/emergencia/medica/GestionHospital.java</file>
-            <file>file:/C:/Users/Miguel/Documents/NetBeansProjects/Sistema-de-Emergencia-Medicaa/src/clasessimples/Afiliado.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

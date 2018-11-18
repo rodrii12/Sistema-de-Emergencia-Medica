@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanasafiliados;
 
+import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import excepciones.PersonaNoEncontradaException;
 import java.time.LocalDate;
@@ -69,6 +70,11 @@ public class ModificarAfiliado extends javax.swing.JFrame {
         numeroAfiliado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numeroAfiliadoActionPerformed(evt);
+            }
+        });
+        numeroAfiliado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numeroAfiliadoKeyTyped(evt);
             }
         });
 
@@ -435,6 +441,33 @@ public class ModificarAfiliado extends javax.swing.JFrame {
          an.setCursor(null);
      }
     }//GEN-LAST:event_anKeyTyped
+
+    private void numeroAfiliadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroAfiliadoKeyTyped
+         char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         numeroAfiliado.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         numeroAfiliado.setCursor(null);
+     }
+     else if(numeroAfiliado.getText().length() >= 4){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de cuatro caracteres","Error", JOptionPane.ERROR_MESSAGE);
+         
+     }
+    }//GEN-LAST:event_numeroAfiliadoKeyTyped
 
 
 

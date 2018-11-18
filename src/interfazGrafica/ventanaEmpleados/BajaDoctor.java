@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaEmpleados;
 
+import excepciones.VerficarCampoVacioException;
 import clasessimples.Doctor;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -169,6 +170,9 @@ public class BajaDoctor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+try{
+    bajaDoctor.verificarCampoDNI(dnibd.getText());        
+        
         Integer dni= Integer.parseInt(dnibd.getText());
         doctorParaEliminar = bajaDoctor.buscarDoctor(dni);
         if(doctorParaEliminar != null){
@@ -176,6 +180,9 @@ public class BajaDoctor extends javax.swing.JFrame {
             mostrarApellido.setText(doctorParaEliminar.getApellido());
             mostrarNumeroDeEmpleado.setText(String.valueOf(doctorParaEliminar.getDNI()));
         }else JOptionPane.showMessageDialog(this," No se ha encontrado el Doctor" , "Error", JOptionPane.ERROR_MESSAGE);
+        }catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

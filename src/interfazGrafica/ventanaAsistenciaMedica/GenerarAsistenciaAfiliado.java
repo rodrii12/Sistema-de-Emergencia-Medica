@@ -5,12 +5,14 @@
  */
 package interfazGrafica.ventanaAsistenciaMedica;
 
+//import Interfaces_Graficas.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import clasessimples.AsistenciaMedica;
 import clasessimples.Chofer;
 import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import clasessimples.Movil;
+import excepciones.VerficarCampoVacioException;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -150,6 +152,8 @@ char C= evt.getKeyChar();
     }//GEN-LAST:event_dniKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     try{
+     generarAsistenciaAfiliado.verificarCampoDNI(dni.getText());    
         Integer dam = Integer.parseInt(dni.getText());
         afi = generarAsistenciaAfiliado.buscarAfiliado(dam);
         if(afi != null){
@@ -162,6 +166,9 @@ char C= evt.getKeyChar();
                 enfermedad.setVisible(true);
                  }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
         }else   JOptionPane.showMessageDialog(this, "Afiliado no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+        }catch(VerficarCampoVacioException cav){
+        JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

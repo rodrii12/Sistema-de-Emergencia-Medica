@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanasafiliados;
 
+import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -191,8 +192,11 @@ public class BajaAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_dnibaKeyTyped
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+ try{    
+        ventanaBajaAfiliado.verificarCampoDNI(dniba.getText());
         Integer dni= Integer.parseInt(dniba.getText());
         afiParaEliminar = ventanaBajaAfiliado.buscarAfiliado(dni);
+        
         if(afiParaEliminar != null){
             mostrarNombre.setText(afiParaEliminar.getNombre());
             mostrarApellido.setText(afiParaEliminar.getApellido());
@@ -200,7 +204,9 @@ public class BajaAfiliado extends javax.swing.JFrame {
         }else {
             JOptionPane.showMessageDialog(this," No se ha encontrado el afiliado" , "Error", JOptionPane.ERROR_MESSAGE);
         }
-
+    }catch(VerficarCampoVacioException cav){
+           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }
     }//GEN-LAST:event_buscarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
