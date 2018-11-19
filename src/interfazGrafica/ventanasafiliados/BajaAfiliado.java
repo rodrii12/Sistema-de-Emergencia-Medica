@@ -205,14 +205,15 @@ public class BajaAfiliado extends javax.swing.JFrame {
             mostrarNombre.setText(afi.getNombre());
             mostrarApellido.setText(afi.getApellido());
             mostrarDNI.setText(String.valueOf(afi.getDNI()));
-        
+            
+      
     }catch(VerficarCampoVacioException cav){
            JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }catch (PersonaNoEncontradaException ex) {
-           JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-    }catch (SinPersonasException e) {
-           JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-    }
+           JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
+    }catch (NullPointerException a){
+           JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    } 
  
     }//GEN-LAST:event_buscarActionPerformed
 

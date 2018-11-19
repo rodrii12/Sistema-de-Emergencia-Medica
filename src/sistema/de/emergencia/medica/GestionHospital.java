@@ -48,31 +48,34 @@ public class GestionHospital {
             //Afiliado a= (Afiliado)i;
             if (Objects.equals(i.getNumeroAfiliado(), numero)) {
                 a = i;
-            }else{
-                PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
-                throw ne;
+            
             }
+            
         }
+        if(a == null){
+            PersonaNoEncontradaException na = new PersonaNoEncontradaException();
+            throw na;
+        }  
      return a;  
      }
 
-    public Afiliado buscarAfiliado(Integer dni) throws PersonaNoEncontradaException, SinPersonasException{
+    public Afiliado buscarAfiliado(Integer dni) throws PersonaNoEncontradaException{
          Afiliado a = null;
-         if(afiliados == null){   
+         /*if(afiliados == null){   
          SinPersonasException np = new SinPersonasException();
          throw np;
          }
-         else{   
+         else{ */  
              for (Afiliado i : afiliados) {
                    if (Objects.equals(i.getDNI(), dni)) {
                         a = i;
                    }
             }           
-                if(a == null){
-                    PersonaNoEncontradaException na = new PersonaNoEncontradaException();
-                    throw na;
-                    }           
-         }       
+            if(a == null){
+                PersonaNoEncontradaException na = new PersonaNoEncontradaException();
+                throw na;
+            }           
+        // }       
     return a;
     }
                 
@@ -199,6 +202,10 @@ public class GestionHospital {
                 }               
             }
         }
+        if(b == null){
+           PersonaNoEncontradaException na = new PersonaNoEncontradaException();
+            throw na;
+        }  
     return b;    
 }          
            
@@ -210,12 +217,13 @@ public class GestionHospital {
                       if(Objects.equals(a.getDNI(), dni)){
                             b = a;
                       }
-                      else{
-                            PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
-                            throw ne;
-                      }
+
                   }
               }
+                if(b == null){
+                   PersonaNoEncontradaException na = new PersonaNoEncontradaException();
+                    throw na;
+                }               
           return b;    
           }
     
@@ -227,12 +235,13 @@ public class GestionHospital {
                       if(Objects.equals(a.getDNI(), dni)){
                             b = a;
                       }
-                      else{
-                            PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
-                            throw ne;
-                      }
+
                   }
               }
+                if(b == null){
+                   PersonaNoEncontradaException na = new PersonaNoEncontradaException();
+                    throw na;
+                }                
           return b;    
           }
           
@@ -244,12 +253,12 @@ public class GestionHospital {
                      if(Objects.equals(a.getDNI(), dni)){
                             b = a;
                       }
-                    else{
-                        PersonaNoEncontradaException ne = new PersonaNoEncontradaException();
-                        throw ne;
-                      }
                   }
               }
+                if(b == null){
+                   PersonaNoEncontradaException na = new PersonaNoEncontradaException();
+                    throw na;
+                }              
           return b;    
           }
          /* public Chofer buscarChofer(Integer dni){
@@ -423,12 +432,13 @@ public class GestionHospital {
                 if (Objects.equals(a.getPatente(), patente)) {
                     b = a;
                 }
-                else{
-                    MovilNoEncontradoExeption ne = new MovilNoEncontradoExeption();
-                    throw ne;
-                }
+
             }
         }
+        if(b == null){
+            MovilNoEncontradoExeption ne = new MovilNoEncontradoExeption();
+            throw ne;
+        }          
         return b;
     }
 

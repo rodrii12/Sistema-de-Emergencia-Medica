@@ -252,27 +252,26 @@ public class ModificarAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_dniActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{
-        modificarAfiliado.verificarCampoDNI(numeroAfiliado.getText());
-        
-        Integer numero = Integer.parseInt(numeroAfiliado.getText());
-        Afiliado afi = modificarAfiliado.buscarAfiliadoPorNumero(numero);
-        afiliadoAModificar = afi;
-        //Afiliado na= new Afiliado(afi.getNumeroAfiliado(), afi.)
-        //if(afi != null){
-            this.nombre.setText(afi.getNombre());
-            this.apellido.setText(afi.getApellido());
-            this.dni.setText(String.valueOf(afi.getDNI()));
-            this.dn.setText(String.valueOf(afi.getFechaNacimiento().getDayOfMonth()));
-            this.mn.setText(String.valueOf(afi.getFechaNacimiento().getMonth()));
-            this.an.setText(String.valueOf(afi.getFechaNacimiento().getYear()));
-            jButton1.setVisible(false);
-            jLabel1.setVisible(false);
-            numeroAfiliado.setVisible(false);
-        }catch(PersonaNoEncontradaException e){
-            JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-        }catch(VerficarCampoVacioException cav){
-           JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    try{
+            modificarAfiliado.verificarCampoDNI(numeroAfiliado.getText());
+
+            Integer numero = Integer.parseInt(numeroAfiliado.getText());
+            Afiliado afi = modificarAfiliado.buscarAfiliadoPorNumero(numero);
+            afiliadoAModificar = afi;
+
+                this.nombre.setText(afi.getNombre());
+                this.apellido.setText(afi.getApellido());
+                this.dni.setText(String.valueOf(afi.getDNI()));
+                this.dn.setText(String.valueOf(afi.getFechaNacimiento().getDayOfMonth()));
+                this.mn.setText(String.valueOf(afi.getFechaNacimiento().getMonth()));
+                this.an.setText(String.valueOf(afi.getFechaNacimiento().getYear()));
+                jButton1.setVisible(false);
+                jLabel1.setVisible(false);
+                numeroAfiliado.setVisible(false);
+    }catch(PersonaNoEncontradaException e){
+        JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
+    }catch(VerficarCampoVacioException cav){
+       JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }catch (NullPointerException a){
            JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }          
@@ -282,7 +281,7 @@ public class ModificarAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        if(afiliadoAModificar != null){
+if(afiliadoAModificar != null){
         
         String nombrema = nombre.getText();
         String apellidoma = apellido.getText();
@@ -291,10 +290,11 @@ public class ModificarAfiliado extends javax.swing.JFrame {
         
         Afiliado na= new Afiliado(afiliadoAModificar.getNumeroAfiliado(), nombrema, apellidoma, dnima, afiliadoAModificar.getSexo(), fechaNacimiento, afiliadoAModificar.getFechaDePago());
         JOptionPane.showMessageDialog(this, "Se ha MODIFICADO correctamente","Modificado", JOptionPane.INFORMATION_MESSAGE);
-        } else{
-            
-            JOptionPane.showMessageDialog(this," no se pudo modificar " , "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        
+} else{
+
+    JOptionPane.showMessageDialog(this," no se pudo modificar " , "Error", JOptionPane.ERROR_MESSAGE);
+}
         
     }//GEN-LAST:event_guardarActionPerformed
 
@@ -303,17 +303,17 @@ public class ModificarAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyTyped
-            char c = evt.getKeyChar();
-        
-        if(Character.isDigit(c)){
-            getToolkit().beep();
-            evt.consume();
-            JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
-             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
-             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
-             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+char c = evt.getKeyChar();
+
+    if(Character.isDigit(c)){
+        getToolkit().beep();
+        evt.consume();
+        JOptionPane.showMessageDialog(this, "Ingrese solo letras","Error", JOptionPane.ERROR_MESSAGE);
+    }
+    else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+         ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+         || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+         || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
     {
          getToolkit().beep();
          evt.consume();

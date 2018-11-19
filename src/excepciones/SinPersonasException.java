@@ -9,7 +9,7 @@ package excepciones;
  *
  * @author FRANCO
  */
-public class SinPersonasException extends NullPointerException {
+public class SinPersonasException extends Exception{
 
     public SinPersonasException() {
          super();
