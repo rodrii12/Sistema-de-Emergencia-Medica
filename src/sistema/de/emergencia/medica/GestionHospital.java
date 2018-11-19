@@ -56,27 +56,21 @@ public class GestionHospital {
      return a;  
      }
 
-            public Afiliado buscarAfiliado(Integer dni) throws PersonaNoEncontradaException, SinPersonasExeption{
-                 Afiliado a = null;
-                 for (Afiliado i : afiliados) {
-                   
-                        if (Objects.equals(i.getDNI(), dni)) {
-                            a = i;
-                        } else{
-                                PersonaNoEncontradaException na = new PersonaNoEncontradaException();
-                             throw na;
-                          }
-/*             if (a!=null){
-                     
-                    
-                 }else{
-                                SinPersonasExeption ne = new SinPersonasExeption();
-                             throw ne;
-                    }*/
-                }
+    public Afiliado buscarAfiliado(Integer dni) throws PersonaNoEncontradaException, SinPersonasExeption{
+         Afiliado a = null;
+            for (Afiliado i : afiliados) {
+                   if (Objects.equals(i.getDNI(), dni)) {
+                        a = i;
+                   }
+            }           
+                if(a == null){
+                    PersonaNoEncontradaException na = new PersonaNoEncontradaException();
+                    throw na;
+                    }       
+            
 
-        return a;
-            }
+    return a;
+    }
                 
           
          public Boolean verificarAbonoAfiliado(Afiliado afiliado){

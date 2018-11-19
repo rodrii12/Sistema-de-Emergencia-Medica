@@ -43,7 +43,7 @@ GestionHospital gh= new GestionHospital();
  public void BuscarEnfermero(){
 
         Enfermero enfer = new Enfermero(4587, "Nahuel", "Carrizo", 12345678, "Masculino", LocalDate.of(1990, 12, 25));
-        gh.buscarAdmin(39998674);
+//        gh.buscarAdmin(39998674);
         assertEquals(enfer.getDNI(), new Integer (12345678));
      
  }

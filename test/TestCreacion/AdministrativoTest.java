@@ -43,7 +43,7 @@ public class AdministrativoTest {
  public void BuscarAdministrativo(){
 
         Administrativo ad = new Administrativo(8957,"Juanito", "Alcachofa",39998674, "Masculino",LocalDate.of(1990, 12, 25));
-        gh.buscarAdmin(39998674);
+//        gh.buscarAdmin(39998674);
         assertEquals(ad.getDNI(), new Integer (39998672));
      
  }

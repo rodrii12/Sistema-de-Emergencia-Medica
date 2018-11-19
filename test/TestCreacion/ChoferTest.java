@@ -39,7 +39,7 @@ GestionHospital gh= new GestionHospital();
  public void BuscarChofer(){
 
         Chofer chofer = new Chofer(1254, "Nicolas", "Delgado", 39998672, "Masculino", LocalDate.of(1997, 06, 24));
-        gh.buscarAdmin(39998672);
+//        gh.buscarAdmin(39998672);
         assertEquals(chofer.getDNI(), new Integer (39998672));
      
  }

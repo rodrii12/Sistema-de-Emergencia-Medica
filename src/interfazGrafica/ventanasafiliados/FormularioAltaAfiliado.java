@@ -74,7 +74,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
 
         jLabel1.setText("NOMBRE");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(41, 59, 60, 14);
+        jLabel1.setBounds(41, 59, 60, 15);
 
         nombreaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -82,11 +82,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nombreaa);
-        nombreaa.setBounds(41, 79, 232, 20);
+        nombreaa.setBounds(41, 79, 232, 19);
 
         jLabel2.setText("APELLIDO");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(336, 59, 70, 14);
+        jLabel2.setBounds(336, 59, 70, 15);
 
         apellidoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -94,11 +94,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(apellidoaa);
-        apellidoaa.setBounds(336, 79, 176, 20);
+        apellidoaa.setBounds(336, 79, 176, 19);
 
         jLabel3.setText("DNI");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(43, 146, 40, 14);
+        jLabel3.setBounds(43, 146, 40, 15);
 
         dniaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +111,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(dniaa);
-        dniaa.setBounds(41, 166, 232, 20);
+        dniaa.setBounds(41, 166, 232, 19);
 
         sexoaa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino\t", "Femenino", " " }));
         sexoaa.addActionListener(new java.awt.event.ActionListener() {
@@ -120,11 +120,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(sexoaa);
-        sexoaa.setBounds(336, 166, 87, 20);
+        sexoaa.setBounds(336, 166, 87, 24);
 
         jLabel4.setText("SEXO");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(336, 146, 50, 14);
+        jLabel4.setBounds(336, 146, 50, 15);
 
         diaFechaNacimientoaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +137,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(diaFechaNacimientoaa);
-        diaFechaNacimientoaa.setBounds(41, 281, 30, 20);
+        diaFechaNacimientoaa.setBounds(41, 281, 30, 19);
 
         mesFechaNacimientoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -145,7 +145,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(mesFechaNacimientoaa);
-        mesFechaNacimientoaa.setBounds(81, 281, 30, 20);
+        mesFechaNacimientoaa.setBounds(81, 281, 30, 19);
 
         anioFechaNacimientoaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,23 +158,23 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(anioFechaNacimientoaa);
-        anioFechaNacimientoaa.setBounds(121, 281, 61, 20);
+        anioFechaNacimientoaa.setBounds(121, 281, 61, 19);
 
         jLabel5.setText("DD     /     MM     /     AAAA");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(41, 261, 141, 14);
+        jLabel5.setBounds(41, 261, 141, 15);
 
         jLabel6.setText("FECHA DE NACIMIENTO");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(41, 241, 140, 14);
+        jLabel6.setBounds(41, 241, 140, 15);
 
         jLabel7.setText("DD     /     MM     /     AAAA");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(336, 261, 141, 14);
+        jLabel7.setBounds(336, 261, 141, 15);
 
         jLabel8.setText("FECHA DE INSCRIPCION");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(336, 241, 140, 14);
+        jLabel8.setBounds(336, 241, 140, 15);
 
         diaFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -182,7 +182,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(diaFechaPagoaa);
-        diaFechaPagoaa.setBounds(336, 281, 30, 20);
+        diaFechaPagoaa.setBounds(336, 281, 30, 19);
 
         mesFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -190,7 +190,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(mesFechaPagoaa);
-        mesFechaPagoaa.setBounds(376, 281, 30, 20);
+        mesFechaPagoaa.setBounds(376, 281, 30, 19);
 
         anioFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -198,7 +198,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(anioFechaPagoaa);
-        anioFechaPagoaa.setBounds(418, 281, 57, 20);
+        anioFechaPagoaa.setBounds(418, 281, 57, 19);
 
         inscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/guardar.png"))); // NOI18N
         inscribir.setText("INSCRIBIR");
@@ -209,7 +209,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inscribir);
-        inscribir.setBounds(41, 385, 150, 57);
+        inscribir.setBounds(41, 385, 150, 58);
 
         numero.setEditable(false);
         numero.addActionListener(new java.awt.event.ActionListener() {
@@ -223,11 +223,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(numero);
-        numero.setBounds(41, 330, 232, 20);
+        numero.setBounds(41, 330, 232, 19);
 
         jLabel9.setText("NUMERO DE AFILIADO");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(41, 310, 140, 14);
+        jLabel9.setBounds(41, 310, 140, 15);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/TRAS.png"))); // NOI18N
         jButton6.setText("VOLVER");
@@ -238,7 +238,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(389, 385, 123, 57);
+        jButton6.setBounds(389, 385, 129, 58);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -510,7 +510,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
                         "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 //Sino esta en la lista, lo añado
-                ventanaFormularioAltaEmpleado.altaAfiliado(new Afiliado(12331, nombreaa.getText(), apellidoaa.getText(),Integer.parseInt(dniaa.getText()) ,sexo , fechaNacimiento, fechaPago));
+                ventanaFormularioAltaEmpleado.altaAfiliado(new Afiliado(1233, nombreaa.getText(), apellidoaa.getText(),Integer.parseInt(dniaa.getText()) ,sexo , fechaNacimiento, fechaPago));
                 JOptionPane.showMessageDialog(this, "Se ha añadido el afiliado",
                         "Añadido", JOptionPane.INFORMATION_MESSAGE);
                 
