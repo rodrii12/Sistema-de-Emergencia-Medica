@@ -12,7 +12,7 @@ import clasessimples.Familiar;
 import clasessimples.Movil;
 import excepciones.MovilNoEncontradoExeption;
 import excepciones.PersonaNoEncontradaException;
-import excepciones.SinPersonasExeption;
+import excepciones.SinPersonasException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -56,9 +56,14 @@ public class GestionHospital {
      return a;  
      }
 
-    public Afiliado buscarAfiliado(Integer dni) throws PersonaNoEncontradaException, SinPersonasExeption{
+    public Afiliado buscarAfiliado(Integer dni) throws PersonaNoEncontradaException, SinPersonasException{
          Afiliado a = null;
-            for (Afiliado i : afiliados) {
+         if(afiliados == null){   
+         SinPersonasException np = new SinPersonasException();
+         throw np;
+         }
+         else{   
+             for (Afiliado i : afiliados) {
                    if (Objects.equals(i.getDNI(), dni)) {
                         a = i;
                    }
@@ -66,9 +71,8 @@ public class GestionHospital {
                 if(a == null){
                     PersonaNoEncontradaException na = new PersonaNoEncontradaException();
                     throw na;
-                    }       
-            
-
+                    }           
+         }       
     return a;
     }
                 

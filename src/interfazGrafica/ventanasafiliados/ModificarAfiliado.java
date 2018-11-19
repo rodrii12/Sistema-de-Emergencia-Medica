@@ -8,7 +8,7 @@ package interfazGrafica.ventanasafiliados;
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import excepciones.PersonaNoEncontradaException;
-import excepciones.SinPersonasExeption;
+import excepciones.SinPersonasException;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;

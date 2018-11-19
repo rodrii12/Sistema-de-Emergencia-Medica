@@ -8,7 +8,7 @@ package interfazGrafica.ventanasafiliados;
 import excepciones.VerficarCampoVacioException;
 import clasessimples.Afiliado;
 import excepciones.PersonaNoEncontradaException;
-import excepciones.SinPersonasExeption;
+import excepciones.SinPersonasException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -210,7 +210,7 @@ public class BajaAfiliado extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }catch (PersonaNoEncontradaException ex) {
            JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-    }catch (NullPointerException e) {
+    }catch (SinPersonasException e) {
            JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }
  

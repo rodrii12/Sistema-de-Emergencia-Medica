@@ -9,13 +9,13 @@ package excepciones;
  *
  * @author FRANCO
  */
-public class SinPersonasExeption extends NullPointerException {
+public class SinPersonasException extends NullPointerException {
 
-    public SinPersonasExeption() {
+    public SinPersonasException() {
          super();
     }
     
-     public SinPersonasExeption(String mensaje){
+     public SinPersonasException(String mensaje){
         super(mensaje);
     }
     
