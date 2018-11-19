@@ -113,11 +113,11 @@ try{
             ingreseEnfemerdad.setVisible(true);
             jButton3.setVisible(true);
             enfermedadFamiliar.setVisible(true);
-        JOptionPane.showMessageDialog(null, "Familiar no encontrado", "Error", ERROR);
+            
     }catch(VerficarCampoVacioException cav){
            JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }catch (PersonaNoEncontradaException ex) {
-        JOptionPane.showMessageDialog(null, "Familiar no encontrado", "Error", ERROR);
+        JOptionPane.showMessageDialog(null, "FAMILIAR NO ENCONTRADO", "Error", ERROR);
     }catch (NullPointerException e) {
            JOptionPane.showMessageDialog(null, " NO HAY NINGUN FAMILIAR EN ASOCIADO A ESTE AFILIADO", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }

@@ -10,6 +10,7 @@ import clasessimples.Empleado;
 import clasessimples.Enfermero;
 import clasessimples.Familiar;
 import clasessimples.Movil;
+import excepciones.EmpleadoNoDisponibleExeption;
 import excepciones.MovilNoEncontradoExeption;
 import excepciones.PersonaNoEncontradaException;
 import excepciones.SinPersonasException;
@@ -318,7 +319,7 @@ public class GestionHospital {
         return estado;
     }
 
-    public Doctor doctorDisponible() {
+    public Doctor doctorDisponible() throws EmpleadoNoDisponibleExeption {
         Doctor b = null;
         for (Empleado i : empleados) {
             if (i instanceof Doctor) {
@@ -328,13 +329,18 @@ public class GestionHospital {
                     b.setDisponible(false);
                     break;
                 }
+                
             }
 
         }
+ /*       if(b.getDisponible()== false){
+            EmpleadoNoDisponibleExeption ne= new EmpleadoNoDisponibleExeption("DOCTOR NO DISPONIBLE");
+            throw ne;
+        }*/
         return b;
     }
 
-    public Enfermero enfermeroDisponible() {
+    public Enfermero enfermeroDisponible() throws EmpleadoNoDisponibleExeption {
         Enfermero b = null;
         for (Empleado i : empleados) {
             if (i instanceof Enfermero) {
@@ -347,10 +353,14 @@ public class GestionHospital {
             }
 
         }
+        if(b==null){
+            EmpleadoNoDisponibleExeption ne= new EmpleadoNoDisponibleExeption("ENFERMERO NO DISPONIBLE");
+            throw ne;
+        }        
         return b;
     }
 
-    public Chofer choferDisponible() {
+    public Chofer choferDisponible() throws EmpleadoNoDisponibleExeption {
         Chofer b = null;
         for (Empleado i : empleados) {
             if (i instanceof Chofer) {
@@ -363,10 +373,14 @@ public class GestionHospital {
 
             }
         }
+         if(b==null){
+            EmpleadoNoDisponibleExeption ne= new EmpleadoNoDisponibleExeption("CHOFER NO DISPONIBLE");
+            throw ne;
+        }       
         return b;
     }
 
-    public Movil movilDisponible() {
+    public Movil movilDisponible() throws EmpleadoNoDisponibleExeption {
         Movil b = null;
         for (Movil i : moviles) {
             if (i.getDisponible()) {
@@ -375,7 +389,10 @@ public class GestionHospital {
                 break;
             }
         }
-
+        if(b==null){
+            EmpleadoNoDisponibleExeption ne= new EmpleadoNoDisponibleExeption("MOVIL NO DISPONIBLE");
+            throw ne;
+        }
         return b;
     }
 

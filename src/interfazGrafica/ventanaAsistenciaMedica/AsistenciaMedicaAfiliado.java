@@ -11,6 +11,7 @@ import clasessimples.Chofer;
 import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import clasessimples.Movil;
+import excepciones.EmpleadoNoDisponibleExeption;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -26,27 +27,27 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
     Afiliado afi;
     String enfer;
     
-    public AsistenciaMedicaAfiliado(GestionHospital gh, Afiliado a, String s) {
+    public AsistenciaMedicaAfiliado(GestionHospital gh, Afiliado a, String s) throws EmpleadoNoDisponibleExeption {
         initComponents();
         this.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
+ try{         
         afi = a;
         enfer = s;
         
-        
-        
+
         llenarAsistenciaMedica = gh;LocalDate fecha = LocalDate.now();
         Doctor d = llenarAsistenciaMedica.doctorDisponible();
         Chofer c = llenarAsistenciaMedica.choferDisponible();
         Enfermero e = llenarAsistenciaMedica.enfermeroDisponible();
         Movil m = llenarAsistenciaMedica.movilDisponible();
         //AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);
-        if(d != null){
-            if(c != null){
+        
+         /*   if(c != null){
                 if(e != null){
-                    if(m != null){
+                    if(m != null){*/
                         AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);
                         this.setVisible(true);
                         tipoEnfermedad.setText(enfer);
@@ -58,10 +59,14 @@ public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
                         enfemero.setText(am.getEnfermero().getNombre()+ "  " +am.getEnfermero().getApellido());
                         nombreChofer.setText(am.getChofer().getNombre()+ "  " +am.getChofer().getApellido());
                         numeroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
-                    }else JOptionPane.showMessageDialog(this, "AMBULANCIA NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
+                /*    }else JOptionPane.showMessageDialog(this, "AMBULANCIA NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
                 }else JOptionPane.showMessageDialog(this, "ENFERMERO NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
             }else JOptionPane.showMessageDialog(this, "CHOFER NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);    
-        }else JOptionPane.showMessageDialog(this, "DOCTOR NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);    
+    */
+    
+    }catch (EmpleadoNoDisponibleExeption ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }
     }
 
     /**

@@ -13,6 +13,7 @@ import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import clasessimples.Familiar;
 import clasessimples.Movil;
+import excepciones.EmpleadoNoDisponibleExeption;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -36,6 +37,7 @@ public class AsistenciaMedicaParaUnFamiliar extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
+ try{
         fami = f;
         afi = a;
         llenarAsistenciaMedica = gh; 
@@ -45,10 +47,10 @@ public class AsistenciaMedicaParaUnFamiliar extends javax.swing.JFrame {
         Enfermero e = llenarAsistenciaMedica.enfermeroDisponible();
         Movil m = llenarAsistenciaMedica.movilDisponible();
         //AsistenciaMedicaFamiliar am = new AsistenciaMedicaFamiliar(f,afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);
-        if(d != null){
+       /* if(d != null){
             if(c != null){
                 if(e != null){
-                    if(m != null){
+                    if(m != null){*/
                         AsistenciaMedicaFamiliar am = new AsistenciaMedicaFamiliar(f,afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);		
                         this.setVisible(true);
                         nombreFamiliar.setText(fami.getNombre()+ "  "+ fami.getApellido());
@@ -61,12 +63,15 @@ public class AsistenciaMedicaParaUnFamiliar extends javax.swing.JFrame {
                         nombreEnfemerdo.setText(am.getEnfermero().getNombre()+ "  " +am.getEnfermero().getApellido());
                         nombreChofer.setText(am.getChofer().getNombre()+ "  "  +am.getEnfermero().getApellido());
                         //nroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
-                    }else JOptionPane.showMessageDialog(this, "AMBULANCIA NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
+                   /* }else JOptionPane.showMessageDialog(this, "AMBULANCIA NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
                 }else JOptionPane.showMessageDialog(this, "ENFERMERO NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
             }else JOptionPane.showMessageDialog(this, "CHOFER NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);    
         }else JOptionPane.showMessageDialog(this, "DOCTOR NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
+    }*/
+    }catch (EmpleadoNoDisponibleExeption ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }
-
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
