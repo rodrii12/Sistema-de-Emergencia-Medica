@@ -25,46 +25,28 @@ import sistema.de.emergencia.medica.GestionHospital;
 public class AsistenciaMedicaParaUnFamiliar extends javax.swing.JFrame {
 
     GestionHospital llenarAsistenciaMedica;
-    Afiliado afi;
-    Familiar fami;
-    String enfer;
+    AsistenciaMedicaFamiliar a;
     
-    public AsistenciaMedicaParaUnFamiliar(GestionHospital gh, Afiliado a, Familiar f, String s) {
+    public AsistenciaMedicaParaUnFamiliar(AsistenciaMedicaFamiliar a) {
         initComponents();
         this.setVisible(false);
-        enfer = s;
+        this.a = a;
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
-        fami = f;
-        afi = a;
-        llenarAsistenciaMedica = gh; 
-        LocalDate fecha = LocalDate.now();
-        Doctor d = llenarAsistenciaMedica.doctorDisponible();
-        Chofer c = llenarAsistenciaMedica.choferDisponible();
-        Enfermero e = llenarAsistenciaMedica.enfermeroDisponible();
-        Movil m = llenarAsistenciaMedica.movilDisponible();
-        //AsistenciaMedicaFamiliar am = new AsistenciaMedicaFamiliar(f,afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);
-        if(d != null){
-            if(c != null){
-                if(e != null){
-                    if(m != null){
-                        AsistenciaMedicaFamiliar am = new AsistenciaMedicaFamiliar(f,afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);		
-                        this.setVisible(true);
-                        nombreFamiliar.setText(fami.getNombre()+ "  "+ fami.getApellido());
-                        parentezco.setText(fami.getRelacion() +" DE "+ afi.getNombre()+ "  "+ afi.getApellido());
-                        dniFamiliar.setText(String.valueOf(fami.getDNI()));
-                        nombreDoctor.setText(am.getDotor().getNombre());
-                        enfemedad.setText(enfer);
-                        patente.setText(am.getMovil().getPatente());
-                        //fecha.setText(String.valueOf(am.getFecha()));
-                        nombreEnfemerdo.setText(am.getEnfermero().getNombre()+ "  " +am.getEnfermero().getApellido());
-                        nombreChofer.setText(am.getChofer().getNombre()+ "  "  +am.getEnfermero().getApellido());
-                        //nroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
-                    }else JOptionPane.showMessageDialog(this, "AMBULANCIA NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
-                }else JOptionPane.showMessageDialog(this, "ENFERMERO NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
-            }else JOptionPane.showMessageDialog(this, "CHOFER NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);    
-        }else JOptionPane.showMessageDialog(this, "DOCTOR NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
+        		
+        //this.setVisible(true);
+        nombreFamiliar.setText(a.getFamiliar().getNombre()+ "  "+ a.getFamiliar().getApellido());
+        parentezco.setText(a.getFamiliar().getRelacion()+" DE "+ a.getAfiliado().getNombre()+ "  "+ a.getAfiliado().getApellido());
+        dniFamiliar.setText(String.valueOf(a.getFamiliar().getDNI()));
+        nombreDoctor.setText(a.getDotor().getNombre());
+        enfemedad.setText(a.getEnfermedad());
+        patente.setText(a.getMovil().getPatente());
+        //fecha.setText(String.valueOf(am.getFecha()));
+        nombreEnfemerdo.setText(a.getEnfermero().getNombre()+ "  " +a.getEnfermero().getApellido());
+        nombreChofer.setText(a.getChofer().getNombre()+ "  "  +a.getEnfermero().getApellido());
+        this.setVisible(true);
+                    
     }
 
     /**

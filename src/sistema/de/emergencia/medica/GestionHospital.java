@@ -4,6 +4,7 @@ import excepciones.VerficarCampoVacioException;
 import clasessimples.Administrativo;
 import clasessimples.Afiliado;
 import clasessimples.AsistenciaMedica;
+import clasessimples.AsistenciaMedicaFamiliar;
 import clasessimples.Chofer;
 import clasessimples.Doctor;
 import clasessimples.Empleado;
@@ -21,14 +22,17 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author FRANCO
+ * @author Miguel
  */
 public class GestionHospital {
 
     private ArrayList<clasessimples.Empleado> empleados = new ArrayList<>();
     private ArrayList<clasessimples.Movil> moviles = new ArrayList<>();
     private ArrayList<clasessimples.Afiliado> afiliados = new ArrayList<>();
-
+    private ArrayList<AsistenciaMedica> asisAfiliados = new ArrayList<>();
+    private ArrayList<AsistenciaMedicaFamiliar> asisFamiliares = new ArrayList<>();
+    
+    
     public GestionHospital() {
 
     }
@@ -55,24 +59,54 @@ public class GestionHospital {
         }
      return a;  
      }
+    
+    public void altaAsistenciaFamiliar(AsistenciaMedicaFamiliar a){
+        asisFamiliares.add(a);
+    }
+    
+    public void altaAsistenciaAfiliado(AsistenciaMedica a){
+        asisAfiliados.add(a);
+    }
+    
+    public AsistenciaMedicaFamiliar buscarAsistenciaFamiliar(Integer dni) throws PersonaNoEncontradaException{
+        AsistenciaMedicaFamiliar a = null;
+        for(AsistenciaMedicaFamiliar i : asisFamiliares){
+            if(Objects.equals(i.getFamiliar().getDNI(), dni)){
+                a = i;
+            }
+        }
+        if(a==null){
+            PersonaNoEncontradaException pe = new PersonaNoEncontradaException();
+            throw pe;
+        }
+     return a;   
+    }
+    
+      public AsistenciaMedica buscarAsistenciaAfiliado(Integer dni) throws PersonaNoEncontradaException{
+        AsistenciaMedica a = null;
+        for(AsistenciaMedica i : asisAfiliados){
+            if(Objects.equals(i.getAfiliado().getDNI(), dni)){
+                a = i;
+            }
+        }
+        if(a==null){
+            PersonaNoEncontradaException pe = new PersonaNoEncontradaException();
+            throw pe;
+        }
+     return a;   
+    }
 
-    public Afiliado buscarAfiliado(Integer dni) throws PersonaNoEncontradaException, SinPersonasException{
-         Afiliado a = null;
-         if(afiliados == null){   
-         SinPersonasException np = new SinPersonasException();
-         throw np;
-         }
-         else{   
-             for (Afiliado i : afiliados) {
-                   if (Objects.equals(i.getDNI(), dni)) {
-                        a = i;
-                   }
-            }           
+    public Afiliado buscarAfiliado(Integer dni) throws PersonaNoEncontradaException{
+         Afiliado a = null;   
+         for (Afiliado i : afiliados) {
+            if (Objects.equals(i.getDNI(), dni)) {
+                a = i;
+            }
+          }           
                 if(a == null){
-                    PersonaNoEncontradaException na = new PersonaNoEncontradaException();
-                    throw na;
-                    }           
-         }       
+                PersonaNoEncontradaException na = new PersonaNoEncontradaException();
+                throw na;
+                }            
     return a;
     }
                 
@@ -461,5 +495,10 @@ public class GestionHospital {
             throw new VerficarCampoVacioException();
         }
 
+    }
+    
+    public void mostrarAsistenciaFamiliar(){
+        System.out.println(asisAfiliados.get(0).getAfiliado().getNombre());
+        System.out.print(asisAfiliados.get(0).getEnfemerdad());
     }
 }

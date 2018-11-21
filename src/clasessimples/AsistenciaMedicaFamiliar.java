@@ -21,7 +21,7 @@ public class AsistenciaMedicaFamiliar {
     private Doctor dotor;
     private Chofer chofer;
 
-    public AsistenciaMedicaFamiliar(Familiar familiar, Afiliado afiliado, Movil movil, LocalDate fecha, Enfermero enfermero, Doctor dotor, Chofer chofer, String enfermedad) {
+    public AsistenciaMedicaFamiliar(Familiar familiar, Afiliado afiliado, Movil movil, LocalDate fecha, Enfermero enfermero, Doctor dotor, Chofer chofer) {
         this.afiliado = afiliado;
         this.movil = movil;
         this.fecha = fecha;
@@ -29,8 +29,16 @@ public class AsistenciaMedicaFamiliar {
         this.dotor = dotor;
         this.chofer = chofer;
         this.familiar= familiar;
-        this.enfermedad = enfermedad;
+        //this.enfermedad = enfermedad;
     }    
+
+    public String getEnfermedad() {
+        return enfermedad;
+    }
+
+    public void setEnfermedad(String enfermedad) {
+        this.enfermedad = enfermedad;
+    }
 
     public Familiar getFamiliar() {
         return familiar;

@@ -23,46 +23,27 @@ import sistema.de.emergencia.medica.GestionHospital;
 public class AsistenciaMedicaAfiliado extends javax.swing.JFrame {
 
     GestionHospital llenarAsistenciaMedica;
-    Afiliado afi;
-    String enfer;
+    AsistenciaMedica a;
     
-    public AsistenciaMedicaAfiliado(GestionHospital gh, Afiliado a, String s) {
+    
+    public AsistenciaMedicaAfiliado(AsistenciaMedica asis) {
         initComponents();
         this.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
-        afi = a;
-        enfer = s;
-        
-        
-        
-        llenarAsistenciaMedica = gh;LocalDate fecha = LocalDate.now();
-        Doctor d = llenarAsistenciaMedica.doctorDisponible();
-        Chofer c = llenarAsistenciaMedica.choferDisponible();
-        Enfermero e = llenarAsistenciaMedica.enfermeroDisponible();
-        Movil m = llenarAsistenciaMedica.movilDisponible();
-        //AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);
-        if(d != null){
-            if(c != null){
-                if(e != null){
-                    if(m != null){
-                        AsistenciaMedica am = new AsistenciaMedica(afi, m, LocalDate.of(2018, 11,11), e, d, c, enfer);
-                        this.setVisible(true);
-                        tipoEnfermedad.setText(enfer);
-                        nombreAfiliado.setText(afi.getNombre()+ "  " +afi.getApellido());
-                        nombreDoctor.setText(am.getDotor().getNombre()+ "  " + am.getDotor().getApellido());
-                        dniAfiliado.setText(String.valueOf(am.getAfiliado().getDNI()));
-                        patente.setText(am.getMovil().getPatente());
-                        //fecha.setText(String.valueOf(am.getFecha()));
-                        enfemero.setText(am.getEnfermero().getNombre()+ "  " +am.getEnfermero().getApellido());
-                        nombreChofer.setText(am.getChofer().getNombre()+ "  " +am.getChofer().getApellido());
-                        numeroAfiliado.setText(String.valueOf(am.getAfiliado().getNumeroAfiliado()));
-                    }else JOptionPane.showMessageDialog(this, "AMBULANCIA NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
-                }else JOptionPane.showMessageDialog(this, "ENFERMERO NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);
-            }else JOptionPane.showMessageDialog(this, "CHOFER NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);    
-        }else JOptionPane.showMessageDialog(this, "DOCTOR NO DISPONIBLE", "Error", JOptionPane.ERROR_MESSAGE);    
-    }
+        this.a = asis;
+        tipoEnfermedad.setText(a.getEnfemerdad());
+        nombreAfiliado.setText(a.getAfiliado().getNombre()+ "  " +a.getAfiliado().getApellido());
+        nombreDoctor.setText(a.getDotor().getNombre()+ "  " + a.getDotor().getApellido());
+        dniAfiliado.setText(String.valueOf(a.getAfiliado().getDNI()));
+        patente.setText(a.getMovil().getPatente());
+        //fecha.setText(String.valueOf(am.getFecha()));
+        enfemero.setText(a.getEnfermero().getNombre()+ "  " +a.getEnfermero().getApellido());
+        nombreChofer.setText(a.getChofer().getNombre()+ "  " +a.getChofer().getApellido());
+        numeroAfiliado.setText(String.valueOf(a.getAfiliado().getNumeroAfiliado()));
+        this.setVisible(true);
+    }  
 
     /**
      * This method is called from within the constructor to initialize the form.
