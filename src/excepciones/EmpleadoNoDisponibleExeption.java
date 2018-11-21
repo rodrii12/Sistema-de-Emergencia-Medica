@@ -9,14 +9,9 @@ package excepciones;
  *
  * @author FRANCO
  */
-public class SinPersonasException extends Exception{
-
-    public SinPersonasException() {
-         super();
-    }
+public class EmpleadoNoDisponibleExeption extends Exception{
     
-     public SinPersonasException(String mensaje){
+        public EmpleadoNoDisponibleExeption(String mensaje){
         super(mensaje);
     }
-    
 }

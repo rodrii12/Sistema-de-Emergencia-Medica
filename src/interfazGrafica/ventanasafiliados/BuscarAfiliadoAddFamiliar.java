@@ -123,7 +123,7 @@ public class BuscarAfiliadoAddFamiliar extends javax.swing.JFrame {
    }catch(VerficarCampoVacioException cav){
         JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
    } catch (PersonaNoEncontradaException ex) {
-        JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+           JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
    } catch (NullPointerException  ex) {
         JOptionPane.showMessageDialog(null, " NO EXISTE NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
    }

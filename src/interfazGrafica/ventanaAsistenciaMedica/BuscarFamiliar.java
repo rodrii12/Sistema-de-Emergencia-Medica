@@ -13,9 +13,12 @@ import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import clasessimples.Familiar;
 import clasessimples.Movil;
+import excepciones.EmpleadoNoDisponibleExeption;
 import excepciones.PersonaNoEncontradaException;
 import excepciones.VerficarCampoVacioException;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -100,14 +103,17 @@ try{
     buscaFamiliar.verificarCampoDNI(dniaa.getText());    
     Integer dni = Integer.parseInt(dniaa.getText());
     fami = afi.buscarFamiliar(dni);
-    Movil m = buscaFamiliar.movilDisponible();
-    Doctor d = buscaFamiliar.doctorDisponible();
-    Chofer c = buscaFamiliar.choferDisponible();
-    Enfermero e = buscaFamiliar.enfermeroDisponible();
-    AsistenciaMedicaFamiliar asis = new AsistenciaMedicaFamiliar(fami, afi, m, LocalDate.now(), e, d, c);
-    buscaFamiliar.altaAsistenciaFamiliar(asis);
-    JOptionPane.showMessageDialog(null, "LA AYUDA VA EN CAMINO");
-    
+    try {
+       Movil m = buscaFamiliar.movilDisponible();
+       Doctor d = buscaFamiliar.doctorDisponible();
+       Chofer c = buscaFamiliar.choferDisponible();
+       Enfermero e = buscaFamiliar.enfermeroDisponible();
+       AsistenciaMedicaFamiliar asis = new AsistenciaMedicaFamiliar(fami, afi, m, LocalDate.now(), e, d, c);
+       buscaFamiliar.altaAsistenciaFamiliar(asis);
+       JOptionPane.showMessageDialog(null, "LA AYUDA VA EN CAMINO");
+    } catch (EmpleadoNoDisponibleExeption ex) {
+        Logger.getLogger(BuscarFamiliar.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }catch(VerficarCampoVacioException cav){
            JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }catch (PersonaNoEncontradaException ex) {

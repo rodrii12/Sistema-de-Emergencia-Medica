@@ -12,9 +12,12 @@ import clasessimples.Chofer;
 import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import clasessimples.Movil;
+import excepciones.EmpleadoNoDisponibleExeption;
 import excepciones.PersonaNoEncontradaException;
 import excepciones.VerficarCampoVacioException;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
@@ -147,10 +150,12 @@ char C= evt.getKeyChar();
     }catch(VerficarCampoVacioException cav){
        JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     } catch (PersonaNoEncontradaException ex) {
-       JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+           JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
     }catch (NullPointerException e) {
        JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-    }  
+    }   catch (EmpleadoNoDisponibleExeption ex) {  
+            Logger.getLogger(GenerarAsistenciaAfiliado.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

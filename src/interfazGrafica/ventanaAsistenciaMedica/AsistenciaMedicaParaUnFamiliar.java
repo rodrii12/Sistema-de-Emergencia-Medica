@@ -13,6 +13,7 @@ import clasessimples.Doctor;
 import clasessimples.Enfermero;
 import clasessimples.Familiar;
 import clasessimples.Movil;
+import excepciones.EmpleadoNoDisponibleExeption;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -48,7 +49,7 @@ public class AsistenciaMedicaParaUnFamiliar extends javax.swing.JFrame {
         this.setVisible(true);
                     
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

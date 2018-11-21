@@ -124,7 +124,7 @@ public class PagarAbonoAfiliado extends javax.swing.JFrame {
     }catch (NullPointerException e) {
            JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }catch (PersonaNoEncontradaException ex) {
-           JOptionPane.showMessageDialog(null, " AFILIADO NO ENCONTRADO ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+           JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
