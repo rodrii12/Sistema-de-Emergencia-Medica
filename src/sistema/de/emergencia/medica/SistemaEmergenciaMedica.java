@@ -22,15 +22,15 @@ public class SistemaEmergenciaMedica {
         //ChronoUnit.DAYS.between(fecha1, fecha2);
         GestionHospital gh= new GestionHospital();
         //Afiliado afi = new Afiliado(1313, "Miguel", "Cejas", 40724994, "Masculino", LocalDate.of(1998,05,13),LocalDate.of(2018, 11, 11));
-        Movil mv = new Movil("AUDI", "TT", "XXX123", 2018);
-        gh.AltaMovil(mv);
-        Doctor doctor = new Doctor(1111, "Raul", "Sanchez", 11111111, "Masculino", LocalDate.of(1998, 05, 13));
-        Chofer chofer = new Chofer(2222, "Mario", "Kempes", 22222222, "Masculino", LocalDate.of(1998, 06, 13));
-        Enfermero enfer = new Enfermero(3333, "Andres", "Romero", 33333333, "Femenino", LocalDate.of(1992, 12, 25));
+        //Movil mv = new Movil("AUDI", "TT", "XXX123", 2018);
+        //gh.AltaMovil(mv);
+        //Doctor doctor = new Doctor(1111, "Raul", "Sanchez", 11111111, "Masculino", LocalDate.of(1998, 05, 13));
+        //Chofer chofer = new Chofer(2222, "Mario", "Kempes", 22222222, "Masculino", LocalDate.of(1998, 06, 13));
+        //Enfermero enfer = new Enfermero(3333, "Andres", "Romero", 33333333, "Femenino", LocalDate.of(1992, 12, 25));
         
-        gh.altaDoctor(doctor);
-        gh.altaChofer(chofer);
-        gh.altaEnfermero(enfer);
+        //gh.altaDoctor(doctor);
+        //gh.altaChofer(chofer);
+        //gh.altaEnfermero(enfer);
         //gh.altaAfiliado(afi);
         PrincipalMenu ventanaPrincipal= new PrincipalMenu(gh);
         

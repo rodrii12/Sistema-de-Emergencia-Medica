@@ -25,7 +25,7 @@ public class AfiliadoTest {
    
 @Test
      public void crearAfiliado() {
-        Afiliado afi = new Afiliado(2506, "Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
+        Afiliado afi = new Afiliado(2506,"Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
         assertEquals(afi.getNombre(),"Franco");// PARA VER SI ESTA CREADO EL AFILIADO COMPARO CON EL NOMBRE
      }
    
