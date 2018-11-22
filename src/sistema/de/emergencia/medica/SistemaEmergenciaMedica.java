@@ -21,7 +21,7 @@ public class SistemaEmergenciaMedica {
         //LocalDate fecha2= LocalDate.of(2017, 5 ,17);
         //ChronoUnit.DAYS.between(fecha1, fecha2);
         GestionHospital gh= new GestionHospital();
-        Afiliado afi = new Afiliado(1313, "Miguel", "Cejas", 40724994, "Masculino", LocalDate.of(1998,05,13),LocalDate.of(2018, 11, 11));
+        //Afiliado afi = new Afiliado(1313, "Miguel", "Cejas", 40724994, "Masculino", LocalDate.of(1998,05,13),LocalDate.of(2018, 11, 11));
         Movil mv = new Movil("AUDI", "TT", "XXX123", 2018);
         gh.AltaMovil(mv);
         Doctor doctor = new Doctor(1111, "Raul", "asd", 11111111, "Masculino", LocalDate.of(1998, 05, 13));
@@ -29,10 +29,9 @@ public class SistemaEmergenciaMedica {
         Enfermero enfer = new Enfermero(3333, "andres", "casd", 33333333, "Femenino", LocalDate.of(1992, 12, 25));
         
         gh.altaDoctor(doctor);
-        gh.altaAfiliado(afi);
         gh.altaChofer(chofer);
         gh.altaEnfermero(enfer);
-        gh.altaAfiliado(afi);
+        //gh.altaAfiliado(afi);
         PrincipalMenu ventanaPrincipal= new PrincipalMenu(gh);
         
         
