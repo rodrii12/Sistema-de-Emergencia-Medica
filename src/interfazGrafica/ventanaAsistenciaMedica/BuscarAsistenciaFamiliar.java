@@ -7,10 +7,13 @@ package interfazGrafica.ventanaAsistenciaMedica;
 
 import clasessimples.AsistenciaMedica;
 import clasessimples.AsistenciaMedicaFamiliar;
+import excepciones.EmpleadoNoDisponibleExeption;
 import excepciones.PersonaNoEncontradaException;
+import excepciones.VerficarCampoVacioException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -110,13 +113,19 @@ public class BuscarAsistenciaFamiliar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Integer d = Integer.parseInt(dni.getText());
-        try {
+       
+try{
+            gh.verificarCampoDNI(dni.getText());      
+            Integer d = Integer.parseInt(dni.getText());
             a = gh.buscarAsistenciaFamiliar(d);
             AsistenciaMedicaParaUnFamiliar asis = new AsistenciaMedicaParaUnFamiliar(a);
-        } catch (PersonaNoEncontradaException ex) {
-            Logger.getLogger(BuscarAsistenciaFamiliar.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    } catch (PersonaNoEncontradaException ex) {
+                JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
+    }catch(VerficarCampoVacioException cav){
+                JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE); 
+    } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

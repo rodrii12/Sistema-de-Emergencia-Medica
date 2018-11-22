@@ -8,6 +8,7 @@ package interfazGrafica.ventanaAsistenciaMedica;
 import clasessimples.AsistenciaMedica;
 import clasessimples.AsistenciaMedicaFamiliar;
 import excepciones.PersonaNoEncontradaException;
+import excepciones.VerficarCampoVacioException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -114,9 +115,7 @@ public class EnfermedadAsistenciaAfiliado extends javax.swing.JFrame {
                                     .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(24, 24, 24)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jButton1)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
@@ -159,7 +158,8 @@ public class EnfermedadAsistenciaAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
+try {
+             gh.verificarCampoDNI(dni.getText());
             Integer d = Integer.parseInt(dni.getText());
             asis = gh.buscarAsistenciaAfiliado(d);
             dni.setVisible(false);
@@ -168,9 +168,13 @@ public class EnfermedadAsistenciaAfiliado extends javax.swing.JFrame {
             jButton2.setVisible(true);
             jLabel2.setVisible(true);  
             enfermedad.setVisible(true);
-        } catch (PersonaNoEncontradaException ex) {
-            Logger.getLogger(EnfermedadAsistenciaAfiliado.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }catch(VerficarCampoVacioException cav){
+                JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }catch (PersonaNoEncontradaException ex) {
+                JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
+    }catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

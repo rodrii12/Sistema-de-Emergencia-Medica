@@ -148,14 +148,14 @@ char C= evt.getKeyChar();
                 //System.out.print(asis.getAfiliado().getNombre());
           }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
     }catch(VerficarCampoVacioException cav){
-       JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     } catch (PersonaNoEncontradaException ex) {
-           JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this," AFILIADO NO ENCONTRADO" , "Error", JOptionPane.ERROR_MESSAGE);
     }catch (NullPointerException e) {
-       JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+            JOptionPane.showMessageDialog(null, " NO HAY NINGUN AFILIADO EN EL SISTEMA", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }   catch (EmpleadoNoDisponibleExeption ex) {  
-            Logger.getLogger(GenerarAsistenciaAfiliado.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+            JOptionPane.showMessageDialog(null,ex.getMessage(), "Atencion!", JOptionPane.QUESTION_MESSAGE);
+    }  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
