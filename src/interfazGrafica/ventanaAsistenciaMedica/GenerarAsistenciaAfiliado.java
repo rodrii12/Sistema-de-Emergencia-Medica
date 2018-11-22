@@ -144,6 +144,8 @@ char C= evt.getKeyChar();
                 Chofer c = generarAsistenciaAfiliado.choferDisponible();
                 AsistenciaMedica asis = new AsistenciaMedica(afi, m, LocalDate.now(), e, d, c);
                 generarAsistenciaAfiliado.altaAsistenciaAfiliado(asis);
+                JOptionPane.showMessageDialog(null, "LA AYUDA VA EN CAMINO");
+                this.setVisible(false);
                 //System.out.println(asis.getChofer().getNombre());
                 //System.out.print(asis.getAfiliado().getNombre());
           }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
