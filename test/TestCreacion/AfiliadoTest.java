@@ -19,23 +19,22 @@ import sistema.de.emergencia.medica.GestionHospital;
 
 public class AfiliadoTest {
     
-             GestionHospital gh= new GestionHospital();
+    GestionHospital gh= new GestionHospital();
     public AfiliadoTest() {
     }
    
 @Test
      public void crearAfiliado() {
         Afiliado afi = new Afiliado(2506, "Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
-      
+        assertEquals(afi.getNombre(),"Franco");// PARA VER SI ESTA CREADO EL AFILIADO COMPARO CON EL NOMBRE
      }
    
  @Test
-     public void EliminarAfiliado() {
-
-        
-        Afiliado afi = new Afiliado(2506, "Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
-        gh.bajaAfiliado(afi);
-       assertEquals(afi.getNombre(),"Franco");
+     public void EliminarAfiliado() throws PersonaNoEncontradaException {
+       Afiliado afi = new Afiliado(2506, "Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
+       gh.altaAfiliado(afi);
+       gh.bajaAfiliado(afi);
+       assertEquals(gh.buscarAfiliado(afi.getDNI()),afi);
      }
     
  @Test
@@ -43,27 +42,16 @@ public class AfiliadoTest {
  public void BuscarAfiliado() throws PersonaNoEncontradaException{
 
         Afiliado afi = new Afiliado(2506, "Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
-        gh.buscarAfiliado(39998672);
-        assertEquals(afi.getDNI(), new Integer (39998672));//lo pudse para ver si da error
+        gh.altaAfiliado(afi);
+        gh.buscarAfiliado(afi.getDNI());
+        assertEquals(gh.buscarAfiliado(afi.getDNI()), afi);//lo pudse para ver si da error
         
      
  }
  @Test
  public void VerificarAbono(){
      Afiliado afi = new Afiliado(2506, "Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
-        gh.verificarAbonoAfiliado(afi);
-        
- }
- @Test
- public void ValidarAfiliado(){
-     Afiliado afi = new Afiliado(2506, "Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
-        gh.validarDni(39998673);
- }
-   
-@Test
- public void PagarAbono(){
-     Afiliado afi = new Afiliado(2506, "Franco", "Carrizo", 39998673, "Masculino", LocalDate.of(1997,06,25),LocalDate.of(2018, 11, 14));
-        gh.pagarAbonoAfiliado(afi);
- }
- 
+     gh.altaAfiliado(afi);
+     assertEquals(gh.verificarAbonoAfiliado(afi),true);
+    }
 }

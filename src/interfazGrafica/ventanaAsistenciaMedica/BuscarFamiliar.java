@@ -112,15 +112,15 @@ try{
        buscaFamiliar.altaAsistenciaFamiliar(asis);
        JOptionPane.showMessageDialog(null, "LA AYUDA VA EN CAMINO");
        
+    }catch(RuntimeException e){
+            JOptionPane.showMessageDialog(null, "Persona no encontrada en el sistema", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     } catch (EmpleadoNoDisponibleExeption ex) {
             JOptionPane.showMessageDialog(null,ex.getMessage(), "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }catch(VerficarCampoVacioException cav){
             JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);
     }catch (PersonaNoEncontradaException ex) {
-            JOptionPane.showMessageDialog(null, "Familiar no encontrado", "Error", ERROR);
-    }catch (NullPointerException e) {
-           JOptionPane.showMessageDialog(null, " NO HAY NINGUN FAMILIAR EN ASOCIADO A ESTE AFILIADO", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-}
+            JOptionPane.showMessageDialog(null, "Familiar no encontrado");
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
