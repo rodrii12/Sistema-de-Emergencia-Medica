@@ -74,7 +74,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
 
         jLabel1.setText("NOMBRE");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(41, 59, 60, 15);
+        jLabel1.setBounds(41, 59, 60, 14);
 
         nombreaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -82,11 +82,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nombreaa);
-        nombreaa.setBounds(41, 79, 232, 19);
+        nombreaa.setBounds(41, 79, 232, 20);
 
         jLabel2.setText("APELLIDO");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(336, 59, 70, 15);
+        jLabel2.setBounds(336, 59, 70, 14);
 
         apellidoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -94,11 +94,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(apellidoaa);
-        apellidoaa.setBounds(336, 79, 176, 19);
+        apellidoaa.setBounds(336, 79, 176, 20);
 
         jLabel3.setText("DNI");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(43, 146, 40, 15);
+        jLabel3.setBounds(43, 146, 40, 14);
 
         dniaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +111,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(dniaa);
-        dniaa.setBounds(41, 166, 232, 19);
+        dniaa.setBounds(41, 166, 232, 20);
 
         sexoaa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino\t", "Femenino", " " }));
         sexoaa.addActionListener(new java.awt.event.ActionListener() {
@@ -120,11 +120,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(sexoaa);
-        sexoaa.setBounds(336, 166, 87, 24);
+        sexoaa.setBounds(336, 166, 87, 20);
 
         jLabel4.setText("SEXO");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(336, 146, 50, 15);
+        jLabel4.setBounds(336, 146, 50, 14);
 
         diaFechaNacimientoaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +137,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(diaFechaNacimientoaa);
-        diaFechaNacimientoaa.setBounds(40, 270, 30, 19);
+        diaFechaNacimientoaa.setBounds(40, 270, 30, 20);
 
         mesFechaNacimientoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -145,7 +145,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(mesFechaNacimientoaa);
-        mesFechaNacimientoaa.setBounds(80, 270, 30, 19);
+        mesFechaNacimientoaa.setBounds(80, 270, 30, 20);
 
         anioFechaNacimientoaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,23 +158,23 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(anioFechaNacimientoaa);
-        anioFechaNacimientoaa.setBounds(120, 270, 61, 19);
+        anioFechaNacimientoaa.setBounds(120, 270, 61, 20);
 
         jLabel5.setText("DD     /     MM     /     AAAA");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(40, 250, 141, 15);
+        jLabel5.setBounds(40, 250, 141, 14);
 
         jLabel6.setText("FECHA DE NACIMIENTO");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(40, 230, 140, 15);
+        jLabel6.setBounds(40, 230, 140, 14);
 
         jLabel7.setText("DD     /     MM     /     AAAA");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(340, 250, 141, 15);
+        jLabel7.setBounds(340, 250, 141, 14);
 
         jLabel8.setText("FECHA DE INSCRIPCION");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(340, 230, 140, 15);
+        jLabel8.setBounds(340, 230, 140, 14);
 
         diaFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -182,7 +182,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(diaFechaPagoaa);
-        diaFechaPagoaa.setBounds(340, 270, 30, 19);
+        diaFechaPagoaa.setBounds(340, 270, 30, 20);
 
         mesFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -190,7 +190,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(mesFechaPagoaa);
-        mesFechaPagoaa.setBounds(380, 270, 30, 19);
+        mesFechaPagoaa.setBounds(380, 270, 30, 20);
 
         anioFechaPagoaa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -198,7 +198,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(anioFechaPagoaa);
-        anioFechaPagoaa.setBounds(420, 270, 57, 19);
+        anioFechaPagoaa.setBounds(420, 270, 57, 20);
 
         inscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/guardar.png"))); // NOI18N
         inscribir.setText("INSCRIBIR");
@@ -209,7 +209,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inscribir);
-        inscribir.setBounds(41, 385, 150, 58);
+        inscribir.setBounds(41, 385, 150, 57);
 
         numero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,11 +222,11 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(numero);
-        numero.setBounds(40, 330, 232, 19);
+        numero.setBounds(40, 330, 232, 20);
 
         jLabel9.setText("NUMERO DE AFILIADO");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(41, 310, 140, 15);
+        jLabel9.setBounds(41, 310, 140, 14);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iconos/TRAS.png"))); // NOI18N
         jButton6.setText("VOLVER");
@@ -237,7 +237,7 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(389, 385, 129, 58);
+        jButton6.setBounds(389, 385, 123, 57);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -536,14 +536,14 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_sexoaaActionPerformed
 
     private void numeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroKeyTyped
-
+  
         char C= evt.getKeyChar();
-        if(Character.isLetter(C)) evt.consume();
-     /*{
+     if(Character.isLetter(C))
+     {
          getToolkit().beep();
          evt.consume();
          JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
-         //numero.setCursor(null);
+         numero.setCursor(null);
      }
      else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
              ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
@@ -553,14 +553,14 @@ public class FormularioAltaAfiliado extends javax.swing.JFrame {
          getToolkit().beep();
          evt.consume();
          JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
-         //numero.setCursor(null);
+         numero.setCursor(null);
      }
      else if(numero.getText().length() >= 4){
          evt.consume();
          getToolkit().beep();
          JOptionPane.showMessageDialog(this, "Longitud maxima de cuatro caracteres","Error", JOptionPane.ERROR_MESSAGE);
          
-     }*/
+     }
     }//GEN-LAST:event_numeroKeyTyped
 
     private void numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroActionPerformed

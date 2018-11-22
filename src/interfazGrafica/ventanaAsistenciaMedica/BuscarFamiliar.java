@@ -128,10 +128,29 @@ try{
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void dniaaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniaaKeyTyped
-        char C= evt.getKeyChar();
-        if(Character.isLetter(C)) evt.consume();
-        
-        if(dniaa.getText().length() >= 8) evt.consume();
+char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaa.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         dniaa.setCursor(null);
+     }
+     else if(dniaa.getText().length() >= 8){
+         evt.consume();
+         getToolkit().beep();
+         JOptionPane.showMessageDialog(this, "Longitud maxima de ocho caracteres","Error", JOptionPane.ERROR_MESSAGE);
+     } 
     }//GEN-LAST:event_dniaaKeyTyped
 
     private void dniaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniaaActionPerformed
