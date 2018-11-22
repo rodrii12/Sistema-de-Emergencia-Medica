@@ -10,6 +10,7 @@ import clasessimples.AsistenciaMedicaFamiliar;
 import excepciones.PersonaNoEncontradaException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -25,6 +26,9 @@ public class BuscarAsistenciaFamiliar extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.gh = gh;
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     /**
@@ -41,9 +45,13 @@ public class BuscarAsistenciaFamiliar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Asistencia Familiar");
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(400, 300));
 
-        jButton1.setText("MOSTRAR");
+        jButton1.setText("Mostrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -52,7 +60,7 @@ public class BuscarAsistenciaFamiliar extends javax.swing.JFrame {
 
         jLabel1.setText("DNI DE LA PERSONA ATENDIDA");
 
-        jButton2.setText("VOLVER");
+        jButton2.setText("Volver");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -76,7 +84,7 @@ public class BuscarAsistenciaFamiliar extends javax.swing.JFrame {
                                 .addComponent(jButton2))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                                 .addComponent(jButton1)))
                         .addGap(39, 39, 39))))
         );

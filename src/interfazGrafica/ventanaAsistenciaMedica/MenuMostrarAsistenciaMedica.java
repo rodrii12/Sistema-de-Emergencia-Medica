@@ -5,6 +5,7 @@
  */
 package interfazGrafica.ventanaAsistenciaMedica;
 
+import javax.swing.ImageIcon;
 import sistema.de.emergencia.medica.GestionHospital;
 
 /**
@@ -19,6 +20,9 @@ public class MenuMostrarAsistenciaMedica extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.gh = gh;
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setIconImage (new ImageIcon(getClass().getResource("/Imagenes_Iconos/red-38673_960_720.png")).getImage());
     }
 
     /**
@@ -33,7 +37,11 @@ public class MenuMostrarAsistenciaMedica extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Asistencia Medica");
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(400, 300));
 
         jButton1.setText("ASISTENCIA MEDICA DE FAMILIAR DE AFILIADO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
