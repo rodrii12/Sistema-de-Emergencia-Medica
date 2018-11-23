@@ -186,6 +186,8 @@ try {
         asis.getEnfermero().setDisponible(true);
         asis.getMovil().setDisponible(true);
         System.out.println(asis.getEnfemerdad());
+        JOptionPane.showMessageDialog(null, "LOS EMPLEADOS ESTAN LIBRES NUEVAMENTE");
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

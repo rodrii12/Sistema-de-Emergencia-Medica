@@ -115,6 +115,8 @@ try{
        AsistenciaMedicaFamiliar asis = new AsistenciaMedicaFamiliar(fami, afi, m, LocalDate.now(), e, d, c);
        buscaFamiliar.altaAsistenciaFamiliar(asis);
        JOptionPane.showMessageDialog(null, "LA AYUDA VA EN CAMINO");
+       this.setVisible(false);
+       
        
     }catch(RuntimeException e){
             JOptionPane.showMessageDialog(null, "Persona no encontrada en el sistema", "Atencion!", JOptionPane.QUESTION_MESSAGE);

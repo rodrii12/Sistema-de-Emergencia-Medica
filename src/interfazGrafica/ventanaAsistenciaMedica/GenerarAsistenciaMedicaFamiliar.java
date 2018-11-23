@@ -114,10 +114,9 @@ try{
      generarAsistenciaMedicaFamiliar.verificarCampoDNI(dniaa.getText());  
         Integer dni = Integer.parseInt(dniaa.getText());
         Afiliado a = generarAsistenciaMedicaFamiliar.buscarAfiliado(dni);
-        
-            if(generarAsistenciaMedicaFamiliar.verificarAbonoAfiliado(a)){
-                BuscarFamiliar bf = new BuscarFamiliar(generarAsistenciaMedicaFamiliar, a);
-            }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
+        if(generarAsistenciaMedicaFamiliar.verificarAbonoAfiliado(a)){
+           BuscarFamiliar bf = new BuscarFamiliar(generarAsistenciaMedicaFamiliar, a);
+        }else JOptionPane.showMessageDialog(this, "ABONO NO PAGO", "Error", JOptionPane.ERROR_MESSAGE);
             
     }catch(VerficarCampoVacioException cav){
         JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos obligatorios ", "Atencion!", JOptionPane.QUESTION_MESSAGE);

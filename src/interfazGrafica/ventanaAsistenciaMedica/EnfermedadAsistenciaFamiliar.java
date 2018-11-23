@@ -183,6 +183,8 @@ try {
         asis.getDotor().setDisponible(true);
         asis.getEnfermero().setDisponible(true);
         asis.getMovil().setDisponible(true);
+        JOptionPane.showMessageDialog(null, "SE HAN LIBERADO LOS EMPLEADOS, ASISTENCIA FINALIZADA");
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
